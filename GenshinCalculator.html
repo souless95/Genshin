@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+var attackP = 5.8;
+var attack = 58;
+var physicalP = 5.8;
+var physical = 700;
+var mastery = 23;
+var defensiveP = 7.3;
+var defensive = 49;
+var elementGauge = 0;
+var verryEnd = ' (극종결)';
+var end = ' (종결)';
+var littleEnd = ' (준종결)';
+var notEnd = ' (미달)';
+var flowerT = 0;
+var featherT = 0;
+var watchT = 0;
+var holyGrailCalT = 0;
+var crownT = 0;
+
+
+//성유물 부옵 score 계산 함수
+function cal(option,value){
+	let	score = 0;
+	if(option=="attakP"){
+		score=(value/attackP).toFixed(2);
+		return score;
+	}
+	else if(option=="physicalP"){
+		score=(value/physicalP).toFixed(2);
+		return score;
+	}
+	else if(option=="attak"){
+		score=(value/attack).toFixed(2);
+		return score;
+	}
+	else if(option=="physical"){
+		score=(value/physical).toFixed(2);
+		return score;
+	}
+	else if(option=="mastery"){
+		score=(value/mastery).toFixed(2);
+		return score;
+	}
+	else if(option=="defensiveP"){
+		score=(value/defensiveP).toFixed(2);
+		return score;
+	}
+	else if(option=="critical_probability"){
+		score=(value/3.9).toFixed(2);
+		return score;
+	}
+	else if(option=="critical_damage"){
+		score=(value/7.8).toFixed(2);
+		return score;
+	}
+	else if(option=="gauge"){
+		score=(value/6.5).toFixed(2);
+		return score;
+	}
+	else if(option=="defensive"){
+		score=(value/defensive).toFixed(2);
+		return score;
+	}
+}
+
+function valChk(f){
+    
+    var mId = $(f).parent().parent();
+	
+    if(mId.attr('id')=="relique1"){
+    	flowerCal();
+    }
+    else if(mId.attr('id')=="relique2"){
+    	featherCal();
+    }
+    else if(mId.attr('id')=="relique3"){
+    	watchCal();
+    }
+    else if(mId.attr('id')=="relique4"){
+    	holyGrailCal();
+    }
+    else if(mId.attr('id')=="relique5"){
+    	crownCal();
+    }
+    
+}
+
+//꽃 옵션 계산
+function flowerCal(){
+	let first = cal($('select[name=flower-option-1]').val(),$('#flower-option-1').val());
+	let second = cal($('select[name=flower-option-2]').val(),$('#flower-option-2').val());
+	let third = cal($('select[name=flower-option-3]').val(),$('#flower-option-3').val());
+	let fourth = cal($('select[name=flower-option-4]').val(),$('#flower-option-4').val());
+	
+	if(isNaN(first)) { // 숫자가 아닌 경우
+		first = 0; // 0으로 대체
+	}
+	if(isNaN(second)) { // 숫자가 아닌 경우
+		second = 0; // 0으로 대체
+	}
+	if(isNaN(third)) { // 숫자가 아닌 경우
+		third = 0; // 0으로 대체
+	}
+	if(isNaN(fourth)) { // 숫자가 아닌 경우
+		fourth = 0; // 0으로 대체
+	}
+	
+	let total = parseFloat((parseFloat(first) + parseFloat(second) 
+		+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+	
+	flowerT = total;
+	
+	if(total>=6.40){
+		$('#relique1').children('span').text(" score:"+total+verryEnd);
+		$('#relique1').children('span').css('color','green');
+	}
+	else if(6.00<=total&&total<6.40){
+		$('#relique1').children('span').text(" score:"+total+end);	
+		$('#relique1').children('span').css('color','orange');	
+	}
+	else if(5.20<=total&&total<6.00){
+		$('#relique1').children('span').text(" score:"+total+littleEnd);	
+		$('#relique1').children('span').css('color','gray');	
+	}
+	else{
+		$('#relique1').children('span').text(" score:"+total+notEnd);	
+		$('#relique1').children('span').css('color','red');	
+	}
+}
+
+//깃털 옵션 계산
+function featherCal(){
+	let first = cal($('select[name=feather-option-1]').val(),$('#feather-option-1').val());
+	let second = cal($('select[name=feather-option-2]').val(),$('#feather-option-2').val());
+	let third = cal($('select[name=feather-option-3]').val(),$('#feather-option-3').val());
+	let fourth = cal($('select[name=feather-option-4]').val(),$('#feather-option-4').val());
+	
+	if(isNaN(first)) { // 숫자가 아닌 경우
+		first = 0; // 0으로 대체
+	}
+	if(isNaN(second)) { // 숫자가 아닌 경우
+		second = 0; // 0으로 대체
+	}
+	if(isNaN(third)) { // 숫자가 아닌 경우
+		third = 0; // 0으로 대체
+	}
+	if(isNaN(fourth)) { // 숫자가 아닌 경우
+		fourth = 0; // 0으로 대체
+	}
+	
+	let total = parseFloat((parseFloat(first) + parseFloat(second) 
+		+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+	
+	featherT = total;
+	
+	if(total>=6.40){
+		$('#relique2').children('span').text(" score:"+total+verryEnd);
+		$('#relique2').children('span').css('color','green');
+	}
+	else if(6.00<=total&&total<6.40){
+		$('#relique2').children('span').text(" score:"+total+end);	
+		$('#relique2').children('span').css('color','orange');	
+	}
+	else if(5.20<=total&&total<6.00){
+		$('#relique2').children('span').text(" score:"+total+littleEnd);	
+		$('#relique2').children('span').css('color','gray');	
+	}
+	else{
+		$('#relique2').children('span').text(" score:"+total+notEnd);	
+		$('#relique2').children('span').css('color','red');	
+	}
+}
+
+//시계 옵션 계산
+function watchCal(){
+	let first = cal($('select[name=watch-option-1]').val(),$('#watch-option-1').val());
+	let second = cal($('select[name=watch-option-2]').val(),$('#watch-option-2').val());
+	let third = cal($('select[name=watch-option-3]').val(),$('#watch-option-3').val());
+	let fourth = cal($('select[name=watch-option-4]').val(),$('#watch-option-4').val());
+	
+	if(isNaN(first)) { // 숫자가 아닌 경우
+		first = 0; // 0으로 대체
+	}
+	if(isNaN(second)) { // 숫자가 아닌 경우
+		second = 0; // 0으로 대체
+	}
+	if(isNaN(third)) { // 숫자가 아닌 경우
+		third = 0; // 0으로 대체
+	}
+	if(isNaN(fourth)) { // 숫자가 아닌 경우
+		fourth = 0; // 0으로 대체
+	}
+	
+	let total = parseFloat((parseFloat(first) + parseFloat(second) 
+		+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+	
+	watchT = total;
+	
+	if(total>=6.00){
+		$('#relique3').children('span').text(" score:"+total+verryEnd);
+		$('#relique3').children('span').css('color','green');
+	}
+	else if(5.20<=total&&total<6.00){
+		$('#relique3').children('span').text(" score:"+total+end);	
+		$('#relique3').children('span').css('color','orange');	
+	}
+	else if(4.60<=total&&total<5.20){
+		$('#relique3').children('span').text(" score:"+total+littleEnd);	
+		$('#relique3').children('span').css('color','gray');	
+	}
+	else{
+		$('#relique3').children('span').text(" score:"+total+notEnd);	
+		$('#relique3').children('span').css('color','red');		
+	}
+}
+
+//성배 옵션 계산
+function holyGrailCal(){
+	let first = cal($('select[name=holyGrail-option-1]').val(),$('#holyGrail-option-1').val());
+	let second = cal($('select[name=holyGrail-option-2]').val(),$('#holyGrail-option-2').val());
+	let third = cal($('select[name=holyGrail-option-3]').val(),$('#holyGrail-option-3').val());
+	let fourth = cal($('select[name=holyGrail-option-4]').val(),$('#holyGrail-option-4').val());
+	
+	if(isNaN(first)) { // 숫자가 아닌 경우
+		first = 0; // 0으로 대체
+	}
+	if(isNaN(second)) { // 숫자가 아닌 경우
+		second = 0; // 0으로 대체
+	}
+	if(isNaN(third)) { // 숫자가 아닌 경우
+		third = 0; // 0으로 대체
+	}
+	if(isNaN(fourth)) { // 숫자가 아닌 경우
+		fourth = 0; // 0으로 대체
+	}
+	
+	let total = parseFloat((parseFloat(first) + parseFloat(second) 
+		+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+	
+	holyGrailCalT = total;
+	
+	if(total>=6.00){
+		$('#relique4').children('span').text(" score:"+total+verryEnd);
+		$('#relique4').children('span').css('color','green');
+	}
+	else if(5.20<=total&&total<6.00){
+		$('#relique4').children('span').text(" score:"+total+end);	
+		$('#relique4').children('span').css('color','orange');	
+	}
+	else if(4.60<=total&&total<5.20){
+		$('#relique4').children('span').text(" score:"+total+littleEnd);	
+		$('#relique4').children('span').css('color','gray');	
+	}
+	else{
+		$('#relique4').children('span').text(" score:"+total+notEnd);	
+		$('#relique4').children('span').css('color','red');	
+	}
+}
+
+//모자 옵션 계산
+function crownCal(){
+	let first = cal($('select[name=crown-option-1]').val(),$('#crown-option-1').val());
+	let second = cal($('select[name=crown-option-2]').val(),$('#crown-option-2').val());
+	let third = cal($('select[name=crown-option-3]').val(),$('#crown-option-3').val());
+	let fourth = cal($('select[name=crown-option-4]').val(),$('#crown-option-4').val());
+	
+	if(isNaN(first)) { // 숫자가 아닌 경우
+		first = 0; // 0으로 대체
+	}
+	if(isNaN(second)) { // 숫자가 아닌 경우
+		second = 0; // 0으로 대체
+	}
+	if(isNaN(third)) { // 숫자가 아닌 경우
+		third = 0; // 0으로 대체
+	}
+	if(isNaN(fourth)) { // 숫자가 아닌 경우
+		fourth = 0; // 0으로 대체
+	}
+	
+	let total = parseFloat((parseFloat(first) + parseFloat(second) 
+		+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+	
+	crownT = total;
+	
+	if(total>=5.20){
+		$('#relique5').children('span').text(" score:"+total+verryEnd);
+		$('#relique5').children('span').css('color','green');
+	}
+	else if(4.60<=total&&total<5.20){
+		$('#relique5').children('span').text(" score:"+total+end);	
+		$('#relique5').children('span').css('color','orange');	
+	}
+	else if(3.90<=total&&total<4.60){
+		$('#relique5').children('span').text(" score:"+total+littleEnd);	
+		$('#relique5').children('span').css('color','gray');	
+	}
+	else{
+		$('#relique5').children('span').text(" score:"+total+notEnd);	
+		$('#relique5').children('span').css('color','red');	
+	}
+}
+
+$(function(){
+	$('input[type=radio]').change(function(){
+		//공격력 중요 여부에 따른 기준값 정의
+		var attackQ = $('input[name=attack]:checked').val();
+		
+		if(attackQ=="i"){
+			attackP = attackP*2;
+			attack = attack*2;
+		}
+		
+		//체력 중요 여부에 따른 기준값 정의
+		var physicalQ = $('input[name=hp]:checked').val();
+		
+		if(physicalQ=="i"){
+			physicalP = physicalP*2;
+			physical = physical*2;
+		}
+		
+		//원소마스터리 중요 여부에 따른 기준값 정의
+		var masteryQ = $('input[name=mastery]:checked').val();
+		
+		if(masteryQ=="i"){
+			mastery = mastery*2;
+		}
+		
+		//원소마스터리 중요 여부에 따른 기준값 정의
+		var defensiveQ = $('input[name=defensive]:checked').val();
+		
+		if(defensiveQ=="i"){
+			defensiveP = defensiveP*2;
+			defensive = defensive*2;
+		}
+	});
+	$('#elementgauge').keyup(function(){
+		//적정 원충 수치 변수에 정의
+		elementGauge = $('#elementgauge').val();
+	});
+	$('#relique1 input').keyup(function(){
+		valChk(this);
+	});
+	$('#relique2 input').keyup(function(){
+		valChk(this);
+	});
+	$('#relique3 input').keyup(function(){
+		valChk(this);
+	});
+	$('#relique4 input').keyup(function(){
+		valChk(this);
+	});
+	$('#relique5 input').keyup(function(){
+		valChk(this);
+	});
+	$('#relique1 select').change(function(){
+		valChk(this);
+	});
+	$('#relique2 select').change(function(){
+		valChk(this);
+	});
+	$('#relique3 select').change(function(){
+		valChk(this);
+	});
+	$('#relique4 select').change(function(){
+		valChk(this);
+	});
+	$('#relique5 select').change(function(){
+		valChk(this);
+	});
+	$('#cal').click(function(){
+		let totalScore = flowerT+featherT+watchT+holyGrailCalT+crownT;
+		
+		let totalGauge = 0;
+		
+		let text = "";
+		
+		$('select').each(function() {
+	        if ($(this).val() == "gauge") {
+	        	totalGauge += parseFloat($(this).next('input').val());
+	        }
+	    });
+		
+		if(elementGauge!=0&&(elementGauge-100-totalGauge)<=0){
+			totalScore -= parseFloat(((totalGauge-(elementGauge-100))/6.5).toFixed(2));
+		}
+		
+		if(23.5<=totalScore&&totalScore<=25.24){
+			text = " (준종결)";
+			$('#finalScore').css('color','gray');
+			$('#finalImg').attr('src','images/준종1.webp');
+			$('#finalText').text('아쉽게됐어');
+		}
+		else if(25.25<=totalScore&&totalScore<=26.99){
+			text = " (준종결)";
+			$('#finalScore').css('color','gray');
+			$('#finalImg').attr('src','images/준종2.webp');
+			$('#finalText').text('유감이야');
+		}
+		else if(27.0<=totalScore&&totalScore<=28.49){
+			text = " (종결)";
+			$('#finalScore').css('color','orange');
+			$('#finalImg').attr('src','images/종결1.webp');
+			$('#finalText').text('이얏호!ㅊㅋㅊㅋ');
+		}
+		else if(28.5<=totalScore&&totalScore<=29.99){
+			text = " (종결)";
+			$('#finalScore').css('color','orange');
+			$('#finalImg').attr('src','images/종결2.webp');
+			$('#finalText').text('오호호호홍');
+		}
+		else if(30<=totalScore){
+			text = " (극종결)";
+			$('#finalScore').css('color','green');
+			$('#finalImg').attr('src','images/극종결.webp');
+			$('#finalText').text('그럼 이만..수고!');
+		}
+		else{
+			text = " (미달)";
+			$('#finalScore').css('color','red');
+			$('#finalImg').attr('src','images/미달.webp');
+			$('#finalText').text('윽!꼴불견이야');
+		}
+		
+		
+		$('#finalScore').text("total score :"+totalScore.toFixed(2) + text);
+	});
+	$('.reset').click(function(){
+ 	   $(this).parent().find('select').each(function() {
+ 		  $(this).val("");
+		});
+		
+		$(this).parent().find('input').each(function() {
+		    $(this).val(null);
+		});
+	});
+	$('#reset').click(function(){
+		location.reload();
+	});
+});
+</script>
+<style type="text/css">
+.q{
+	margin-bottom: 5px;
+}
+.qt{
+	font-weight: bolder;
+}
+</style>
+</head>
+<body>
+	<h2>성유물 계산기</h2>
+	
+	<div class="container" style="width:400px;">
+	<form action="">
+	<div>
+		<div id="question1" class="q">
+			<span class="qt">공격력 배수</span>
+			<input type="radio" value="ni" name="attack" checked>1
+			<input type="radio" value="i" name="attack">0.5
+		</div>
+		<div id="question2" class="q">
+			<span class="qt">체력 배수</span>
+			<input type="radio" value="ni" name="hp" checked>1
+			<input type="radio" value="i" name="hp">0.5
+		</div>
+		<div id="question3" class="q">
+			<span class="qt">원소마스터리 배수</span>
+			<input type="radio" value="ni" name="mastery" checked>1
+			<input type="radio" value="i" name="mastery">0.5
+		</div>
+		<div id="question4" class="q">
+			<span class="qt">방어력 배수</span>
+			<input type="radio" value="ni" name="defensive" checked>1
+			<input type="radio" value="i" name="defensive">0.5
+		</div>
+		<div id="question5" class="q">
+			<span class="qt">적정 원충 수치</span>
+			<input type="text" id="elementgauge" style="width: 100px;">%
+		</div>
+	</div>
+	<br>
+	<div>
+		<!-- 꽃 -->
+		<div id="relique1">
+		<strong>꽃</strong><span></span> 
+			<button type="button" class="reset">초기화</button>
+			<div>
+				<select name="flower-option-1">
+				    <option value="">---부옵1---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="flower-option-1">
+			</div>
+			<div>
+				<select name="flower-option-2">
+				    <option value="">---부옵2---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="flower-option-2">
+			</div>
+			<div>
+				<select name="flower-option-3">
+				    <option value="">---부옵3---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="flower-option-3">
+			</div>
+			<div>
+				<select name="flower-option-4">
+				    <option value="">---부옵4---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="flower-option-4">
+			</div>
+		</div>
+		<!-- 깃털 -->
+		<div id="relique2">
+		<strong>깃털</strong><span></span>
+			<button type="button" class="reset">초기화</button>
+			<div>
+				<select name="feather-option-1">
+				    <option value="">---부옵1---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="feather-option-1">
+			</div>
+			<div>
+				<select name="feather-option-2">
+				    <option value="">---부옵2---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="feather-option-2">
+			</div>
+			<div>
+				<select name="feather-option-3">
+				    <option value="">---부옵3---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="feather-option-3">
+			</div>
+			<div>
+				<select name="feather-option-4">
+				    <option value="">---부옵4---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="feather-option-4">
+			</div>
+		</div>
+		
+		<!-- 시계 -->
+		<div id="relique3">
+		<strong>시계</strong><span></span>
+			<button type="button" class="reset">초기화</button>
+			<div>
+				<select name="watch-option-1">
+				    <option value="">---부옵1---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="watch-option-1">
+			</div>
+			<div>
+				<select name="watch-option-2">
+				    <option value="">---부옵2---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="watch-option-2">
+			</div>
+			<div>
+				<select name="watch-option-3">
+				    <option value="">---부옵3---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="watch-option-3">
+			</div>
+			<div>
+				<select name="watch-option-4">
+				    <option value="">---부옵4---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="watch-option-4">
+			</div>
+		</div>
+		
+		<!-- 성배 -->
+		<div id="relique4">
+		<strong>성배</strong><span></span>
+			<button type="button" class="reset">초기화</button>
+			<div>
+				<select name="holyGrail-option-1">
+				    <option value="">---부옵1---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="holyGrail-option-1">
+			</div>
+			<div>
+				<select name="holyGrail-option-2">
+				    <option value="">---부옵2---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="holyGrail-option-2">
+			</div>
+			<div>
+				<select name="holyGrail-option-3">
+				    <option value="">---부옵3---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="holyGrail-option-3">
+			</div>
+			<div>
+				<select name="holyGrail-option-4">
+				    <option value="">---부옵4---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="holyGrail-option-4">
+			</div>
+		</div>
+		
+		<!-- 왕관 -->
+		<div id="relique5">
+		<strong>왕관</strong><span></span>
+			<button type="button" class="reset">초기화</button>
+			<div>
+				<select name="crown-option-1">
+				    <option value="">---부옵1---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="crown-option-1">
+			</div>
+			<div>
+				<select name="crown-option-2">
+				    <option value="">---부옵2---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="crown-option-2">
+			</div>
+			<div>
+				<select name="crown-option-3">
+				    <option value="">---부옵3---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="crown-option-3">
+			</div>
+			<div>
+				<select name="crown-option-4">
+				    <option value="">---부옵4---</option>
+				    <option value="attakP">공격력%</option>
+				    <option value="physicalP">체력%</option>
+				    <option value="defensiveP">방어력%</option>
+				    <option value="critical_probability">치명타 확률</option>
+				    <option value="critical_damage">치명타 피해</option>
+				    <option value="gauge">원소충전효율</option>
+				    <option value="mastery">원소마스터리</option>
+				    <option value="attak">공격력</option>
+				    <option value="physical">체력</option>
+				    <option value="defensive">방어력</option>
+				</select>
+				<input type="text" id="crown-option-4">
+			</div>
+		</div>
+	</div>
+	
+	<div>
+	<button type="button" id="cal">계산하기</button>
+	<button type="button" id="reset">전체 초기화</button>
+	</div>
+	<div>
+		<span id="finalScore" style="font-weight: bolder;"></span><br><br>
+		<span id="finalText" style="text-align: center; display: block;"></span><br>
+		<img id="finalImg" style="width: 200px;">
+	</div>
+	</form>
+	</div>
+</body>
+</html>
+    
