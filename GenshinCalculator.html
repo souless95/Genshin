@@ -393,37 +393,37 @@ $(function(){
 		if(23.5<=totalScore&&totalScore<=25.24){
 			text = " (준종결)";
 			$('#finalScore').css('color','gray');
-			$('#finalImg').attr('src','images/준종1.webp');
+			$('#finalImg').attr('src','준종1.webp');
 			$('#finalText').text('아쉽게됐어');
 		}
 		else if(25.25<=totalScore&&totalScore<=26.99){
 			text = " (준종결)";
 			$('#finalScore').css('color','gray');
-			$('#finalImg').attr('src','images/준종2.webp');
+			$('#finalImg').attr('src','준종2.webp');
 			$('#finalText').text('유감이야');
 		}
 		else if(27.0<=totalScore&&totalScore<=28.49){
 			text = " (종결)";
 			$('#finalScore').css('color','orange');
-			$('#finalImg').attr('src','images/종결1.webp');
+			$('#finalImg').attr('src','종결1.webp');
 			$('#finalText').text('이얏호!ㅊㅋㅊㅋ');
 		}
 		else if(28.5<=totalScore&&totalScore<=29.99){
 			text = " (종결)";
 			$('#finalScore').css('color','orange');
-			$('#finalImg').attr('src','images/종결2.webp');
+			$('#finalImg').attr('src','종결2.webp');
 			$('#finalText').text('오호호호홍');
 		}
 		else if(30<=totalScore){
 			text = " (극종결)";
 			$('#finalScore').css('color','green');
-			$('#finalImg').attr('src','images/극종결.webp');
+			$('#finalImg').attr('src','극종결.webp');
 			$('#finalText').text('그럼 이만..수고!');
 		}
 		else{
 			text = " (미달)";
 			$('#finalScore').css('color','red');
-			$('#finalImg').attr('src','images/미달.webp');
+			$('#finalImg').attr('src','미달.webp');
 			$('#finalText').text('윽!꼴불견이야');
 		}
 		
@@ -438,6 +438,7 @@ $(function(){
 		$(this).parent().find('input').each(function() {
 		    $(this).val(null);
 		});
+		$(this).parent().find('span').text("");
 	});
 	$('#reset').click(function(){
 		location.reload();
