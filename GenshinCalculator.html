@@ -10,6 +10,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 	<script type="text/javascript">
 		var attackP = 5.8;
 		var attack = 58;
@@ -34,43 +35,43 @@
 		function cal(option, value) {
 			let score = 0;
 			if (option == "attakP") {
-				score = (value / attackP).toFixed(2);
+				score = (value / attackP);
 				return score;
 			}
 			else if (option == "physicalP") {
-				score = (value / physicalP).toFixed(2);
+				score = (value / physicalP);
 				return score;
 			}
 			else if (option == "attak") {
-				score = (value / attack).toFixed(2);
+				score = (value / attack);
 				return score;
 			}
 			else if (option == "physical") {
-				score = (value / physical).toFixed(2);
+				score = (value / physical);
 				return score;
 			}
 			else if (option == "mastery") {
-				score = (value / mastery).toFixed(2);
+				score = (value / mastery);
 				return score;
 			}
 			else if (option == "defensiveP") {
-				score = (value / defensiveP).toFixed(2);
+				score = (value / defensiveP);
 				return score;
 			}
 			else if (option == "critical_probability") {
-				score = (value / 3.9).toFixed(2);
+				score = (value / 3.9);
 				return score;
 			}
 			else if (option == "critical_damage") {
-				score = (value / 7.8).toFixed(2);
+				score = (value / 7.8);
 				return score;
 			}
 			else if (option == "gauge") {
-				score = (value / 6.5).toFixed(2);
+				score = (value / 6.5);
 				return score;
 			}
 			else if (option == "defensive") {
-				score = (value / defensive).toFixed(2);
+				score = (value / defensive);
 				return score;
 			}
 		}
@@ -117,10 +118,10 @@
 				fourth = 0; // 0으로 대체
 			}
 
-			let total = parseFloat((parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+			flowerT = parseFloat(first) + parseFloat(second)
+				+ parseFloat(third) + parseFloat(fourth);
 
-			flowerT = total;
+			let total = parseFloat(flowerT.toFixed(2));
 
 			if (total >= 6.40) {
 				$('#relique1').children('span').text(" score:" + total + verryEnd);
@@ -160,10 +161,10 @@
 				fourth = 0; // 0으로 대체
 			}
 
-			let total = parseFloat((parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+			featherT = parseFloat(first) + parseFloat(second)
+				+ parseFloat(third) + parseFloat(fourth);
 
-			featherT = total;
+			let total = parseFloat(featherT.toFixed(2));
 
 			if (total >= 6.40) {
 				$('#relique2').children('span').text(" score:" + total + verryEnd);
@@ -203,10 +204,10 @@
 				fourth = 0; // 0으로 대체
 			}
 
-			let total = parseFloat((parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+			watchT = parseFloat(first) + parseFloat(second)
+				+ parseFloat(third) + parseFloat(fourth);
 
-			watchT = total;
+			let total = parseFloat(watchT.toFixed(2));
 
 			if (total >= 6.00) {
 				$('#relique3').children('span').text(" score:" + total + verryEnd);
@@ -246,10 +247,10 @@
 				fourth = 0; // 0으로 대체
 			}
 
-			let total = parseFloat((parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+			holyGrailCalT = parseFloat(first) + parseFloat(second)
+			+ parseFloat(third) + parseFloat(fourth);
 
-			holyGrailCalT = total;
+			let total = parseFloat(holyGrailCalT.toFixed(2));
 
 			if (total >= 6.00) {
 				$('#relique4').children('span').text(" score:" + total + verryEnd);
@@ -289,10 +290,10 @@
 				fourth = 0; // 0으로 대체
 			}
 
-			let total = parseFloat((parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth)).toFixed(2));
+			crownT = parseFloat(first) + parseFloat(second)
+			+ parseFloat(third) + parseFloat(fourth);
 
-			crownT = total;
+			let total = parseFloat(crownT.toFixed(2));
 
 			if (total >= 5.20) {
 				$('#relique5').children('span').text(" score:" + total + verryEnd);
@@ -322,7 +323,7 @@
 					attack = attack * 2;
 				}
 
-				//체력 중요 여부에 따른 기준값 정의
+				//HP 중요 여부에 따른 기준값 정의
 				var physicalQ = $('input[name=hp]:checked').val();
 
 				if (physicalQ == "i") {
@@ -386,6 +387,7 @@
 
 				let text = "";
 
+				show();
 				$('select').each(function () {
 					if ($(this).val() == "gauge") {
 						totalGauge += parseFloat($(this).next('input').val());
@@ -396,25 +398,25 @@
 					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5).toFixed(2));
 				}
 
-				if (23.5 <= totalScore && totalScore <= 25.24) {
+				if (23.5 <= totalScore && totalScore < 25.25) {
 					text = " (준종결)";
 					$('#finalScore').css('color', 'gray');
 					$('#finalImg').attr('src', '준종1.webp');
 					$('#finalText').text('아쉽게됐어');
 				}
-				else if (25.25 <= totalScore && totalScore <= 26.99) {
+				else if (25.25 <= totalScore && totalScore < 27.0) {
 					text = " (준종결)";
 					$('#finalScore').css('color', 'gray');
 					$('#finalImg').attr('src', '준종2.webp');
 					$('#finalText').text('유감이야');
 				}
-				else if (27.0 <= totalScore && totalScore <= 28.49) {
+				else if (27.0 <= totalScore && totalScore < 28.5) {
 					text = " (종결)";
 					$('#finalScore').css('color', 'orange');
 					$('#finalImg').attr('src', '종결1.webp');
 					$('#finalText').text('이얏호!ㅊㅋㅊㅋ');
 				}
-				else if (28.5 <= totalScore && totalScore <= 29.99) {
+				else if (28.5 <= totalScore && totalScore < 30) {
 					text = " (종결)";
 					$('#finalScore').css('color', 'orange');
 					$('#finalImg').attr('src', '종결2.webp');
@@ -432,8 +434,6 @@
 					$('#finalImg').attr('src', '미달.webp');
 					$('#finalText').text('윽!꼴불견이야');
 				}
-
-
 				$('#finalScore').text("total score :" + totalScore.toFixed(2) + text);
 			});
 			$('.reset').click(function () {
@@ -448,6 +448,12 @@
 			});
 			$('#reset').click(function () {
 				location.reload();
+			});
+			$('#guideOpen').click(function(){
+				showG ();
+			});
+			$('#guideClose').click(function(){
+				closeG ();
 			});
 		});
 	</script>
@@ -472,7 +478,7 @@
 			border: 1px solid gray;
 			padding: 3px;
 		}
-		.reliqueList button{
+		.reliqueList button {
 			border-radius: 5px;
 			border: none;
 			background-color: #a5c159;
@@ -493,15 +499,68 @@
 			background-color: #cfcfcf;
 			color: #2b2b2b;
 		}
-
-
 		.selectO {
 			margin-bottom: 3px;
 			margin-top: 3px;
 		}
-
 		body {
 			background-color: #F7F7F7;
+		}
+		.background, .backgroundG {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			background-color: rgba(0, 0, 0, 0.3);
+			z-index: -1;
+			  opacity: 0;
+		}
+		.window {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		.popup {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -40%);
+			background-color: #ffffff;
+			box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+		}
+		.show {
+			opacity: 1;
+			z-index: 1000;
+			transition: all .5s;
+		}
+		.show .popup {
+			transform: translate(-50%, -50%);
+			transition: all .5s;
+		}
+		.modal-content{
+			background-color: #ffffff;
+			width: 70%;
+			position: absolute;
+			top: 30%;
+			left: 15%;
+			border-radius: 10px;
+		}
+		.modal-content-G{
+			background-color: #ffffff;
+			width: 90%;
+			height: 90%;
+			position: absolute;
+			top: 5%;
+			left: 5%;
+			border-radius: 10px;
+			overflow-y: scroll; 
+			max-height: 700px;
+		}
+		p{
+			font-size: 0.9em;
+			text-align: left;
+			margin-left: 10%;
 		}
 
 		@media screen and (max-width:440px) {
@@ -537,9 +596,64 @@
 
 <body>
 	<div class="container" align="center">
-		<h2><span style="color:#6D794B">원신 성유물 계산기</span>
+		<script>
+			function showG () {
+				document.querySelector(".backgroundG").className = "backgroundG show";
+				document.querySelector(".modal-content-G").style.display = "block";
+			}
+			function closeG () {
+				document.querySelector(".backgroundG").className = "backgroundG";
+				document.querySelector(".modal-content-G").style.display = "none";
+			}
+		</script>
+		<div class="backgroundG">
+			<div class="windowG">
+				<div class="guidModal">
+					<div class="modal-content-G" style="display: none;">
+						<div style="margin-top: 5px;">
+							<button type="button" style="float: right; margin-right: 10px;" id="guideClose">닫기</button>
+						</div><br>
+						<p>
+							<strong>*꽃 깃털</strong><br>
+							준종결 (스코어 5.20이상 ~ 6.0미만)<br>
+							종결 (스코어 6.0이상 ~ 6.40미만)<br>
+							극종결 (스코어 6.40이상 ~)<br>
+							<br>
+							<strong>*시계 성배</strong><br>
+							준종결 (스코어 4.60이상 ~ 5.20미만 )<br>
+							종결 (스코어 5.20이상 ~ 6.0미만)<br>
+							극종결 (스코어 6.00이상 ~)<br>
+							<br>
+							<strong>*모자</strong><br>
+							준종결 (스코어 3.90이상 ~ 4.6미만)<br>
+							종결 (스코어 4.60이상 ~ 5.20미만)<br>
+							극종결 (스코어 5.20이상 ~)<br>
+							<br>
+							<strong>@총합 종결계산수치</strong><br>
+							준종결 (스코어 23.5이상 ~27.0미만)<br>
+							종결    (스코어 27.0이상 ~ 30.0미만)<br>
+							극종결 (스코어 30.0이상 ~ )  <br>             
+							<br>
+							<strong>@스코어 계산식 (1배수)</strong><br>
+							공격력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷5.8<br>
+							생명력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷5.8<br>
+							방어력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷7.3<br>
+							치명타 확률% &nbsp;&nbsp;&nbsp;&nbsp;÷3.9<br>
+							치명타 피해% &nbsp;&nbsp;&nbsp;&nbsp;÷7.8<br>
+							원소충전% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷6.5<br>
+							원소마스터리 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷23<br>
+							공격력 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷58 (약 10당 공격력1%)<br>
+							생명력 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷700 (약 120당 체력1%)<br>
+							방어력 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷49 (약 6.6당 방어력1%)<br>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2><span style="color:#6D794B">원신 성유물 계산기</span>&nbsp;&nbsp;
+			<i class="bi bi-info-circle" id="guideOpen" style="color:#f5bc00;"></i>
 		</h2>
-		<table style="width:70%;">
+		<table style="width:65%;">
 			<tr>
 				<td>공격력 배수</td>
 				<td><input type="radio" value="ni" name="attack" checked>1
@@ -547,21 +661,21 @@
 				</td>
 			</tr>
 			<tr>
-				<td>체력 배수</td>
+				<td>HP 배수</td>
 				<td><input type="radio" value="ni" name="hp" checked>1
 					<input type="radio" value="i" name="hp">0.5
-				</td>
-			</tr>
-			<tr>
-				<td>원소마스터리 배수</td>
-				<td><input type="radio" value="ni" name="mastery" checked>1
-					<input type="radio" value="i" name="mastery">0.5
 				</td>
 			</tr>
 			<tr>
 				<td>방어력 배수</td>
 				<td><input type="radio" value="ni" name="defensive" checked>1
 					<input type="radio" value="i" name="defensive">0.5
+				</td>
+			</tr>
+			<tr>
+				<td>원소마스터리 배수</td>
+				<td><input type="radio" value="ni" name="mastery" checked>1
+					<input type="radio" value="i" name="mastery">0.5
 				</td>
 			</tr>
 			<tr>
@@ -579,14 +693,14 @@
 					<select name="flower-option-1">
 						<option value="">---부옵1---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="flower-option-1">
@@ -595,14 +709,14 @@
 					<select name="flower-option-2">
 						<option value="">---부옵2---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="flower-option-2">
@@ -611,14 +725,14 @@
 					<select name="flower-option-3">
 						<option value="">---부옵3---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="flower-option-3">
@@ -627,14 +741,14 @@
 					<select name="flower-option-4">
 						<option value="">---부옵4---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="flower-option-4">
@@ -648,14 +762,14 @@
 					<select name="feather-option-1">
 						<option value="">---부옵1---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="feather-option-1">
@@ -664,14 +778,14 @@
 					<select name="feather-option-2">
 						<option value="">---부옵2---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="feather-option-2">
@@ -680,14 +794,14 @@
 					<select name="feather-option-3">
 						<option value="">---부옵3---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="feather-option-3">
@@ -696,14 +810,14 @@
 					<select name="feather-option-4">
 						<option value="">---부옵4---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="feather-option-4">
@@ -718,14 +832,14 @@
 					<select name="watch-option-1">
 						<option value="">---부옵1---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="watch-option-1">
@@ -734,14 +848,14 @@
 					<select name="watch-option-2">
 						<option value="">---부옵2---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="watch-option-2">
@@ -750,14 +864,14 @@
 					<select name="watch-option-3">
 						<option value="">---부옵3---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="watch-option-3">
@@ -766,14 +880,14 @@
 					<select name="watch-option-4">
 						<option value="">---부옵4---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="watch-option-4">
@@ -788,14 +902,14 @@
 					<select name="holyGrail-option-1">
 						<option value="">---부옵1---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="holyGrail-option-1">
@@ -804,14 +918,14 @@
 					<select name="holyGrail-option-2">
 						<option value="">---부옵2---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="holyGrail-option-2">
@@ -820,14 +934,14 @@
 					<select name="holyGrail-option-3">
 						<option value="">---부옵3---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="holyGrail-option-3">
@@ -836,14 +950,14 @@
 					<select name="holyGrail-option-4">
 						<option value="">---부옵4---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="holyGrail-option-4">
@@ -858,14 +972,14 @@
 					<select name="crown-option-1">
 						<option value="">---부옵1---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="crown-option-1">
@@ -874,14 +988,14 @@
 					<select name="crown-option-2">
 						<option value="">---부옵2---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="crown-option-2">
@@ -890,14 +1004,14 @@
 					<select name="crown-option-3">
 						<option value="">---부옵3---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="crown-option-3">
@@ -906,14 +1020,14 @@
 					<select name="crown-option-4">
 						<option value="">---부옵4---</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">체력%</option>
+						<option value="physicalP">HP%</option>
 						<option value="defensiveP">방어력%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
 						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
 						<option value="attak">공격력</option>
-						<option value="physical">체력</option>
+						<option value="physical">HP</option>
 						<option value="defensive">방어력</option>
 					</select>
 					<input type="text" id="crown-option-4">
@@ -925,11 +1039,30 @@
 			<button type="button" id="cal">계산하기</button>
 			<button type="button" id="reset">전체 초기화</button>
 		</div>
-		<div>
-			<span id="finalScore" style="font-weight: bolder;"></span><br><br>
-			<span id="finalText" style="text-align: center; display: block;"></span><br>
-			<img id="finalImg" style="width: 200px;">
+		<div class="background">
+			<div class="window">
+				<div class="resultModal">
+					<div class="modal-content" style="display:none;">
+						<div style="margin-top: 5px;">
+							<span id="finalScore" style="font-weight: bolder;"></span><button type="button" style="margin-left: 20px;" id="close">닫기</button>
+						</div><br>
+						<span id="finalText" style="text-align: center; display: block;"></span><br>
+						<img id="finalImg" style="width: 200px;">
+					</div>
+				</div>
+			</div>
 		</div>
+		<script>
+			function show () {
+				document.querySelector(".background").className = "background show";
+				document.querySelector(".modal-content").style.display = "block";
+			}
+			function close () {
+				document.querySelector(".background").className = "background";
+				document.querySelector(".modal-content").style.display = "none";
+			}
+      		document.querySelector("#close").addEventListener("click", close);
+		</script>
 	</div>
 	</div>
 </body>
