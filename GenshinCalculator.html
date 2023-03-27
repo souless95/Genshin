@@ -11,6 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+	<script src="html2canvas.js"></script>
 	<script type="text/javascript">
 		var attackP = 5.8;
 		var attack = 58;
@@ -125,11 +126,13 @@
 
 			if (total >= 6.40) {
 				$('#relique1').children('span').text(" score:" + total + verryEnd);
-				$('#relique1').children('span').css('color', 'green');
+				$('#relique1').children('span').css('color', 'transparent');
+				$('#relique1').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#relique1').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (6.00 <= total && total < 6.40) {
 				$('#relique1').children('span').text(" score:" + total + end);
-				$('#relique1').children('span').css('color', 'orange');
+				$('#relique1').children('span').css('color', '#ffd700');
 			}
 			else if (5.20 <= total && total < 6.00) {
 				$('#relique1').children('span').text(" score:" + total + littleEnd);
@@ -168,11 +171,13 @@
 
 			if (total >= 6.40) {
 				$('#relique2').children('span').text(" score:" + total + verryEnd);
-				$('#relique2').children('span').css('color', 'green');
+				$('#relique2').children('span').css('color', 'transparent');
+				$('#relique2').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#relique2').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (6.00 <= total && total < 6.40) {
 				$('#relique2').children('span').text(" score:" + total + end);
-				$('#relique2').children('span').css('color', 'orange');
+				$('#relique2').children('span').css('color', '#ffd700');
 			}
 			else if (5.20 <= total && total < 6.00) {
 				$('#relique2').children('span').text(" score:" + total + littleEnd);
@@ -211,11 +216,13 @@
 
 			if (total >= 6.00) {
 				$('#relique3').children('span').text(" score:" + total + verryEnd);
-				$('#relique3').children('span').css('color', 'green');
+				$('#relique3').children('span').css('color', 'transparent');
+				$('#relique3').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#relique3').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (5.20 <= total && total < 6.00) {
 				$('#relique3').children('span').text(" score:" + total + end);
-				$('#relique3').children('span').css('color', 'orange');
+				$('#relique3').children('span').css('color', '#ffd700');
 			}
 			else if (4.60 <= total && total < 5.20) {
 				$('#relique3').children('span').text(" score:" + total + littleEnd);
@@ -251,14 +258,16 @@
 			+ parseFloat(third) + parseFloat(fourth);
 
 			let total = parseFloat(holyGrailCalT.toFixed(2));
-
+			
 			if (total >= 6.00) {
 				$('#relique4').children('span').text(" score:" + total + verryEnd);
-				$('#relique4').children('span').css('color', 'green');
+				$('#relique4').children('span').css('color', 'transparent');
+				$('#relique4').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#relique4').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (5.20 <= total && total < 6.00) {
 				$('#relique4').children('span').text(" score:" + total + end);
-				$('#relique4').children('span').css('color', 'orange');
+				$('#relique4').children('span').css('color', '#ffd700');
 			}
 			else if (4.60 <= total && total < 5.20) {
 				$('#relique4').children('span').text(" score:" + total + littleEnd);
@@ -297,11 +306,13 @@
 
 			if (total >= 5.20) {
 				$('#relique5').children('span').text(" score:" + total + verryEnd);
-				$('#relique5').children('span').css('color', 'green');
+				$('#relique5').children('span').css('color', 'transparent');
+				$('#relique5').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#relique5').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (4.60 <= total && total < 5.20) {
 				$('#relique5').children('span').text(" score:" + total + end);
-				$('#relique5').children('span').css('color', 'orange');
+				$('#relique5').children('span').css('color', '#ffd700');
 			}
 			else if (3.90 <= total && total < 4.60) {
 				$('#relique5').children('span').text(" score:" + total + littleEnd);
@@ -388,6 +399,7 @@
 				let text = "";
 
 				show();
+				$('#imgDown').css('display','block');
 				$('select').each(function () {
 					if ($(this).val() == "gauge") {
 						totalGauge += parseFloat($(this).next('input').val());
@@ -402,37 +414,39 @@
 					text = " (준종결)";
 					$('.finalScore').css('color', 'gray');
 					$('.finalImg').attr('src', '준종1.webp');
-					$('.finalText').text('아쉽게됐어');
+					$('.finalText').text('좀 만 더 비경에 투자하는게 어때..?');
 				}
 				else if (25.25 <= totalScore && totalScore < 27.0) {
 					text = " (준종결)";
 					$('.finalScore').css('color', 'gray');
 					$('.finalImg').attr('src', '준종2.webp');
-					$('.finalText').text('유감이야');
+					$('.finalText').text('좀 만 더 비경에 투자하는게 어때..?');
 				}
 				else if (27.0 <= totalScore && totalScore < 28.5) {
 					text = " (종결)";
-					$('.finalScore').css('color', 'orange');
+					$('.finalScore').css('color', '#ffd700');
 					$('.finalImg').attr('src', '종결1.webp');
-					$('.finalText').text('이얏호!ㅊㅋㅊㅋ');
+					$('.finalText').text('효율따지면 여기서 그만하자구 :)');
 				}
 				else if (28.5 <= totalScore && totalScore < 30) {
 					text = " (종결)";
-					$('.finalScore').css('color', 'orange');
+					$('.finalScore').css('color', '#ffd700');
 					$('.finalImg').attr('src', '종결2.webp');
-					$('.finalText').text('오호호호홍');
+					$('.finalText').text('효율따지면 여기서 그만하자구 :)');
 				}
 				else if (30 <= totalScore) {
 					text = " (극종결)";
-					$('.finalScore').css('color', 'green');
+					$('.finalScore').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+					$('.finalScore').css('color', 'transparent');
+					$('.finalScore').css('-webkit-background-clip', 'text');
 					$('.finalImg').attr('src', '극종결.webp');
-					$('.finalText').text('그럼 이만..수고!');
+					$('.finalText').text('원땅아 비경 그만 돌아;;');
 				}
 				else {
 					text = " (미달)";
 					$('.finalScore').css('color', 'red');
 					$('.finalImg').attr('src', '미달.webp');
-					$('.finalText').text('윽!꼴불견이야');
+					$('.finalText').text('당신은 너무나도 나약합니다^^');
 				}
 				$('.finalScore').text("total score :" + totalScore.toFixed(2) + text);
 			});
@@ -454,6 +468,16 @@
 			});
 			$('#guideClose').click(function(){
 				closeG ();
+			});
+			$('#imgDown').click(function(){
+				$('#imgDown').css('display','none');
+				html2canvas(document.getElementById("capture")).then(function(canvas) {
+					var el = document.createElement("a");
+					el.href = canvas.toDataURL("image/jpeg");
+					el.download = 'score.jpg' //;
+					el.click();
+				});
+				$('#imgDown').css('display','block');
 			});
 		});
 	</script>
@@ -499,9 +523,12 @@
 			background-color: #cfcfcf;
 			color: #2b2b2b;
 		}
-		#close, #guideClose{
+		#close, #guideClose, #imgDown{
 			border-radius: 5px;
 			border: 1px solid gray;
+		}
+		#imgDown{
+			background-color: white;
 		}
 		.selectO {
 			margin-bottom: 3px;
@@ -575,20 +602,6 @@
 				background-repeat: no-repeat;
 			}
 
-			body::after {
-				content: "";
-				display: block;
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background-color: rgba(255, 255, 255, 0.7);
-				/* 배경 이미지에 대한 투명도를 제어하는 속성 */
-				z-index: -1;
-				/* ::after 유사요소를 body 요소 뒤에 배치합니다 */
-			}
-
 			h2 {
 				text-align: center;
 			}
@@ -596,7 +609,7 @@
 	</style>
 </head>
 
-<body>
+<body id="capture">
 	<div class="container" align="center">
 		<script>
 			function showG () {
@@ -1042,12 +1055,16 @@
 			<button type="button" id="reset">전체 초기화</button>
 		</div>
 		<br>
+		<br>
+		<br>
+		<br>
 		<div>
 			<span class="finalScore" style="font-weight: bolder;"></span>
 			<span class="finalText" style="text-align: center; display: block;"></span><br>
 			<img class="finalImg" style="width: 200px;">
 		</div>
-		<div class="background">
+	</div>
+		<div class="background" align="center">
 			<div class="window">
 				<div class="resultModal">
 					<div class="modal-content" style="display:none;">
@@ -1074,5 +1091,6 @@
 	</div>
 	</div>
 </body>
+<button type="button" id="imgDown" style="display: none; margin-left: 38%; padding: 5px;">이미지 저장 <i class="bi bi-download"></i></button>
 
 </html>
