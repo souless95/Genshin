@@ -465,9 +465,11 @@
 			});
 			$('#guideOpen').click(function(){
 				showG ();
+				$('body').css('overflow','hidden');
 			});
 			$('#guideClose').click(function(){
 				closeG ();
+				$('body').css('overflow','');
 			});
 			$('#imgDown').click(function(){
 				$('#imgDown').css('display','none');
@@ -579,11 +581,11 @@
 		}
 		.modal-content-G{
 			background-color: #ffffff;
-			width: 90%;
-			height: 90%;
+			width: 80%;
+			height: 80%;
 			position: absolute;
 			top: 5%;
-			left: 5%;
+			left: 10%;
 			border-radius: 10px;
 			overflow-y: scroll; 
 			max-height: 700px;
@@ -591,7 +593,7 @@
 		p{
 			font-size: 0.9em;
 			text-align: left;
-			margin-left: 10%;
+			margin-left: 5%;
 		}
 
 		@media screen and (max-width:440px) {
@@ -1068,9 +1070,10 @@
 			<div class="window">
 				<div class="resultModal">
 					<div class="modal-content" style="display:none;">
-						<div style="margin-top: 7px;">
-							<span class="finalScore" style="font-weight: bolder;"></span><button type="button" style="margin-left: 20px;" id="close">닫기</button>
-						</div><br>
+						<div style="margin-top: 7px; margin-bottom: 7px;">
+							</span><button type="button" style="float: right; margin-right: 5%;" id="close">닫기</button><br>
+						</div>
+						<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
 						<span class="finalText" style="text-align: center; display: block;"></span><br>
 						<img class="finalImg" style="width: 200px;">
 					</div>
@@ -1081,10 +1084,12 @@
 			function show () {
 				document.querySelector(".background").className = "background show";
 				document.querySelector(".modal-content").style.display = "block";
+				document.querySelector("body").style.overflow = "hidden";
 			}
 			function close () {
 				document.querySelector(".background").className = "background";
 				document.querySelector(".modal-content").style.display = "none";
+				document.querySelector("body").style.overflow = "";
 			}
       		document.querySelector("#close").addEventListener("click", close);
 		</script>
