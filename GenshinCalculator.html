@@ -499,6 +499,10 @@
 			background-color: #cfcfcf;
 			color: #2b2b2b;
 		}
+		#close, #guideClose{
+			border-radius: 5px;
+			border: 1px solid gray;
+		}
 		.selectO {
 			margin-bottom: 3px;
 			margin-top: 3px;
@@ -586,9 +590,7 @@
 			}
 
 			h2 {
-				display: flex;
-				align-items: center;
-				margin-left: 100px;
+				text-align: center;
 			}
 		}
 	</style>
@@ -610,31 +612,31 @@
 			<div class="windowG">
 				<div class="guidModal">
 					<div class="modal-content-G" style="display: none;">
-						<div style="margin-top: 5px;">
+						<div style="margin-top: 10px;">
 							<button type="button" style="float: right; margin-right: 10px;" id="guideClose">닫기</button>
 						</div><br>
 						<p>
 							<strong>*꽃 깃털</strong><br>
-							준종결 (스코어 5.20이상 ~ 6.0미만)<br>
-							종결 (스코어 6.0이상 ~ 6.40미만)<br>
-							극종결 (스코어 6.40이상 ~)<br>
+							준종결 :&nbsp;score 5.2이상 ~ 6.0미만<br>
+							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 6.0이상 ~ 6.4미만<br>
+							극종결 :&nbsp;score 6.4이상 ~<br>
 							<br>
 							<strong>*시계 성배</strong><br>
-							준종결 (스코어 4.60이상 ~ 5.20미만 )<br>
-							종결 (스코어 5.20이상 ~ 6.0미만)<br>
-							극종결 (스코어 6.00이상 ~)<br>
+							준종결 :&nbsp;score 4.6이상 ~ 5.2미만<br>
+							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 5.2이상 ~ 6.0미만<br>
+							극종결 :&nbsp;score 6.0이상 ~<br>
 							<br>
 							<strong>*모자</strong><br>
-							준종결 (스코어 3.90이상 ~ 4.6미만)<br>
-							종결 (스코어 4.60이상 ~ 5.20미만)<br>
-							극종결 (스코어 5.20이상 ~)<br>
+							준종결 :&nbsp;score 3.9이상 ~ 4.6미만<br>
+							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 4.6이상 ~ 5.2미만<br>
+							극종결 :&nbsp;score 5.2이상 ~<br>
 							<br>
 							<strong>@총합 종결계산수치</strong><br>
-							준종결 (스코어 23.5이상 ~27.0미만)<br>
-							종결    (스코어 27.0이상 ~ 30.0미만)<br>
-							극종결 (스코어 30.0이상 ~ )  <br>             
+							준종결 :&nbsp;score 23.5이상 ~27.0미만<br>
+							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 27.0이상 ~ 30.0미만<br>
+							극종결 :&nbsp;score 30.0이상 ~   <br>             
 							<br>
-							<strong>@스코어 계산식 (1배수)</strong><br>
+							<strong>@score 계산식 (1배수)</strong><br>
 							공격력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷5.8<br>
 							생명력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷5.8<br>
 							방어력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷7.3<br>
@@ -1043,7 +1045,7 @@
 			<div class="window">
 				<div class="resultModal">
 					<div class="modal-content" style="display:none;">
-						<div style="margin-top: 5px;">
+						<div style="margin-top: 7px;">
 							<span id="finalScore" style="font-weight: bolder;"></span><button type="button" style="margin-left: 20px;" id="close">닫기</button>
 						</div><br>
 						<span id="finalText" style="text-align: center; display: block;"></span><br>
