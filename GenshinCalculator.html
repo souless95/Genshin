@@ -400,41 +400,41 @@
 
 				if (23.5 <= totalScore && totalScore < 25.25) {
 					text = " (준종결)";
-					$('#finalScore').css('color', 'gray');
-					$('#finalImg').attr('src', '준종1.webp');
-					$('#finalText').text('아쉽게됐어');
+					$('.finalScore').css('color', 'gray');
+					$('.finalImg').attr('src', '준종1.webp');
+					$('.finalText').text('아쉽게됐어');
 				}
 				else if (25.25 <= totalScore && totalScore < 27.0) {
 					text = " (준종결)";
-					$('#finalScore').css('color', 'gray');
-					$('#finalImg').attr('src', '준종2.webp');
-					$('#finalText').text('유감이야');
+					$('.finalScore').css('color', 'gray');
+					$('.finalImg').attr('src', '준종2.webp');
+					$('.finalText').text('유감이야');
 				}
 				else if (27.0 <= totalScore && totalScore < 28.5) {
 					text = " (종결)";
-					$('#finalScore').css('color', 'orange');
-					$('#finalImg').attr('src', '종결1.webp');
-					$('#finalText').text('이얏호!ㅊㅋㅊㅋ');
+					$('.finalScore').css('color', 'orange');
+					$('.finalImg').attr('src', '종결1.webp');
+					$('.finalText').text('이얏호!ㅊㅋㅊㅋ');
 				}
 				else if (28.5 <= totalScore && totalScore < 30) {
 					text = " (종결)";
-					$('#finalScore').css('color', 'orange');
-					$('#finalImg').attr('src', '종결2.webp');
-					$('#finalText').text('오호호호홍');
+					$('.finalScore').css('color', 'orange');
+					$('.finalImg').attr('src', '종결2.webp');
+					$('.finalText').text('오호호호홍');
 				}
 				else if (30 <= totalScore) {
 					text = " (극종결)";
-					$('#finalScore').css('color', 'green');
-					$('#finalImg').attr('src', '극종결.webp');
-					$('#finalText').text('그럼 이만..수고!');
+					$('.finalScore').css('color', 'green');
+					$('.finalImg').attr('src', '극종결.webp');
+					$('.finalText').text('그럼 이만..수고!');
 				}
 				else {
 					text = " (미달)";
-					$('#finalScore').css('color', 'red');
-					$('#finalImg').attr('src', '미달.webp');
-					$('#finalText').text('윽!꼴불견이야');
+					$('.finalScore').css('color', 'red');
+					$('.finalImg').attr('src', '미달.webp');
+					$('.finalText').text('윽!꼴불견이야');
 				}
-				$('#finalScore').text("total score :" + totalScore.toFixed(2) + text);
+				$('.finalScore').text("total score :" + totalScore.toFixed(2) + text);
 			});
 			$('.reset').click(function () {
 				$(this).parent().find('select').each(function () {
@@ -694,64 +694,64 @@
 				<div class="selectO">
 					<select name="flower-option-1">
 						<option value="">---부옵1---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-1">
 				</div>
 				<div class="selectO">
 					<select name="flower-option-2">
 						<option value="">---부옵2---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-2">
 				</div>
 				<div class="selectO">
 					<select name="flower-option-3">
 						<option value="">---부옵3---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-3">
 				</div>
 				<div class="selectO">
 					<select name="flower-option-4">
 						<option value="">---부옵4---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-4">
 				</div>
@@ -763,64 +763,64 @@
 				<div class="selectO">
 					<select name="feather-option-1">
 						<option value="">---부옵1---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-1">
 				</div>
 				<div class="selectO">
 					<select name="feather-option-2">
 						<option value="">---부옵2---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-2">
 				</div>
 				<div class="selectO">
 					<select name="feather-option-3">
 						<option value="">---부옵3---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-3">
 				</div>
 				<div class="selectO">
 					<select name="feather-option-4">
 						<option value="">---부옵4---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-4">
 				</div>
@@ -833,64 +833,64 @@
 				<div class="selectO">
 					<select name="watch-option-1">
 						<option value="">---부옵1---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-1">
 				</div>
 				<div class="selectO">
 					<select name="watch-option-2">
 						<option value="">---부옵2---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-2">
 				</div>
 				<div class="selectO">
 					<select name="watch-option-3">
 						<option value="">---부옵3---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-3">
 				</div>
 				<div class="selectO">
 					<select name="watch-option-4">
 						<option value="">---부옵4---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-4">
 				</div>
@@ -903,64 +903,64 @@
 				<div class="selectO">
 					<select name="holyGrail-option-1">
 						<option value="">---부옵1---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-1">
 				</div>
 				<div class="selectO">
 					<select name="holyGrail-option-2">
 						<option value="">---부옵2---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-2">
 				</div>
 				<div class="selectO">
 					<select name="holyGrail-option-3">
 						<option value="">---부옵3---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-3">
 				</div>
 				<div class="selectO">
 					<select name="holyGrail-option-4">
 						<option value="">---부옵4---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-4">
 				</div>
@@ -973,64 +973,64 @@
 				<div class="selectO">
 					<select name="crown-option-1">
 						<option value="">---부옵1---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-1">
 				</div>
 				<div class="selectO">
 					<select name="crown-option-2">
 						<option value="">---부옵2---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-2">
 				</div>
 				<div class="selectO">
 					<select name="crown-option-3">
 						<option value="">---부옵3---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-3">
 				</div>
 				<div class="selectO">
 					<select name="crown-option-4">
 						<option value="">---부옵4---</option>
+						<option value="attak">공격력</option>
 						<option value="attakP">공격력%</option>
-						<option value="physicalP">HP%</option>
+						<option value="defensive">방어력</option>
 						<option value="defensiveP">방어력%</option>
+						<option value="physical">HP</option>
+						<option value="physicalP">HP%</option>
 						<option value="critical_probability">치명타 확률</option>
 						<option value="critical_damage">치명타 피해</option>
-						<option value="gauge">원소충전효율</option>
 						<option value="mastery">원소마스터리</option>
-						<option value="attak">공격력</option>
-						<option value="physical">HP</option>
-						<option value="defensive">방어력</option>
+						<option value="gauge">원소충전효율</option>
 					</select>
 					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-4">
 				</div>
@@ -1041,15 +1041,21 @@
 			<button type="button" id="cal">계산하기</button>
 			<button type="button" id="reset">전체 초기화</button>
 		</div>
+		<br>
+		<div>
+			<span class="finalScore" style="font-weight: bolder;"></span>
+			<span class="finalText" style="text-align: center; display: block;"></span><br>
+			<img class="finalImg" style="width: 200px;">
+		</div>
 		<div class="background">
 			<div class="window">
 				<div class="resultModal">
 					<div class="modal-content" style="display:none;">
 						<div style="margin-top: 7px;">
-							<span id="finalScore" style="font-weight: bolder;"></span><button type="button" style="margin-left: 20px;" id="close">닫기</button>
+							<span class="finalScore" style="font-weight: bolder;"></span><button type="button" style="margin-left: 20px;" id="close">닫기</button>
 						</div><br>
-						<span id="finalText" style="text-align: center; display: block;"></span><br>
-						<img id="finalImg" style="width: 200px;">
+						<span class="finalText" style="text-align: center; display: block;"></span><br>
+						<img class="finalImg" style="width: 200px;">
 					</div>
 				</div>
 			</div>
