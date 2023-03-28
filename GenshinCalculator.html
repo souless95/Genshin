@@ -579,15 +579,16 @@
 		#cal, #reset {
 			border-radius: 5px;
 			border: none;
-			width: 85px;
 			height: 25px;
 			font-size: 0.9em;
 		}
 		#cal{
+			width: 85px;
 			background-color: #f9a322;
 			color: #ffffff;
 		}
 		#reset{
+			width: 95px;
 			background-color: #cfcfcf;
 			color: #2b2b2b;
 		}
@@ -758,12 +759,17 @@
 							ex)6Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
-							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치를 기입</p>
+							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치를 입력</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
 							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로 보정계산한다<br>
 								ex)호두,나히다 - 공격력 0.5보정<br>
 								클레 - 원소 마스터리 0.5보정</p>
+							
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>적정 원충 수치</span>
+							<p>캐릭터가 궁 사이클이 부드럽게 굴러가기위한 최대 원충 수치<br>
+								ex)캐릭터의 권장 원충이 140~160일 경우 160 입력
+							</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>성유물 Score 등급</span><br>
 							
@@ -804,8 +810,8 @@
 							<p></p>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score</span><br>
 							<p>딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상)<br> 
-							그리고 사이클 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치<br>
-							(원충자체가 전혀 필요없는 캐릭은 수치계산에 넣지말 것)</p>
+							그리고 궁 사이클이 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치<br>
+							(원충자체가 전혀 필요없는 캐릭은 성유물 계산에 입력하지 말것)</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 보정</span>
 							<p>원소 마스터리가 유효옵이 아닐경우<br>
