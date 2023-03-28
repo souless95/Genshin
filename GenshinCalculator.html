@@ -659,6 +659,14 @@
 		tr td:nth-child(2) {
 			width: 40%;
 		}
+		.gtitle{
+			text-align: center;
+		}
+		p{
+			margin-top: 1px;
+			margin-bottom: 2px;
+			font-size: 0.8em;
+		}
 
 		@media screen and (max-width:440px) {
 			body {
@@ -694,41 +702,85 @@
 						<div style="margin-top: 10px;">
 							<button type="button" style="float: right; margin-right: 10px;" id="guideClose">닫기</button>
 						</div><br>
-						<p>
-							<strong>*꽃 깃털</strong><br>
-							준종결 :&nbsp;score 5.2이상 ~ 6.0미만<br>
-							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 6.0이상 ~ 6.4미만<br>
-							극종결 :&nbsp;score 6.4이상 ~<br>
+						<div>
+
+							<Strong>《딜러용 성유물 계산기》</Strong><br>
 							<br>
-							<strong>*시계 성배</strong><br>
-							준종결 :&nbsp;score 4.6이상 ~ 5.2미만<br>
-							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 5.2이상 ~ 6.0미만<br>
-							극종결 :&nbsp;score 6.0이상 ~<br>
+							<span class="gtitle" style="color: blue;">☆Score 개념</span>
+							<p>성유물의 부옵션 중 캐릭터의 유효한 수치만을 합산 후 부옵션평균을 나눈 값<br>
+							ex)6score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
+							<span class="gtitle" style="color: blue;">☆유효옵션 판별</span>
+							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치를 기입</p>
 							<br>
-							<strong>*모자</strong><br>
-							준종결 :&nbsp;score 3.9이상 ~ 4.6미만<br>
-							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 4.6이상 ~ 5.2미만<br>
-							극종결 :&nbsp;score 5.2이상 ~<br>
-							<br>
-							<strong>@총합 종결계산수치</strong><br>
-							준종결 :&nbsp;score 23.5이상 ~27.0미만<br>
-							종결 &nbsp;&nbsp;&nbsp;:&nbsp;score 27.0이상 ~ 30.0미만<br>
-							극종결 :&nbsp;score 30.0이상 ~   <br>             
-							<br>
-							<strong>@score 계산식 (1배수)</strong><br>
-							공격력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷5.8<br>
-							생명력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷5.8<br>
-							방어력% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷7.3<br>
-							치명타 확률% &nbsp;&nbsp;&nbsp;&nbsp;÷3.9<br>
-							치명타 피해% &nbsp;&nbsp;&nbsp;&nbsp;÷7.8<br>
-							원소충전% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷6.5<br>
-							원소마스터리 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷23<br>
-							공격력 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷58 (약 10당 공격력1%)<br>
-							생명력 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷700 (약 120당 체력1%)<br>
-							방어력 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷49 (약 6.6당 방어력1%)<br>
-						</p>
+							<span class="gtitle">☆스텟 보정</span>
+							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 0.5배로 보정계산한다<br>
+								ex)호두,나히다 - 공격력 0.5보정<br>
+								p클레 - 원소 마스터리 0.5보정</p>
+							
+							
+							<span class="gtitle">☆성유물 score 등급</span><br>
+							
+							<span>*꽃&깃털</span>
+							<p>
+							준종결 (스코어 6이상 ~ 7미만)<br>
+							종결     (스코어 7이상 ~ 8미만)<br>
+							극종결 (스코어 8이상 ~ 9미만)<br>
+							극한     (스코어 9이상 ~)<br>
+							</p>
+
+							*시계
+							준종결 (스코어 5이상 ~ 6미만 )
+							종결    (스코어 6이상 ~ 7미만)
+							극종결 (스코어 7이상 ~ 8미만)
+							극한     (스코어 8이상 ~)
+						
+							*성배&모자 
+							준종결 (스코어 4이상 ~ 5미만)
+							종결     (스코어 5이상 ~ 6미만)
+							극종결 (스코어 6이상 ~ 7미만)
+							극한     (스코어 7이상 ~)
+							
+							☆total score
+							딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상) 그리고
+							사이클 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치(원충자체가 전혀 필요없는 캐릭은 수치계산에 넣지말 것)
+							
+							☆total score 보정
+							원소 마스터리가 유효옵이 아닐경우
+							파밍난이도가 원소 마스터리가 유효옵인 캐릭터에 비해 어렵기에
+							total score에서 5%를 추가된 점수로 등급을 판별
+							ex)total score가 34일경우 종결이지만 보정할 시 35.7이기에 극종결로 표기
+							
+							☆total score 등급
+							
+							준종결:라이트하고 극도의 효율 등급
+							(25이상 ~ 30미만) 
+							
+							종결:더 이상 파밍 할 시 효율이 극도로 낮아지는 졸업가능한 등급
+							(30이상 ~ 35미만) 
+							
+							극종결:어디서든 자랑가능한 종결급 내에서 상위권인 등급
+							1점 올리는데 몇달이 소요됨
+							(35이상 ~ 40미만)
+							
+							극한:확률적으로 불가능에 가까운 한계수치에 도달한 천운의 영역등급
+							랭킹사이트 기준 10위권 내외
+							(스코어 40이상 ~)
+							
+							☆스코어 계산(부옵의 평균 수치당 1score)
+							
+							공격력%             ÷5
+							생명력%             ÷5
+							방어력%             ÷6.2
+							치명타 확률%     ÷3.3
+							치명타 피해%     ÷6.6
+							원소충전%         ÷5.5
+							원소마스터리     ÷20
+							공격력                ÷50 (약 10당 공격력1%)
+							생명력                ÷600 (약 120당 체력1%)
+							방어력                ÷41 (약 6.6당 방어력1%)
+						</div>
+						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 		<h2><span style="color:#6D794B">원신 성유물 계산기</span>&nbsp;&nbsp;
