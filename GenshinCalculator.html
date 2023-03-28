@@ -5,11 +5,11 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 	<script src="html2canvas.js"></script>
 	<script type="text/javascript">
@@ -452,8 +452,11 @@
 					}
 				});
 
-				
-				if (elementGauge != 0 && (elementGauge - 100 - totalGauge) <= 0) {
+				if (elementGauge <=100 || elementGauge==""){
+					elementGauge = 100;
+				}
+
+				if ((elementGauge - 100 - totalGauge) <= 0) {
 					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5).toFixed(1));
 				}
 
@@ -515,7 +518,7 @@
 					$('.finalImg').attr('src', '미달.webp');
 					$('.finalText').text('당신은 너무나도 나약합니다^^');
 				}
-				$('.finalScore').text("total score :" + originalScore.toFixed(1) + text);
+				$('.finalScore').text("Total Score :" + originalScore.toFixed(1) + text);
 			});
 			$('.reset').click(function () {
 				$(this).parent().find('select').each(function () {
@@ -544,7 +547,10 @@
 		* {
 			font-family: 'Noto Sans KR', sans-serif;
 		}
-
+		.popover-body {
+			background-color: #333;
+			color: #fff;
+		  }
 		select {
 			padding: 3px;
 			text-align: center;
@@ -568,12 +574,14 @@
 			background-color: #a5c159;
 			color: #ffffff;
 			font-weight: lighter;
+			font-size: 0.9em;
 		}
 		#cal, #reset {
 			border-radius: 5px;
 			border: none;
 			width: 85px;
 			height: 25px;
+			font-size: 0.9em;
 		}
 		#cal{
 			background-color: #f9a322;
@@ -653,19 +661,57 @@
 			text-align: left;
 			margin-left: 5%;
 		}
-		tr td:first-child{
+		#adjustT tr td:first-child{
 			width: 60%;
 		}
-		tr td:nth-child(2) {
+		#adjustT tr td:nth-child(2) {
 			width: 40%;
 		}
 		.gtitle{
 			text-align: center;
+			color: #3CB9E5;
+			font-size: 0.9em;
 		}
 		p{
 			margin-top: 1px;
-			margin-bottom: 2px;
+			margin-bottom: 10px;
 			font-size: 0.8em;
+		}
+		#gradeTable{
+			font-size: 0.9em;
+			border: 1px solid gray;
+		}
+		#gradeTable tr td:nth-child(2), #gradeTable tr td:nth-child(3), #gradeTable tr td:nth-child(4){
+			font-size: 0.8em;
+		}
+		.soso{
+			color: gray;
+		}
+		.good{
+			color: #e16ddd;
+		}
+		.verry{
+			color: #ffd700;
+		}
+		.limit {
+			background: linear-gradient(to top, #e16ddd, #ffff66);
+			color: transparent;
+			-webkit-background-clip: text;
+		}
+		.dd{
+			margin-bottom: 5px;
+			font-size: 0.8em;
+		}
+		#scoreTable td{
+			font-size: 0.8em;
+			padding: 0;
+		}
+		#gradeTable td, #gradeTable th{
+			font-size: 0.8em;
+			padding: 0;
+		}
+		.bi-diamond-fill{
+			font-size: 0.7em;
 		}
 
 		@media screen and (max-width:440px) {
@@ -684,6 +730,7 @@
 </head>
 
 <body id="capture">
+	<br>
 	<div class="container" align="center">
 		<script>
 			function showG () {
@@ -704,80 +751,131 @@
 						</div><br>
 						<div>
 
-							<Strong>《딜러용 성유물 계산기》</Strong><br>
+							<div style="margin-left: 15%;"><Strong>《딜러용 성유물 계산기》</Strong></div>
 							<br>
-							<span class="gtitle" style="color: blue;">☆Score 개념</span>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Score 개념</span>
 							<p>성유물의 부옵션 중 캐릭터의 유효한 수치만을 합산 후 부옵션평균을 나눈 값<br>
-							ex)6score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
-							<span class="gtitle" style="color: blue;">☆유효옵션 판별</span>
+							ex)6Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
+							
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
 							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치를 기입</p>
-							<br>
-							<span class="gtitle">☆스텟 보정</span>
-							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 0.5배로 보정계산한다<br>
+							
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
+							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로 보정계산한다<br>
 								ex)호두,나히다 - 공격력 0.5보정<br>
-								p클레 - 원소 마스터리 0.5보정</p>
+								클레 - 원소 마스터리 0.5보정</p>
 							
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>성유물 Score 등급</span><br>
 							
-							<span class="gtitle">☆성유물 score 등급</span><br>
+							<table style="width:90%" id="gradeTable" class="table table-bordered">
+								<thead>
+									<th style="width:20%"></th>
+									<th style="width:26%">꽃&깃털</th>
+									<th style="width:26%">시계</th>
+									<th style="width:28%">성배&모자</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span class="soso">준종결</span></td>
+										<td>6이상~7미만</td>
+										<td>5이상~6미만</td>
+										<td>4이상~5미만</td>
+									</tr>
+									<tr>
+										<td><span class="good">종결</span></td>
+										<td>7이상~8미만</td>
+										<td>6이상~7미만</td>
+										<td>5이상~6미만</td>
+									</tr>
+									<tr>
+										<td><span class="verry">극종결</span></td>
+										<td>8이상~9미만</td>
+										<td>7이상~8미만</td>
+										<td>6이상~7미만</td>
+									</tr>
+									<tr>
+										<td><span class="limit">극한</span></td>
+										<td>9이상~</td>
+										<td>8이상~</td>
+										<td>7이상~</td>
+									</tr>
+								</tbody>
+							</table>
+							<p></p>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score</span><br>
+							<p>딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상)<br> 
+							그리고 사이클 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치<br>
+							(원충자체가 전혀 필요없는 캐릭은 수치계산에 넣지말 것)</p>
 							
-							<span>*꽃&깃털</span>
-							<p>
-							준종결 (스코어 6이상 ~ 7미만)<br>
-							종결     (스코어 7이상 ~ 8미만)<br>
-							극종결 (스코어 8이상 ~ 9미만)<br>
-							극한     (스코어 9이상 ~)<br>
-							</p>
-
-							*시계
-							준종결 (스코어 5이상 ~ 6미만 )
-							종결    (스코어 6이상 ~ 7미만)
-							극종결 (스코어 7이상 ~ 8미만)
-							극한     (스코어 8이상 ~)
-						
-							*성배&모자 
-							준종결 (스코어 4이상 ~ 5미만)
-							종결     (스코어 5이상 ~ 6미만)
-							극종결 (스코어 6이상 ~ 7미만)
-							극한     (스코어 7이상 ~)
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 보정</span>
+							<p>원소 마스터리가 유효옵이 아닐경우<br>
+							파밍난이도가 원소 마스터리가 유효옵인 캐릭터에 비해 어렵기에<br>
+							Total Score에서 <span style="color: red;">5%</span>를 추가된 점수로 등급을 판별<br>
+							ex)Total Score가 34일경우 종결이지만 보정할 시 35.7이기에 극종결로 표기</p>
 							
-							☆total score
-							딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상) 그리고
-							사이클 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치(원충자체가 전혀 필요없는 캐릭은 수치계산에 넣지말 것)
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 등급</span>
+							<div class="dd" style="margin-top: 3px;">
+								<i class="bi bi-dot"></i><span class="soso">준종결</span>(25이상 ~ 30미만)<br>
+								라이트하고 극도의 <span style="color: red;">효율</span> 등급<br> 
+							</div>
+							<div class="dd">
+								<i class="bi bi-dot"></i><span class="good">종결</span>(30이상 ~ 35미만)<br>
+								더 파밍하면 효율이 극도로 낮아지는 <span style="color: red;">졸업</span>가능한 등급<br> 
+							</div>
+							<div class="dd">
+								<i class="bi bi-dot"></i><span class="verry">극종결</span>(35이상 ~ 40미만)<br>
+								어디서든 자랑가능한 종결급 내에서 <span style="color: red;">상위권</span>인 등급<br>
+								1점 올리는데 몇달이 소요됨<br>
+							</div>
+							<div class="dd">
+								<i class="bi bi-dot"></i><span class="limit">극한</span>(스코어 40이상 ~)<br>
+								확률적으로 <span style="color: red;">한계</span>수치에 도달한 천운의 영역등급<br>
+								랭킹사이트 기준 100위권 이내<br>
+							</div>
 							
-							☆total score 보정
-							원소 마스터리가 유효옵이 아닐경우
-							파밍난이도가 원소 마스터리가 유효옵인 캐릭터에 비해 어렵기에
-							total score에서 5%를 추가된 점수로 등급을 판별
-							ex)total score가 34일경우 종결이지만 보정할 시 35.7이기에 극종결로 표기
-							
-							☆total score 등급
-							
-							준종결:라이트하고 극도의 효율 등급
-							(25이상 ~ 30미만) 
-							
-							종결:더 이상 파밍 할 시 효율이 극도로 낮아지는 졸업가능한 등급
-							(30이상 ~ 35미만) 
-							
-							극종결:어디서든 자랑가능한 종결급 내에서 상위권인 등급
-							1점 올리는데 몇달이 소요됨
-							(35이상 ~ 40미만)
-							
-							극한:확률적으로 불가능에 가까운 한계수치에 도달한 천운의 영역등급
-							랭킹사이트 기준 10위권 내외
-							(스코어 40이상 ~)
-							
-							☆스코어 계산(부옵의 평균 수치당 1score)
-							
-							공격력%             ÷5
-							생명력%             ÷5
-							방어력%             ÷6.2
-							치명타 확률%     ÷3.3
-							치명타 피해%     ÷6.6
-							원소충전%         ÷5.5
-							원소마스터리     ÷20
-							공격력                ÷50 (약 10당 공격력1%)
-							생명력                ÷600 (약 120당 체력1%)
-							방어력                ÷41 (약 6.6당 방어력1%)
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스코어 계산(부옵의 평균 수치당 1Score)</span>
+							<table class="table table-bordered" style="width: 90%;" id="scoreTable">
+								<tr>
+									<td style="width:30%">공격력%</td>
+									<td style="width:70%">÷5</td>
+								</tr>
+								<tr>
+									<td>HP%</td>
+									<td>÷5</td>
+								</tr>
+								<tr>
+									<td>방어력%</td>
+									<td>÷6.2</td>
+								</tr>
+								<tr>
+									<td>치명타 확률%</td>
+									<td>÷3.3</td>
+								</tr>
+								<tr>
+									<td>치명타 피해%</td>
+									<td>÷6.6</td>
+								</tr>
+								<tr>
+									<td>원소충전%</td>
+									<td>÷5.5</td>
+								</tr>
+								<tr>
+									<td>원소마스터리</td>
+									<td>÷20</td>
+								</tr>
+								<tr>
+									<td>공격력</td>
+									<td>÷50 (약 10당 공격력1%)</td>
+								</tr>
+								<tr>
+									<td>HP</td>
+									<td>÷600 (약 120당 HP1%)</td>
+								</tr>
+								<tr>
+									<td>방어력</td>
+									<td>÷41 (약 6.6당 방어력1%)</td>
+								</tr>
+							</table>
 						</div>
 						</div>
 					</div>
@@ -786,7 +884,7 @@
 		<h2><span style="color:#6D794B">원신 성유물 계산기</span>&nbsp;&nbsp;
 			<i class="bi bi-info-circle" id="guideOpen" style="color:#f5bc00;"></i>
 		</h2>
-		<table style="width:65%;">
+		<table style="width:65%;" id="adjustT">
 			<tr>
 				<td>공격력 보정</td>
 				<td>
@@ -817,17 +915,19 @@
 			</tr>
 			<tr>
 				<td>적정 원충 수치</td>
-				<td><input type="number" inputmode="decimal" pattern="\d*"  id="elementgauge" style="width: 60%; border-radius: 5px; border: 1px solid gray;">%</td>
+				<td><input type="number" inputmode="decimal" pattern="\d*"  id="elementgauge" style="width: 60%; border-radius: 5px; border: 1px solid gray;" value="100">%</td>
 			</tr>
 			<tr>
-				<td>totalScore 보정</td>
+				<td>Total Score 보정</td>
 				<td>
 					<input type="radio" value="i" name="masteryChk">O
 					<input type="radio" value="ni" name="masteryChk" checked>X
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" style="font-size: 0.7em; color: red;">※반드시 i를 눌러 가이드를 읽고 사용해주세요</td>
+				<td colspan="2" style="font-size: 0.7em; color: red;">
+					※반드시 i를 눌러 가이드를 읽고 사용해주세요<br>
+				</td>
 			</tr>
 		</table>
 		<br>
