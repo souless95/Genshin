@@ -460,7 +460,7 @@
 				let originalScore = totalScore;
 
 				if(masteryChkQ=="i"){
-					totalScore = totalScore*(100/105);	
+					totalScore = totalScore*(105/100);	
 				}
 
 				if (25 <= totalScore && totalScore < 27.5) {
@@ -500,10 +500,11 @@
 						'color': 'transparent',
 						'-webkit-background-clip' : 'text'});
 					$(".finalImg").css({
-						"padding": "10px",
-						"border": "5px solid transparent",
+						"padding": "3px",
+						"border": "2px solid transparent",
 						"background-clip": "padding-box",
-						"background-image": "linear-gradient(to top, #e16ddd, #ffff66)"
+						//"background-image": "linear-gradient(to top, #e16ddd, #ffff66)"
+						"background-image": "linear-gradient(to right top, #e16ddd, #ffff66)"
 					  });
 					$('.finalImg').attr('src', '극한.jpg');
 					$('.finalText').text('천리에 도달 가능한 자');
@@ -1136,10 +1137,9 @@
 		<br>
 		<br>
 		<br>
-		<br>
 		<div>
 			<span class="finalScore" style="font-weight: bolder;"></span>
-			<span class="finalText" style="text-align: center; display: block;"></span><br>
+			<span class="finalText" style="text-align: center; display: block;"></span>
 			<img class="finalImg" style="width: 200px;">
 		</div>
 	</div>
@@ -1151,7 +1151,7 @@
 							</span><button type="button" style="float: right; margin-right: 5%;" id="close">닫기</button><br>
 						</div>
 						<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
-						<span class="finalText" style="text-align: center; display: block;"></span><br>
+						<span class="finalText" style="text-align: center; display: block;"></span>
 						<img class="finalImg" style="width: 80%;">
 					</div>
 				</div>
