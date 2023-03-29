@@ -609,12 +609,13 @@
 			background-color: #67a8d1;
 			color: white;
 		}
-		#close, #guideClose, #imgDown{
+		#close, #guideClose{
 			border-radius: 5px;
-			border: 1px solid gray;
-		}
-		#imgDown{
 			background-color: white;
+			color: #67a8d1;
+		}
+		#guideClose{
+			border: 1px solid #67a8d1;
 		}
 		.selectO {
 			margin-bottom: 3px;
@@ -740,6 +741,22 @@
 		.reliqueT{
 			color: white;
 		}
+		input[type='radio'],
+		input[type='radio']:checked {
+		appearance: none;
+		width: 0.9rem;
+		height: 0.9rem;
+		border-radius: 100%;
+		margin-right: 0.1rem;
+		}
+
+		input[type='radio'] {
+		background-color: white;
+		border: 2px solid #eef2f4;
+		}
+		input[type='radio']:checked {
+		background-color: #67a8d1;
+		}
 
 		@media screen and (max-width:440px) {
 			body {
@@ -776,7 +793,7 @@
 				<div class="guidModal">
 					<div class="modal-content-G" style="display: none;">
 						<div style="margin-top: 10px;">
-							<button type="button" style="float: right; margin-right: 10px;" id="guideClose">닫기</button>
+							<button type="button" style="float: right; margin-right: 10px;" id="guideClose" class="closeBtn">닫기</button>
 						</div><br>
 						<div>
 
@@ -787,7 +804,7 @@
 							ex)6Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
-							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치를 입력</p>
+							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
 							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로 보정계산한다<br>
@@ -922,29 +939,29 @@
 			<tr>
 				<td>공격력 보정</td>
 				<td>
-					<input type="radio" value="i" name="attack">O
-					<input type="radio" value="ni" name="attack" checked>X
+					<input type="radio" value="i" name="attack">&nbsp;O
+					<input type="radio" value="ni" name="attack" checked>&nbsp;X
 				</td>
 			</tr>
 			<tr>
 				<td>HP 보정</td>
 				<td>
-					<input type="radio" value="i" name="hp">O
-					<input type="radio" value="ni" name="hp" checked>X
+					<input type="radio" value="i" name="hp">&nbsp;O
+					<input type="radio" value="ni" name="hp" checked>&nbsp;X
 				</td>
 			</tr>
 			<tr>
 				<td>방어력 보정</td>
 				<td>
-					<input type="radio" value="i" name="defensive">O
-					<input type="radio" value="ni" name="defensive" checked>X
+					<input type="radio" value="i" name="defensive">&nbsp;O
+					<input type="radio" value="ni" name="defensive" checked>&nbsp;X
 				</td>
 			</tr>
 			<tr>
 				<td>원소마스터리 보정</td>
 				<td>
-					<input type="radio" value="i" name="mastery">O
-					<input type="radio" value="ni" name="mastery" checked>X
+					<input type="radio" value="i" name="mastery">&nbsp;O
+					<input type="radio" value="ni" name="mastery" checked>&nbsp;X
 				</td>
 			</tr>
 			<tr>
@@ -954,8 +971,8 @@
 			<tr>
 				<td>Total Score 보정</td>
 				<td>
-					<input type="radio" value="i" name="masteryChk">O
-					<input type="radio" value="ni" name="masteryChk" checked>X
+					<input type="radio" value="i" name="masteryChk">&nbsp;O
+					<input type="radio" value="ni" name="masteryChk" checked>&nbsp;X
 				</td>
 			</tr>
 			<tr>
@@ -1332,7 +1349,7 @@
 				<div class="resultModal">
 					<div class="modal-content" style="display:none; padding-bottom: 20px;">
 						<div style="margin-top: 7px; margin-bottom: 7px;">
-							</span><button type="button" style="float: right; margin-right: 5%;" id="close">닫기</button><br>
+							</span><button type="button" style="float: right; margin-right: 5%;" id="close" class="closeBtn">닫기</button><br>
 						</div>
 						<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
 						<span class="finalText" style="text-align: center; display: block; color:white"></span>
