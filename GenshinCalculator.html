@@ -457,10 +457,10 @@
 				}
 
 				if ((elementGauge - 100 - totalGauge) <= 0) {
-					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5).toFixed(1));
+					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5));
 				}
-
-				let originalScore = totalScore;
+				
+				let originalScore = Math.floor(totalScore * 10) / 10;
 
 				if(masteryChkQ=="i"){
 					totalScore = totalScore*(105/100);	
@@ -518,7 +518,7 @@
 					$('.finalImg').attr('src', '미달.webp');
 					$('.finalText').text('당신은 너무나도 나약합니다^^');
 				}
-				$('.finalScore').text("Total Score :" + originalScore.toFixed(1) + text);
+				$('.finalScore').text("Total Score :" + originalScore + text);
 			});
 			$('.reset').click(function () {
 				$(this).parent().find('select').each(function () {
@@ -538,8 +538,8 @@
 				$('body').css('overflow','hidden');
 			});
 			$('#guideClose').click(function(){
-				closeG ();
 				$('body').css('overflow','');
+				closeG ();
 			});
 		});
 	</script>
@@ -833,7 +833,7 @@
 								1점 올리는데 몇달이 소요됨<br>
 							</div>
 							<div class="dd">
-								<i class="bi bi-dot"></i><span class="limit">극한</span>(스코어 40이상 ~)<br>
+								<i class="bi bi-dot"></i><span class="limit">극한</span>(40이상 ~)<br>
 								확률적으로 <span style="color: red;">한계</span>수치에 도달한 천운의 영역등급<br>
 								랭킹사이트 기준 100위권 이내<br>
 							</div>
@@ -1324,6 +1324,13 @@
 				document.querySelector(".background").className = "background";
 				document.querySelector(".modal-content").style.display = "none";
 				document.querySelector("body").style.overflow = "";
+				const elements = document.querySelectorAll('.finalImg');
+				elements.forEach(element => {
+				element.style.padding = '';
+				element.style.border = '';
+				element.style.backgroundClip = '';
+				element.style.backgroundImage = '';
+				});
 			}
       		document.querySelector("#close").addEventListener("click", close);
 		</script>
