@@ -460,43 +460,43 @@
 					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5));
 				}
 				
-				let originalScore = Math.floor(totalScore * 10) / 10;
+				let finalScore = totalScore.toFixed(1);
 
 				if(masteryChkQ=="i"){
 					totalScore = totalScore*(105/100);	
 				}
 
-				if (25 <= totalScore && totalScore < 27.5) {
+				if (25 <= finalScore && finalScore < 27.5) {
 					text = littleEnd;
 					$('.finalScore').css('color', 'gray');
 					$('.finalImg').attr('src', '준종1.webp');
 					$('.finalText').text('좀 만 더 비경에 투자하는게 어때..?');
 				}
-				else if (27.5 <= totalScore && totalScore < 30) {
+				else if (27.5 <= finalScore && finalScore < 30) {
 					text = littleEnd;
 					$('.finalScore').css('color', 'gray');
 					$('.finalImg').attr('src', '준종2.webp');
 					$('.finalText').text('좀 만 더 비경에 투자하는게 어때..?');
 				}
-				else if (30 <= totalScore && totalScore < 32.5) {
+				else if (30 <= finalScore && finalScore < 32.5) {
 					text = end;
 					$('.finalScore').css('color', '#e16ddd');
 					$('.finalImg').attr('src', '종결1.webp');
 					$('.finalText').text('효율따지면 여기서 그만하자구 :)');
 				}
-				else if (32.5 <= totalScore && totalScore < 35) {
+				else if (32.5 <= finalScore && finalScore < 35) {
 					text = end;
 					$('.finalScore').css('color', '#e16ddd');
 					$('.finalImg').attr('src', '종결2.webp');
 					$('.finalText').text('효율따지면 여기서 그만하자구 :)');
 				}
-				else if (35 <= totalScore && totalScore < 40) {
+				else if (35 <= finalScore && finalScore < 40) {
 					text = verryEnd;
 					$('.finalScore').css('color', '#ffd700');
 					$('.finalImg').attr('src', '극종결.webp');
 					$('.finalText').text('원땅아 비경 그만 돌아;;');
 				}
-				else if (40 <= totalScore) {
+				else if (40 <= finalScore) {
 					text = limitEnd;
 					$('.finalScore').css({
 						'background' : 'linear-gradient(to top, #e16ddd, #ffff66',
@@ -518,7 +518,7 @@
 					$('.finalImg').attr('src', '미달.webp');
 					$('.finalText').text('당신은 너무나도 나약합니다^^');
 				}
-				$('.finalScore').text("Total Score :" + originalScore + text);
+				$('.finalScore').text("Total Score :" + finalScore + text);
 			});
 			$('.reset').click(function () {
 				$(this).parent().find('select').each(function () {
