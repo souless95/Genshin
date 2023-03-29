@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 	<script src="html2canvas.js"></script>
 	<script type="text/javascript">
 		var attackP = 5;
@@ -138,11 +139,11 @@
 			}
 			else if (7 <= total && total < 8) {
 				$('#relique1').children('span').text(" score:" + total + end);
-				$('#relique1').children('span').css('color', '#e16ddd');
+				$('#relique1').children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
 				$('#relique1').children('span').text(" score:" + total + littleEnd);
-				$('#relique1').children('span').css('color', 'gray');
+				$('#relique1').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 6){
 				$('#relique1').children('span').text(" score:" + total + notEnd);
@@ -187,11 +188,11 @@
 			}
 			else if (7 <= total && total < 8) {
 				$('#relique2').children('span').text(" score:" + total + end);
-				$('#relique2').children('span').css('color', '#e16ddd');
+				$('#relique2').children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
 				$('#relique2').children('span').text(" score:" + total + littleEnd);
-				$('#relique2').children('span').css('color', 'gray');
+				$('#relique2').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 6){
 				$('#relique2').children('span').text(" score:" + total + notEnd);
@@ -236,11 +237,11 @@
 			}
 			else if (6 <= total && total < 7) {
 				$('#relique3').children('span').text(" score:" + total + end);
-				$('#relique3').children('span').css('color', '#e16ddd');
+				$('#relique3').children('span').css('color', '#f1d2ff');
 			}
 			else if (5 <= total && total < 6) {
 				$('#relique3').children('span').text(" score:" + total + littleEnd);
-				$('#relique3').children('span').css('color', 'gray');
+				$('#relique3').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 5){
 				$('#relique3').children('span').text(" score:" + total + notEnd);
@@ -285,11 +286,11 @@
 			}
 			else if (5 <= total && total < 6) {
 				$('#relique4').children('span').text(" score:" + total + end);
-				$('#relique4').children('span').css('color', '#e16ddd');
+				$('#relique4').children('span').css('color', '#f1d2ff');
 			}
 			else if (4 <= total && total < 5) {
 				$('#relique4').children('span').text(" score:" + total + littleEnd);
-				$('#relique4').children('span').css('color', 'gray');
+				$('#relique4').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 4){
 				$('#relique4').children('span').text(" score:" + total + notEnd);
@@ -334,11 +335,11 @@
 			}
 			else if (5 <= total && total < 6) {
 				$('#relique5').children('span').text(" score:" + total + end);
-				$('#relique5').children('span').css('color', '#e16ddd');
+				$('#relique5').children('span').css('color', '#f1d2ff');
 			}
 			else if (4 <= total && total < 5) {
 				$('#relique5').children('span').text(" score:" + total + littleEnd);
-				$('#relique5').children('span').css('color', 'gray');
+				$('#relique5').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 4){
 				$('#relique5').children('span').text(" score:" + total + notEnd);
@@ -445,7 +446,14 @@
 				let masteryChkQ = $('input[name=masteryChk]:checked').val();
 
 				show();
-				$('#imgDown').css('display','block');
+
+				$('#finalImg1').css({
+					padding : '',
+					border : '',
+					backgroundClip : '',
+					backgroundImage : ''
+				});
+
 				$('select').each(function () {
 					if ($(this).val() == "gauge") {
 						totalGauge += parseFloat($(this).next('input').val());
@@ -468,33 +476,49 @@
 
 				if (25 <= finalScore && finalScore < 27.5) {
 					text = littleEnd;
-					$('.finalScore').css('color', 'gray');
+					$('.finalScore').css('color', '#bfdbf1');
 					$('.finalImg').attr('src', '준종1.webp');
-					$('.finalText').text('좀 만 더 비경에 투자하는게 어때..?');
+					$('.finalText').text('나약해 보임');
 				}
 				else if (27.5 <= finalScore && finalScore < 30) {
 					text = littleEnd;
-					$('.finalScore').css('color', 'gray');
+					$('.finalScore').css('color', '#bfdbf1');
 					$('.finalImg').attr('src', '준종2.webp');
-					$('.finalText').text('좀 만 더 비경에 투자하는게 어때..?');
+					$('.finalText').text('좀 봐줄 만 함');
 				}
 				else if (30 <= finalScore && finalScore < 32.5) {
 					text = end;
-					$('.finalScore').css('color', '#e16ddd');
+					$('.finalScore').css('color', '#f1d2ff');
 					$('.finalImg').attr('src', '종결1.webp');
-					$('.finalText').text('효율따지면 여기서 그만하자구 :)');
+					$('.finalText').text('어느정도 잘 키움');
 				}
 				else if (32.5 <= finalScore && finalScore < 35) {
 					text = end;
-					$('.finalScore').css('color', '#e16ddd');
-					$('.finalImg').attr('src', '종결2.webp');
-					$('.finalText').text('효율따지면 여기서 그만하자구 :)');
+					$('.finalScore').css('color', '#f1d2ff');
+					$('.finalImg').attr('src', '소.jpg');
+					$('.finalText').text("'선인'과 대등한 자");
+					$(".finalImg").css("border", "1px solid #f1d2ff");
 				}
-				else if (35 <= finalScore && finalScore < 40) {
+				else if (35 <= finalScore && finalScore < 37.5) {
 					text = verryEnd;
 					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '극종결.webp');
-					$('.finalText').text('원땅아 비경 그만 돌아;;');
+					$('.finalImg').attr('src', '귀종.jpg');
+					$('.finalText').text("'마신'과 대등한 자");
+					$(".finalImg").css("border", "1px solid #ffd700");
+				}
+				else if (37.5 <= finalScore && finalScore < 39) {
+					text = verryEnd;
+					$('.finalScore').css('color', '#ffd700');
+					$('.finalImg').attr('src', '라이덴.png');
+					$('.finalText').text("'일곱 신'과 대등한 자");
+					$(".finalImg").css("border", "1px solid #ffd700");
+				}
+				else if (39 <= finalScore && finalScore < 40) {
+					text = verryEnd;
+					$('.finalScore').css('color', '#ffd700');
+					$('.finalImg').attr('src', '종려.jpg');
+					$('.finalText').text("'일곱 신'과 대등한 자");
+					$(".finalImg").css("border", "2px solid #ffd700");
 				}
 				else if (40 <= finalScore) {
 					text = limitEnd;
@@ -506,7 +530,6 @@
 						"padding": "3px",
 						"border": "2px solid transparent",
 						"background-clip": "padding-box",
-						//"background-image": "linear-gradient(to top, #e16ddd, #ffff66)"
 						"background-image": "linear-gradient(to right top, #e16ddd, #ffff66)"
 					  });
 					$('.finalImg').attr('src', '극한.jpg');
@@ -516,7 +539,7 @@
 					text = notEnd;
 					$('.finalScore').css('color', 'red');
 					$('.finalImg').attr('src', '미달.webp');
-					$('.finalText').text('당신은 너무나도 나약합니다^^');
+					$('.finalText').text('자네는 파밍 안 하나?');
 				}
 				$('.finalScore').text("Total Score :" + finalScore + text);
 			});
@@ -547,10 +570,6 @@
 		* {
 			font-family: 'Noto Sans KR', sans-serif;
 		}
-		.popover-body {
-			background-color: #333;
-			color: #fff;
-		  }
 		select {
 			padding: 3px;
 			text-align: center;
@@ -571,25 +590,24 @@
 		.reliqueList button {
 			border-radius: 5px;
 			border: none;
-			background-color: #a5c159;
+			background-color: #67a8d1;
 			color: #ffffff;
 			font-weight: lighter;
 			font-size: 0.9em;
 		}
 		#cal, #reset {
 			border-radius: 5px;
-			width: 85px;
 			border: none;
 			height: 25px;
 			font-size: 0.9em;
 		}
 		#cal{
-			background-color: #f9a322;
-			color: #ffffff;
+			background-color: #b6d0eb;
+			color: black;
 		}
 		#reset{
-			background-color: #cfcfcf;
-			color: #2b2b2b;
+			background-color: #67a8d1;
+			color: white;
 		}
 		#close, #guideClose, #imgDown{
 			border-radius: 5px;
@@ -613,7 +631,7 @@
 			height: 100vh;
 			background-color: rgba(0, 0, 0, 0.3);
 			z-index: -1;
-			  opacity: 0;
+			opacity: 0;
 		}
 		.window {
 			position: relative;
@@ -638,7 +656,7 @@
 			transition: all .5s;
 		}
 		.modal-content{
-			background-color: #ffffff;
+			background-color: #001d45;
 			width: 70%;
 			position: absolute;
 			top: 30%;
@@ -685,10 +703,10 @@
 			font-size: 0.8em;
 		}
 		.soso{
-			color: gray;
+			color: #bfdbf1;
 		}
 		.good{
-			color: #e16ddd;
+			color: #f1d2ff;
 		}
 		.verry{
 			color: #ffd700;
@@ -713,13 +731,21 @@
 		.bi-diamond-fill{
 			font-size: 0.7em;
 		}
+		#madeby{
+			font-family: 'Poor Story', cursive;
+			margin-right: 10px;
+			margin-top: 3px;
+			color: white;
+		}
+		.reliqueT{
+			color: white;
+		}
 
 		@media screen and (max-width:440px) {
 			body {
-				background-image: url("back2.jpg");
+				background-image: url("신학.jpg");
 				background-size: 440px;
-				background-color: #EAEED7;
-				background-repeat: no-repeat;
+				background-color: #374457;
 			}
 
 			h2 {
@@ -730,6 +756,9 @@
 </head>
 
 <body id="capture">
+	<div align="right">
+		<span id="madeby">제작자:목련&클레나리</span>
+	</div>
 	<br>
 	<div class="container" align="center">
 		<script>
@@ -886,10 +915,10 @@
 					</div>
 			</div>
 		</div>
-		<h2><span style="color:#6D794B">원신 성유물 계산기</span>&nbsp;&nbsp;
-			<i class="bi bi-info-circle" id="guideOpen" style="color:#f5bc00;"></i>
+		<h2><span style="color: white;">원신 성유물 계산기</span>&nbsp;&nbsp;
+			<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>
 		</h2>
-		<table style="width:65%;" id="adjustT">
+		<table style="width:65%; color:white" id="adjustT">
 			<tr>
 				<td>공격력 보정</td>
 				<td>
@@ -930,7 +959,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" style="font-size: 0.7em; color: red;">
+				<td colspan="2" style="font-size: 0.7em; color: yellow;">
 					※반드시 i를 눌러 가이드를 읽고 사용해주세요.<br>
 				</td>
 			</tr>
@@ -939,7 +968,7 @@
 		<div class="reliqueList">
 			<!-- 꽃 -->
 			<div id="relique1">
-				<strong>꽃</strong><span></span>
+				<strong class="reliqueT">꽃</strong><span></span>
 				<button type="button" class="reset">초기화</button>
 				<div class="selectO">
 					<select name="flower-option-1">
@@ -1008,7 +1037,7 @@
 			</div>
 			<!-- 깃털 -->
 			<div id="relique2">
-				<strong>깃털</strong><span></span>
+				<strong class="reliqueT">깃털</strong><span></span>
 				<button type="button" class="reset">초기화</button>
 				<div class="selectO">
 					<select name="feather-option-1">
@@ -1078,7 +1107,7 @@
 
 			<!-- 시계 -->
 			<div id="relique3">
-				<strong>시계</strong><span></span>
+				<strong class="reliqueT">시계</strong><span></span>
 				<button type="button" class="reset">초기화</button>
 				<div class="selectO">
 					<select name="watch-option-1">
@@ -1148,7 +1177,7 @@
 
 			<!-- 성배 -->
 			<div id="relique4">
-				<strong>성배</strong><span></span>
+				<strong class="reliqueT">성배</strong><span></span>
 				<button type="button" class="reset">초기화</button>
 				<div class="selectO">
 					<select name="holyGrail-option-1">
@@ -1218,7 +1247,7 @@
 
 			<!-- 왕관 -->
 			<div id="relique5">
-				<strong>왕관</strong><span></span>
+				<strong class="reliqueT">왕관</strong><span></span>
 				<button type="button" class="reset">초기화</button>
 				<div class="selectO">
 					<select name="crown-option-1">
@@ -1289,27 +1318,25 @@
 
 		<div style="margin-top: 10px;">
 			<button type="button" id="cal">계산하기</button>
-			<button type="button" id="reset">초기화</button>
+			<button type="button" id="reset">전체 초기화</button>
 		</div>
-		<br>
-		<br>
 		<br>
 		<div>
 			<span class="finalScore" style="font-weight: bolder;"></span>
-			<span class="finalText" style="text-align: center; display: block;"></span>
-			<img class="finalImg" style="width: 200px;">
+			<span class="finalText" style="text-align: center; color:white; display: block;"></span>
+			<img class="finalImg" style="width: 200px;" id="finalImg1">
 		</div>
 	</div>
 		<div class="background" align="center">
 			<div class="window">
 				<div class="resultModal">
-					<div class="modal-content" style="display:none; margin-bottom: 20px;">
+					<div class="modal-content" style="display:none; padding-bottom: 20px;">
 						<div style="margin-top: 7px; margin-bottom: 7px;">
 							</span><button type="button" style="float: right; margin-right: 5%;" id="close">닫기</button><br>
 						</div>
 						<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
-						<span class="finalText" style="text-align: center; display: block;"></span>
-						<img class="finalImg" style="width: 80%;">
+						<span class="finalText" style="text-align: center; display: block; color:white"></span>
+						<img class="finalImg" style="width: 80%;" id="finalImg2">
 					</div>
 				</div>
 			</div>
@@ -1324,18 +1351,20 @@
 				document.querySelector(".background").className = "background";
 				document.querySelector(".modal-content").style.display = "none";
 				document.querySelector("body").style.overflow = "";
-				const elements = document.querySelectorAll('.finalImg');
+				const elements = document.querySelectorAll('#finalImg2');
 				elements.forEach(element => {
-				element.style.padding = '';
-				element.style.border = '';
-				element.style.backgroundClip = '';
-				element.style.backgroundImage = '';
-				});
+					element.style.padding = '';
+					element.style.border = '';
+					element.style.backgroundClip = '';
+					element.style.backgroundImage = '';
+				});			
 			}
       		document.querySelector("#close").addEventListener("click", close);
 		</script>
 	</div>
 	</div>
+	<br>
+	<br>
 </body>
 
 </html>
