@@ -570,6 +570,11 @@
 		* {
 			font-family: 'Noto Sans KR', sans-serif;
 		}
+		body {
+			background-image: url("pc_신학.jpg");
+			background-color: #374457;
+			background-size: 1920px;
+		}
 		select {
 			padding: 3px;
 			text-align: center;
@@ -577,21 +582,22 @@
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			appearance: none;
-			width: 30%;
 			background-color: white;
 			border: 1px solid gray;
 			color: black;
 			justify-content: center;
+			width: 20%;
 		}
 		option {
 			color: black;
 			justify-content: center;
 		}
 		.reliqueList input{
-			width: 35%;
+			width: 18%;
 			border-radius: 5px;
 			border: 1px solid gray;
 			padding: 3px;
+			text-align: center;
 		}
 		.reliqueList button {
 			border-radius: 5px;
@@ -705,7 +711,7 @@
 		}
 		#gradeTable{
 			font-size: 0.9em;
-			border: 1px solid gray;
+			border: 1px solid black;
 		}
 		#gradeTable tr td:nth-child(2), #gradeTable tr td:nth-child(3), #gradeTable tr td:nth-child(4){
 			font-size: 0.8em;
@@ -764,6 +770,14 @@
 		input[type='radio']:checked {
 		background-color: #67a8d1;
 		}
+		#elementgauge{
+			width: 30%;
+			text-align: right;
+		}
+		#adjustT{
+			width:38%;
+			margin-top: 3%;
+		}
 
 		@media screen and (max-width:440px) {
 			body {
@@ -775,6 +789,87 @@
 			h2 {
 				text-align: center;
 			}
+
+			.reliqueList input{
+				width: 35%;
+				border-radius: 5px;
+				border: 1px solid gray;
+				padding: 3px;
+			}
+			#elementgauge{
+				width: 60%;
+				text-align: center;
+			}
+			#adjustT{
+				width:65%;
+			}
+			.reliqueList input{
+				width: 30%;
+			}
+			select{
+				width: 30%;
+			}
+			#scoreTable, #gradeTable{
+				width: 90%;
+				text-align: center;
+				border : 1px solid black;
+			}
+			#scoreTable tr td:nth-child(1){
+				width: 35%;
+			}
+			#scoreTable tr td:nth-child(2){
+				width: 65%;
+			}
+		}
+		@media screen and (min-width:720px){
+			p{
+				text-align: center;
+			}
+			.modal-content-G{
+				width: 60%;
+				top: 10%;
+				left: 20%;
+				max-height: 1080px;
+			}
+			.modal-content{
+				background-color: #001d45;
+				width: 30%;
+				position: absolute;
+				top: 25%;
+				left: 35%;
+				border-radius: 10px;
+			}
+			#gradeTable{
+				width: 60%;
+				text-align: center;
+			}
+			#scoreTable{
+				width: 80%;
+				text-align: center;
+				border : 1px solid black;
+				font-size: 0.9em;
+			}
+			#scoreTable tr td:nth-child(1){
+				width: 50%;
+			}
+			#scoreTable tr td:nth-child(2){
+				width: 50%;
+			}
+			*{
+				font-size: 1.1em;
+			}
+			#elementgauge{
+				width: 50%;
+				text-align: center;
+			}
+			#cal, #reset {
+				height: 15%;
+			}
+			#guideHeader{
+				margin-left: 6%;
+			}
+			
+
 		}
 	</style>
 </head>
@@ -803,10 +898,10 @@
 							<button type="button" style="float: right; margin-right: 10px;" id="guideClose" class="closeBtn">닫기</button>
 						</div><br><br>
 						<div>
-							<div style="margin-bottom:10px;"><Strong>《딜러용 성유물 계산기》</Strong></div>
+							<div style="margin-bottom:10px;" id="guideHeader"><Strong>《딜러용 성유물 계산기》</Strong></div>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Score 개념</span>
 							<p>성유물의 부옵션 중 캐릭터의 유효한 수치만을 합산 후 부옵션평균을 나눈 값<br>
-							ex)6Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
+							ex)6 Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
 							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력</p>
@@ -823,7 +918,7 @@
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>성유물 Score 등급</span><br>
 							
-							<table style="width:90%" id="gradeTable" class="table table-bordered">
+							<table id="gradeTable" class="table table-bordered">
 								<thead>
 									<th style="width:20%"></th>
 									<th style="width:26%">꽃&깃털</th>
@@ -889,11 +984,11 @@
 								랭킹사이트 기준 100위권 이내<br>
 							</div>
 							
-							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스코어 계산(부옵의 평균 수치당 1Score)</span>
-							<table class="table table-bordered" style="width: 90%;" id="scoreTable">
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스코어 계산(부옵의 평균 수치당 1 Score)</span>
+							<table class="table table-bordered" id="scoreTable">
 								<tr>
-									<td style="width:30%">공격력%</td>
-									<td style="width:70%">÷5</td>
+									<td>공격력%</td>
+									<td>÷5</td>
 								</tr>
 								<tr>
 									<td>HP%</td>
@@ -940,7 +1035,7 @@
 		<h2><span style="color: white;">원신 성유물 계산기</span>&nbsp;&nbsp;
 			<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>
 		</h2>
-		<table style="width:65%; color:white" id="adjustT">
+		<table style="color:white" id="adjustT">
 			<tr>
 				<td>공격력 보정</td>
 				<td>
@@ -971,7 +1066,7 @@
 			</tr>
 			<tr>
 				<td>적정 원충 수치</td>
-				<td><input type="number" inputmode="decimal" pattern="\d*"  id="elementgauge" style="width: 60%; border-radius: 5px; border: 1px solid gray;" value="100">%</td>
+				<td><input type="number" inputmode="decimal" pattern="\d*"  id="elementgauge" style="border-radius: 5px; border: 1px solid gray;" value="100">%</td>
 			</tr>
 			<tr>
 				<td>Total Score 보정</td>
