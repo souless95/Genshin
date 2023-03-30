@@ -5,6 +5,11 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="성유물 Score 계산기" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://souless95.github.io/Genshin/GenshinCalculator.html" />
+	<meta property="og:image" content="썸네일.webp" />
+	<meta property="og:description" content="유저들에게 도움이 되길 바랍니다" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -850,10 +855,10 @@
 				font-size: 0.9em;
 			}
 			#scoreTable tr td:nth-child(1){
-				width: 50%;
+				width: 5%;
 			}
 			#scoreTable tr td:nth-child(2){
-				width: 50%;
+				width: 49%;
 			}
 			*{
 				font-size: 1.1em;
@@ -904,12 +909,16 @@
 							ex)6 Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
-							<p>공격력,HP,방어력:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력</p>
+							<p>
+							<span style="font-weight: bolder;">공격력,HP,방어력</span>:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력<br>
+							<span style="font-weight: bolder;">원소마스터리</span>:원소마스터리가 딜링에 유효옵일 경우만 입력<br>
+							<span style="font-weight: bolder;">원소충전효율</span>:궁을 전혀 사용안하거나 원소충전효율이 전혀 필요없는 캐릭일 경우 입력x
+							</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
 							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로 보정계산한다<br>
 								ex)호두,나히다 - 공격력 0.5보정<br>
-								클레 - 원소 마스터리 0.5보정</p>
+								클레 - 원소마스터리 0.5보정</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>적정 원충 수치</span>
 							<p>캐릭터가 궁 사이클이 부드럽게 굴러가기위한 최대 원충 수치<br>
@@ -959,8 +968,8 @@
 							(원충자체가 전혀 필요없는 캐릭은 성유물 계산에 입력하지 말것)</p>
 							
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 보정</span>
-							<p>원소 마스터리가 유효옵이 아닐경우<br>
-							파밍난이도가 원소 마스터리가 유효옵인 캐릭터에 비해 어렵기에<br>
+							<p>원소마스터리가 유효옵이 아닐경우<br>
+							파밍난이도가 원소마스터리가 유효옵인 캐릭터에 비해 어렵기에<br>
 							Total Score에서 <span style="color: red;">5%</span>를 추가된 점수로 등급을 판별<br>
 							ex)Total Score가 34일경우 <span class="good">종결</span>이지만 보정할 시 35.7이기에 <span class="verry">극종결</span>로 표기</p>
 							
@@ -999,15 +1008,15 @@
 									<td>÷6.2</td>
 								</tr>
 								<tr>
-									<td>치명타 확률%</td>
+									<td>치명타 확률</td>
 									<td>÷3.3</td>
 								</tr>
 								<tr>
-									<td>치명타 피해%</td>
+									<td>치명타 피해</td>
 									<td>÷6.6</td>
 								</tr>
 								<tr>
-									<td>원소충전%</td>
+									<td>원소충전효율</td>
 									<td>÷5.5</td>
 								</tr>
 								<tr>
