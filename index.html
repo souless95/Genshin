@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        {{ message }}
+        <div v-for="item in list">
+            <span>
+                {{ item.name }}
+                <select id="">
+                    <option v-for="option in item.option">{{ option }}</option>
+                </select>
+            </span>
+        </div>
+    </div>
+
+    <script>
+    const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                message: 'Hello Vue!',
+                list: [
+                    {
+                        name: '꽃',
+                        option: ['부옵1','부옵2']
+                    },
+                    {
+                        name: '깃털',
+                        option: []
+                    }
+                ]
+            }
+        }
+    }).mount('#app')
+    </script>
+</body>
+</html>
