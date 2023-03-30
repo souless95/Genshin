@@ -157,7 +157,7 @@ p{
     color: #f1d2ff;
 }
 .verry{
-    color: yellow;
+    color: #ffeb37;
 }
 .limit {
     background: linear-gradient(to top, #e16ddd, #ffff66);
@@ -225,8 +225,8 @@ background-color: #67a8d1;
     color:red;
 }
 .goodBorder{border: 1px solid #f1d2ff;}
-.verryBorder1{border: 1px solid yellow;}
-.verryBorder2{border: 2px solid yellow;}
+.verryBorder1{border: 1px solid #ffeb37;}
+.verryBorder2{border: 2px solid #ffeb37;}
 
 @media screen and (max-width:440px) {
     body {
@@ -352,7 +352,7 @@ background-color: #67a8d1;
         color: #f1d2ff;
     }
     .verry{
-        color: yellow;
+        color: #ffeb37;
     }
     .limit {
         background: linear-gradient(to top, #e16ddd, #ffff66);
@@ -379,7 +379,7 @@ background-color: #67a8d1;
     }
     .highlight{color: #67a8d1;}
     .goodBorder{border: 1px solid #f1d2ff;}
-    .verryBorder1{border: 1px solid yellow;}
-    .verryBorder2{border: 2px solid yellow;}
+    .verryBorder1{border: 1px solid #ffeb37;}
+    .verryBorder2{border: 2px solid #ffeb37;}
     .modal-content-G{background-color: #181818;}
   }
