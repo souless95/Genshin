@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>원신 성유물 계산기</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 메타태그 설정 -->
 	<meta property="og:title" content="성유물 Score 계산기" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://github.com/souless95/Genshin/" />
 	<meta property="og:image" content="%PUBLIC_URL%/썸네일.webp" />
 	<meta property="og:description" content="유저들에게 도움이 되길 바랍니다" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
-	<script src="html2canvas.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+
 	<script type="text/javascript">
 		var attackP = 5;
 		var attack = 50;
@@ -39,50 +40,41 @@
 		var crownT = 0;
 		var totalScore = 0;
 
-
 		//성유물 부옵 score 계산 함수
 		function cal(option, value) {
+
 			let score = 0;
 			if (option == "attakP") {
 				score = (value / attackP);
-				return score;
 			}
 			else if (option == "physicalP") {
 				score = (value / physicalP);
-				return score;
 			}
 			else if (option == "attak") {
 				score = (value / attack);
-				return score;
 			}
 			else if (option == "physical") {
 				score = (value / physical);
-				return score;
 			}
 			else if (option == "mastery") {
 				score = (value / mastery);
-				return score;
 			}
 			else if (option == "defensiveP") {
 				score = (value / defensiveP);
-				return score;
 			}
 			else if (option == "critical_probability") {
 				score = (value / 3.3);
-				return score;
 			}
 			else if (option == "critical_damage") {
 				score = (value / 6.6);
-				return score;
 			}
 			else if (option == "gauge") {
 				score = (value / 5.5);
-				return score;
 			}
 			else if (option == "defensive") {
 				score = (value / defensive);
-				return score;
 			}
+			return score;
 		}
 
 		function valChk(f) {
@@ -104,7 +96,7 @@
 			else if (mId.attr('id') == "relique5") {
 				crownCal();
 			}
-			
+
 		}
 
 		//꽃 옵션 계산
@@ -114,6 +106,7 @@
 			let third = cal($('select[name=flower-option-3]').val(), $('#flower-option-3').val());
 			let fourth = cal($('select[name=flower-option-4]').val(), $('#flower-option-4').val());
 
+			//function ca l
 			if (isNaN(first)) { // 숫자가 아닌 경우
 				first = 0; // 0으로 대체
 			}
@@ -140,7 +133,7 @@
 			}
 			else if (8 <= total && total < 9) {
 				$('#relique1').children('span').text(" score:" + total + verryEnd);
-				$('#relique1').children('span').css('color', '#ffd700');
+				$('#relique1').children('span').css('color', 'yellow');
 			}
 			else if (7 <= total && total < 8) {
 				$('#relique1').children('span').text(" score:" + total + end);
@@ -150,7 +143,7 @@
 				$('#relique1').children('span').text(" score:" + total + littleEnd);
 				$('#relique1').children('span').css('color', '#bfdbf1');
 			}
-			else if (0 < total && total < 6){
+			else if (0 < total && total < 6) {
 				$('#relique1').children('span').text(" score:" + total + notEnd);
 				$('#relique1').children('span').css('color', 'red');
 			}
@@ -163,6 +156,7 @@
 			let third = cal($('select[name=feather-option-3]').val(), $('#feather-option-3').val());
 			let fourth = cal($('select[name=feather-option-4]').val(), $('#feather-option-4').val());
 
+			//fucn
 			if (isNaN(first)) { // 숫자가 아닌 경우
 				first = 0; // 0으로 대체
 			}
@@ -189,7 +183,7 @@
 			}
 			else if (8 <= total && total < 9) {
 				$('#relique2').children('span').text(" score:" + total + verryEnd);
-				$('#relique2').children('span').css('color', '#ffd700');
+				$('#relique2').children('span').css('color', 'yellow');
 			}
 			else if (7 <= total && total < 8) {
 				$('#relique2').children('span').text(" score:" + total + end);
@@ -199,7 +193,7 @@
 				$('#relique2').children('span').text(" score:" + total + littleEnd);
 				$('#relique2').children('span').css('color', '#bfdbf1');
 			}
-			else if (0 < total && total < 6){
+			else if (0 < total && total < 6) {
 				$('#relique2').children('span').text(" score:" + total + notEnd);
 				$('#relique2').children('span').css('color', 'red');
 			}
@@ -238,7 +232,7 @@
 			}
 			else if (7 <= total && total < 8) {
 				$('#relique3').children('span').text(" score:" + total + verryEnd);
-				$('#relique3').children('span').css('color', '#ffd700');
+				$('#relique3').children('span').css('color', 'yellow');
 			}
 			else if (6 <= total && total < 7) {
 				$('#relique3').children('span').text(" score:" + total + end);
@@ -248,7 +242,7 @@
 				$('#relique3').children('span').text(" score:" + total + littleEnd);
 				$('#relique3').children('span').css('color', '#bfdbf1');
 			}
-			else if (0 < total && total < 5){
+			else if (0 < total && total < 5) {
 				$('#relique3').children('span').text(" score:" + total + notEnd);
 				$('#relique3').children('span').css('color', 'red');
 			}
@@ -275,10 +269,10 @@
 			}
 
 			holyGrailCalT = parseFloat(first) + parseFloat(second)
-			+ parseFloat(third) + parseFloat(fourth);
+				+ parseFloat(third) + parseFloat(fourth);
 
 			let total = parseFloat(holyGrailCalT.toFixed(1));
-			
+
 			if (total >= 7) {
 				$('#relique4').children('span').text(" score:" + total + limitEnd);
 				$('#relique4').children('span').css('color', 'transparent');
@@ -287,7 +281,7 @@
 			}
 			else if (6 <= total && total < 7) {
 				$('#relique4').children('span').text(" score:" + total + verryEnd);
-				$('#relique4').children('span').css('color', '#ffd700');
+				$('#relique4').children('span').css('color', 'yellow');
 			}
 			else if (5 <= total && total < 6) {
 				$('#relique4').children('span').text(" score:" + total + end);
@@ -297,7 +291,7 @@
 				$('#relique4').children('span').text(" score:" + total + littleEnd);
 				$('#relique4').children('span').css('color', '#bfdbf1');
 			}
-			else if (0 < total && total < 4){
+			else if (0 < total && total < 4) {
 				$('#relique4').children('span').text(" score:" + total + notEnd);
 				$('#relique4').children('span').css('color', 'red');
 			}
@@ -324,7 +318,7 @@
 			}
 
 			crownT = parseFloat(first) + parseFloat(second)
-			+ parseFloat(third) + parseFloat(fourth);
+				+ parseFloat(third) + parseFloat(fourth);
 
 			let total = parseFloat(crownT.toFixed(1));
 
@@ -336,7 +330,7 @@
 			}
 			else if (6 <= total && total < 7) {
 				$('#relique5').children('span').text(" score:" + total + verryEnd);
-				$('#relique5').children('span').css('color', '#ffd700');
+				$('#relique5').children('span').css('color', 'yellow');
 			}
 			else if (5 <= total && total < 6) {
 				$('#relique5').children('span').text(" score:" + total + end);
@@ -346,7 +340,7 @@
 				$('#relique5').children('span').text(" score:" + total + littleEnd);
 				$('#relique5').children('span').css('color', '#bfdbf1');
 			}
-			else if (0 < total && total < 4){
+			else if (0 < total && total < 4) {
 				$('#relique5').children('span').text(" score:" + total + notEnd);
 				$('#relique5').children('span').css('color', 'red');
 			}
@@ -361,9 +355,9 @@
 					attackP = 10;
 					attack = 100;
 				}
-				else{
+				else {
 					attackP = 5;
-					attack = 50;					
+					attack = 50;
 				}
 
 				//HP 중요 여부에 따른 기준값 정의
@@ -373,9 +367,9 @@
 					physicalP = 10;
 					physical = 1200;
 				}
-				else{
+				else {
 					physicalP = 5;
-					physical = 600;					
+					physical = 600;
 				}
 
 				//원소마스터리 중요 여부에 따른 기준값 정의
@@ -384,7 +378,7 @@
 				if (masteryQ == "i") {
 					mastery = 40;
 				}
-				else{
+				else {
 					mastery = 20;
 				}
 
@@ -395,9 +389,9 @@
 					defensiveP = 12.4;
 					defensive = 82;
 				}
-				else{
+				else {
 					defensiveP = 6.2;
-					defensive = 41;					
+					defensive = 41;
 				}
 
 				flowerCal();
@@ -453,10 +447,10 @@
 				show();
 
 				$('#finalImg1').css({
-					padding : '',
-					border : '',
-					backgroundClip : '',
-					backgroundImage : ''
+					padding: '',
+					border: '',
+					backgroundClip: '',
+					backgroundImage: ''
 				});
 
 				$('select').each(function () {
@@ -465,85 +459,91 @@
 					}
 				});
 
-				if (elementGauge <=100 || elementGauge==""){
+				if (elementGauge <= 100 || elementGauge == "") {
 					elementGauge = 100;
 				}
 
 				if ((elementGauge - 100 - totalGauge) <= 0) {
 					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5));
 				}
-				
-				if(masteryChkQ=="i"){
-					totalScore = totalScore*(105/100);	
-				}
-				
+
 				let finalScore = totalScore.toFixed(1);
 
-				if (25 <= finalScore && finalScore < 27.5) {
+				if (masteryChkQ == "i") {
+					totalScore = totalScore * (105 / 100);
+				}
+
+				if (25 <= totalScore && totalScore < 27.5) {
 					text = littleEnd;
-					$('.finalScore').css('color', '#bfdbf1');
-					$('.finalImg').attr('src', '준종1.webp');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('finalScore soso');
+					$('.finalImg').attr('src', './images/준종1.webp');
 					$('.finalText').text('나약해 보임');
 				}
-				else if (27.5 <= finalScore && finalScore < 30) {
+				else if (27.5 <= totalScore && totalScore < 30) {
 					text = littleEnd;
-					$('.finalScore').css('color', '#bfdbf1');
-					$('.finalImg').attr('src', '준종2.webp');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('soso');
+					$('.finalImg').attr('src', './images/준종2.webp');
 					$('.finalText').text('좀 봐줄 만 함');
 				}
-				else if (30 <= finalScore && finalScore < 32.5) {
+				else if (30 <= totalScore && totalScore < 32.5) {
 					text = end;
-					$('.finalScore').css('color', '#f1d2ff');
-					$('.finalImg').attr('src', '종결1.webp');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('good');
+					$('.finalImg').attr('src', './images/종결1.webp');
 					$('.finalText').text('어느정도 잘 키움');
 				}
-				else if (32.5 <= finalScore && finalScore < 35) {
+				else if (32.5 <= totalScore && totalScore < 35) {
 					text = end;
-					$('.finalScore').css('color', '#f1d2ff');
-					$('.finalImg').attr('src', '소.jpg');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('good');
+					$('.finalImg').attr('src', './images/소.jpg');
 					$('.finalText').text("'선인'과 대등한 자");
-					$(".finalImg").css("border", "1px solid #f1d2ff");
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
+					$('.finalImg').addClass('goodBorder');
 				}
-				else if (35 <= finalScore && finalScore < 37.5) {
+				else if (35 <= totalScore && totalScore < 37.5) {
 					text = verryEnd;
-					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '귀종.jpg');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('good');
+					$('.finalImg').attr('src', './images/귀종.jpg');
 					$('.finalText').text("'마신'과 대등한 자");
-					$(".finalImg").css("border", "1px solid #ffd700");
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
+					$('.finalImg').addClass('verryBorder1');
 				}
-				else if (37.5 <= finalScore && finalScore < 39) {
+				else if (37.5 <= totalScore && totalScore < 39) {
 					text = verryEnd;
-					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '라이덴.png');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('verry');
+					$('.finalImg').attr('src', './images/라이덴.png');
 					$('.finalText').text("'일곱 신'과 대등한 자");
-					$(".finalImg").css("border", "1px solid #ffd700");
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
+					$('.finalImg').addClass('verryBorder1');
 				}
-				else if (39 <= finalScore && finalScore < 40) {
+				else if (39 <= totalScore && totalScore < 40) {
 					text = verryEnd;
-					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '종려.jpg');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('verry');
+					$('.finalImg').attr('src', './images/종려.jpg');
 					$('.finalText').text("'일곱 신'과 대등한 자");
-					$(".finalImg").css("border", "2px solid #ffd700");
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
+					$('.finalImg').addClass('verryBorder2');
 				}
-				else if (40 <= finalScore) {
+				else if (40 <= totalScore) {
 					text = limitEnd;
-					$('.finalScore').css({
-						'background' : 'linear-gradient(to top, #e16ddd, #ffff66',
-						'color': 'transparent',
-						'-webkit-background-clip' : 'text'});
-					$(".finalImg").css({
-						"padding": "3px",
-						"border": "2px solid transparent",
-						"background-clip": "padding-box",
-						"background-image": "linear-gradient(to right top, #e16ddd, #ffff66)"
-					  });
-					$('.finalImg').attr('src', '극한.jpg');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('limit');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
+					$(".finalImg").addClass('limitBorder');
+					$('.finalImg').attr('src', './images/극한.jpg');
 					$('.finalText').text("'천리'에 도달 가능한 자");
 				}
 				else {
 					text = notEnd;
-					$('.finalScore').css('color', 'red');
-					$('.finalImg').attr('src', '미달.webp');
+					$('.finalScore').removeClass('soso good very limit under');
+					$('.finalScore').addClass('under');
+					$('.finalImg').attr('src', './images/미달.webp');
 					$('.finalText').text('자네는 파밍 안 하나?');
 				}
 				$('.finalScore').text("Total Score :" + finalScore + text);
@@ -561,322 +561,16 @@
 			$('#reset').click(function () {
 				location.reload();
 			});
-			$('#guideOpen').click(function(){
-				showG ();
-				$('body').css('overflow','hidden');
+			$('#guideOpen').click(function () {
+				showG();
+				$('body').css('overflow', 'hidden');
 			});
-			$('#guideClose').click(function(){
-				$('body').css('overflow','');
-				closeG ();
+			$('#guideClose').click(function () {
+				$('body').css('overflow', '');
+				closeG();
 			});
 		});
 	</script>
-	<style type="text/css">
-		* {
-			font-family: 'Noto Sans KR', sans-serif;
-		}
-		body {
-			background-image: url("pc_신학.jpg");
-			background-color: #374457;
-			background-size: 1920px;
-		}
-		select {
-			padding: 3px;
-			text-align: center;
-			border-radius: 5px;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			background-color: white;
-			border: 1px solid gray;
-			color: black;
-			justify-content: center;
-			width: 20%;
-		}
-		option {
-			color: black;
-			justify-content: center;
-		}
-		.reliqueList input{
-			width: 18%;
-			border-radius: 5px;
-			border: 1px solid gray;
-			padding: 3px;
-			text-align: center;
-		}
-		.reliqueList button {
-			border-radius: 5px;
-			border: none;
-			background-color: #67a8d1;
-			color: #ffffff;
-			font-weight: lighter;
-			font-size: 0.9em;
-		}
-		#cal, #reset {
-			border-radius: 5px;
-			border: none;
-			height: 25px;
-			font-size: 0.9em;
-		}
-		#cal{
-			background-color: #b6d0eb;
-			color: black;
-		}
-		#reset{
-			background-color: #67a8d1;
-			color: white;
-		}
-		#close, #guideClose{
-			border-radius: 5px;
-			background-color: white;
-			color: #67a8d1;
-			border: none;
-		}
-		#guideClose{
-			border: 1px solid #67a8d1;
-		}
-		.selectO {
-			margin-bottom: 3px;
-			margin-top: 3px;
-		}
-		body {
-			background-color: #F7F7F7;
-		}
-		.background, .backgroundG {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100vh;
-			background-color: rgba(0, 0, 0, 0.3);
-			z-index: -1;
-			opacity: 0;
-		}
-		.window {
-			position: relative;
-			width: 100%;
-			height: 100%;
-		}
-		.popup {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -40%);
-			background-color: #ffffff;
-			box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-		}
-		.show {
-			opacity: 1;
-			z-index: 1000;
-			transition: all .5s;
-		}
-		.show .popup {
-			transform: translate(-50%, -50%);
-			transition: all .5s;
-		}
-		.modal-content{
-			background-color: #001d45;
-			width: 70%;
-			position: absolute;
-			top: 30%;
-			left: 15%;
-			border-radius: 10px;
-		}
-		.modal-content-G{
-			background-color: #ffffff;
-			width: 80%;
-			height: 80%;
-			position: absolute;
-			top: 5%;
-			left: 10%;
-			border-radius: 10px;
-			overflow-y: scroll; 
-			max-height: 700px;
-		}
-		p{
-			font-size: 0.9em;
-			text-align: left;
-			margin-left: 5%;
-		}
-		#adjustT tr td:first-child{
-			width: 60%;
-		}
-		#adjustT tr td:nth-child(2) {
-			width: 40%;
-		}
-		.gtitle{
-			text-align: center;
-			color: #3CB9E5;
-			font-size: 0.9em;
-		}
-		p{
-			margin-top: 1px;
-			margin-bottom: 10px;
-			font-size: 0.8em;
-		}
-		#gradeTable{
-			font-size: 0.9em;
-			border: 1px solid black;
-		}
-		#gradeTable tr td:nth-child(2), #gradeTable tr td:nth-child(3), #gradeTable tr td:nth-child(4){
-			font-size: 0.8em;
-		}
-		.soso{
-			color: #bfdbf1;
-		}
-		.good{
-			color: #f1d2ff;
-		}
-		.verry{
-			color: #ffd700;
-		}
-		.limit {
-			background: linear-gradient(to top, #e16ddd, #ffff66);
-			color: transparent;
-			-webkit-background-clip: text;
-		}
-		.dd{
-			margin-bottom: 5px;
-			font-size: 0.8em;
-		}
-		#scoreTable td{
-			font-size: 0.8em;
-			padding: 0;
-		}
-		#gradeTable td, #gradeTable th{
-			font-size: 0.8em;
-			padding: 0;
-		}
-		.bi-diamond-fill{
-			font-size: 0.7em;
-		}
-		#madeby{
-			font-family: 'Poor Story', cursive;
-			margin-right: 10px;
-			margin-top: 3px;
-			color: white;
-		}
-		.reliqueT{
-			color: white;
-		}
-		input[type='radio'],
-		input[type='radio']:checked {
-		appearance: none;
-		width: 0.9rem;
-		height: 0.9rem;
-		border-radius: 100%;
-		margin-right: 0.1rem;
-		}
-
-		input[type='radio'] {
-		background-color: white;
-		border: 2px solid #eef2f4;
-		}
-		input[type='radio']:checked {
-		background-color: #67a8d1;
-		}
-		#elementgauge{
-			width: 30%;
-			text-align: right;
-		}
-		#adjustT{
-			width:38%;
-			margin-top: 3%;
-		}
-
-		@media screen and (max-width:440px) {
-			body {
-				background-image: url("신학.jpg");
-				background-size: 440px;
-				background-color: #374457;
-			}
-
-			h2 {
-				text-align: center;
-			}
-
-			.reliqueList input{
-				width: 35%;
-				border-radius: 5px;
-				border: 1px solid gray;
-				padding: 3px;
-			}
-			#elementgauge{
-				width: 60%;
-				text-align: center;
-			}
-			#adjustT{
-				width:65%;
-			}
-			.reliqueList input{
-				width: 30%;
-			}
-			select{
-				width: 30%;
-			}
-			#scoreTable, #gradeTable{
-				width: 90%;
-				text-align: center;
-				border : 1px solid black;
-			}
-			#scoreTable tr td:nth-child(1){
-				width: 35%;
-			}
-			#scoreTable tr td:nth-child(2){
-				width: 65%;
-			}
-		}
-		@media screen and (min-width:720px){
-			p{
-				text-align: center;
-			}
-			.modal-content-G{
-				width: 60%;
-				top: 10%;
-				left: 20%;
-				max-height: 1080px;
-			}
-			.modal-content{
-				background-color: #001d45;
-				width: 30%;
-				position: absolute;
-				top: 25%;
-				left: 35%;
-				border-radius: 10px;
-			}
-			#gradeTable{
-				width: 60%;
-				text-align: center;
-			}
-			#scoreTable{
-				width: 80%;
-				text-align: center;
-				border : 1px solid black;
-				font-size: 0.9em;
-			}
-			#scoreTable tr td:nth-child(1){
-				width: 5%;
-			}
-			#scoreTable tr td:nth-child(2){
-				width: 49%;
-			}
-			*{
-				font-size: 1.1em;
-			}
-			#elementgauge{
-				width: 50%;
-				text-align: center;
-			}
-			#cal, #reset {
-				height: 15%;
-			}
-			#guideHeader{
-				margin-left: 6%;
-			}
-			
-
-		}
-	</style>
 </head>
 
 <body id="capture">
@@ -886,11 +580,11 @@
 	<br>
 	<div class="container" align="center">
 		<script>
-			function showG () {
+			function showG() {
 				document.querySelector(".backgroundG").className = "backgroundG show";
 				document.querySelector(".modal-content-G").style.display = "block";
 			}
-			function closeG () {
+			function closeG() {
 				document.querySelector(".backgroundG").className = "backgroundG";
 				document.querySelector(".modal-content-G").style.display = "none";
 			}
@@ -900,33 +594,35 @@
 				<div class="guidModal">
 					<div class="modal-content-G" style="display: none; padding-right: 3%;">
 						<div style="margin-top: 10px;">
-							<button type="button" style="float: right; margin-right: 10px;" id="guideClose" class="closeBtn">닫기</button>
+							<button type="button" style="float: right; margin-right: 10px;" id="guideClose"
+								class="closeBtn">닫기</button>
 						</div><br><br>
 						<div>
 							<div style="margin-bottom:10px;" id="guideHeader"><Strong>《딜러용 성유물 계산기》</Strong></div>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Score 개념</span>
 							<p>성유물의 부옵션 중 캐릭터의 유효한 수치만을 합산 후 부옵션평균을 나눈 값<br>
-							ex)6 Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
-							
+								ex)6 Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
 							<p>
-							<span style="font-weight: bolder;">공격력,HP,방어력</span>:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력<br>
-							<span style="font-weight: bolder;">원소마스터리</span>:원소마스터리가 딜링에 유효옵일 경우만 입력<br>
-							<span style="font-weight: bolder;">원소충전효율</span>:궁을 전혀 사용안하거나 원소충전효율이 전혀 필요없는 캐릭일 경우 입력x
+								<span class="highlight">공격력,HP,방어력</span>:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력<br>
+								<span class="highlight">원소마스터리</span>:원소마스터리가 딜링에 유효옵일 경우만 입력<br>
+								<span class="highlight">원소충전효율</span>:궁을 전혀 사용안하거나 원소충전효율이 전혀 필요없는 캐릭일 경우 입력x
 							</p>
-							
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
-							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로 보정계산한다<br>
+							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로
+								보정계산한다<br>
 								ex)호두,나히다 - 공격력 0.5보정<br>
 								클레 - 원소마스터리 0.5보정</p>
-							
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>적정 원충 수치</span>
 							<p>캐릭터가 궁 사이클이 부드럽게 굴러가기위한 최대 원충 수치<br>
 								ex)캐릭터의 권장 원충이 140~160일 경우 160 입력
 							</p>
-							
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>성유물 Score 등급</span><br>
-							
+
 							<table id="gradeTable" class="table table-bordered">
 								<thead>
 									<th style="width:20%"></th>
@@ -963,24 +659,25 @@
 							</table>
 							<p></p>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score</span><br>
-							<p>딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상)<br> 
-							그리고 궁 사이클이 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치<br>
-							(원충자체가 전혀 필요없는 캐릭은 성유물 계산에 입력하지 말것)</p>
-							
+							<p>딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상)<br>
+								그리고 궁 사이클이 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치<br>
+								(원충자체가 전혀 필요없는 캐릭은 성유물 계산에 입력하지 말것)</p>
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 보정</span>
 							<p>원소마스터리가 유효옵이 아닐경우<br>
-							파밍난이도가 원소마스터리가 유효옵인 캐릭터에 비해 어렵기에<br>
-							Total Score에서 <span style="color: red;">5%</span>를 추가된 점수로 등급을 판별<br>
-							ex)Total Score가 34일경우 <span class="good">종결</span>이지만 보정할 시 35.7이기에 <span class="verry">극종결</span>로 표기</p>
-							
+								파밍난이도가 원소마스터리가 유효옵인 캐릭터에 비해 어렵기에<br>
+								Total Score에서 <span style="color: red;">5%</span>를 추가된 점수로 등급을 판별<br>
+								ex)Total Score가 34일경우 <span class="good">종결</span>이지만 보정할 시 35.7이기에 <span
+									class="verry">극종결</span>로 표기</p>
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 등급</span>
 							<div class="dd" style="margin-top: 3px;">
 								<i class="bi bi-dot"></i><span class="soso">준종결</span>(25이상 ~ 30미만)<br>
-								라이트하고 극도의 <span style="color: red;">효율</span> 등급<br> 
+								라이트하고 극도의 <span style="color: red;">효율</span> 등급<br>
 							</div>
 							<div class="dd">
 								<i class="bi bi-dot"></i><span class="good">종결</span>(30이상 ~ 35미만)<br>
-								더 파밍하면 효율이 극도로 낮아지는 <span style="color: red;">졸업</span>가능한 등급<br> 
+								더 파밍하면 효율이 극도로 낮아지는 <span style="color: red;">졸업</span>가능한 등급<br>
 							</div>
 							<div class="dd">
 								<i class="bi bi-dot"></i><span class="verry">극종결</span>(35이상 ~ 40미만)<br>
@@ -992,7 +689,7 @@
 								확률적으로 <span style="color: red;">한계</span>수치에 도달한 천운의 영역등급<br>
 								랭킹사이트 기준 100위권 이내<br>
 							</div>
-							
+
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스코어 계산(부옵의 평균 수치당 1 Score)</span>
 							<table class="table table-bordered" id="scoreTable">
 								<tr>
@@ -1037,14 +734,19 @@
 								</tr>
 							</table>
 						</div>
-						</div>
 					</div>
+				</div>
 			</div>
 		</div>
 		<h2><span style="color: white;">원신 성유물 계산기</span>&nbsp;&nbsp;
 			<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>
 		</h2>
 		<table style="color:white" id="adjustT">
+			<tr>
+				<td colspan="2" style="font-size: 0.7em; color: yellow;">
+					※반드시 <i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용해주세요.<br>
+				</td>
+			</tr>
 			<tr>
 				<td>공격력 보정</td>
 				<td>
@@ -1075,18 +777,14 @@
 			</tr>
 			<tr>
 				<td>적정 원충 수치</td>
-				<td><input type="number" inputmode="decimal" pattern="\d*"  id="elementgauge" style="border-radius: 5px; border: 1px solid gray;" value="100">%</td>
+				<td><input type="number" inputmode="decimal" pattern="\d*" id="elementgauge"
+						style="border-radius: 5px; border: 1px solid gray;" value="100">%</td>
 			</tr>
 			<tr>
 				<td>Total Score 보정</td>
 				<td>
 					<input type="radio" value="i" name="masteryChk">&nbsp;O
 					<input type="radio" value="ni" name="masteryChk" checked>&nbsp;X
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" style="font-size: 0.7em; color: yellow;">
-					※반드시 i를 눌러 가이드를 읽고 사용해주세요.<br>
 				</td>
 			</tr>
 		</table>
@@ -1110,7 +808,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-1">
+					<input type="number" inputmode="decimal" pattern="\d*" id="flower-option-1">
 				</div>
 				<div class="selectO">
 					<select name="flower-option-2">
@@ -1126,7 +824,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-2">
+					<input type="number" inputmode="decimal" pattern="\d*" id="flower-option-2">
 				</div>
 				<div class="selectO">
 					<select name="flower-option-3">
@@ -1142,7 +840,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-3">
+					<input type="number" inputmode="decimal" pattern="\d*" id="flower-option-3">
 				</div>
 				<div class="selectO">
 					<select name="flower-option-4">
@@ -1158,7 +856,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="flower-option-4">
+					<input type="number" inputmode="decimal" pattern="\d*" id="flower-option-4">
 				</div>
 			</div>
 			<!-- 깃털 -->
@@ -1179,7 +877,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-1">
+					<input type="number" inputmode="decimal" pattern="\d*" id="feather-option-1">
 				</div>
 				<div class="selectO">
 					<select name="feather-option-2">
@@ -1195,7 +893,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-2">
+					<input type="number" inputmode="decimal" pattern="\d*" id="feather-option-2">
 				</div>
 				<div class="selectO">
 					<select name="feather-option-3">
@@ -1211,7 +909,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-3">
+					<input type="number" inputmode="decimal" pattern="\d*" id="feather-option-3">
 				</div>
 				<div class="selectO">
 					<select name="feather-option-4">
@@ -1227,7 +925,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="feather-option-4">
+					<input type="number" inputmode="decimal" pattern="\d*" id="feather-option-4">
 				</div>
 			</div>
 
@@ -1249,7 +947,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-1">
+					<input type="number" inputmode="decimal" pattern="\d*" id="watch-option-1">
 				</div>
 				<div class="selectO">
 					<select name="watch-option-2">
@@ -1265,7 +963,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-2">
+					<input type="number" inputmode="decimal" pattern="\d*" id="watch-option-2">
 				</div>
 				<div class="selectO">
 					<select name="watch-option-3">
@@ -1281,7 +979,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-3">
+					<input type="number" inputmode="decimal" pattern="\d*" id="watch-option-3">
 				</div>
 				<div class="selectO">
 					<select name="watch-option-4">
@@ -1297,7 +995,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="watch-option-4">
+					<input type="number" inputmode="decimal" pattern="\d*" id="watch-option-4">
 				</div>
 			</div>
 
@@ -1319,7 +1017,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-1">
+					<input type="number" inputmode="decimal" pattern="\d*" id="holyGrail-option-1">
 				</div>
 				<div class="selectO">
 					<select name="holyGrail-option-2">
@@ -1335,7 +1033,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-2">
+					<input type="number" inputmode="decimal" pattern="\d*" id="holyGrail-option-2">
 				</div>
 				<div class="selectO">
 					<select name="holyGrail-option-3">
@@ -1351,7 +1049,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-3">
+					<input type="number" inputmode="decimal" pattern="\d*" id="holyGrail-option-3">
 				</div>
 				<div class="selectO">
 					<select name="holyGrail-option-4">
@@ -1367,7 +1065,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="holyGrail-option-4">
+					<input type="number" inputmode="decimal" pattern="\d*" id="holyGrail-option-4">
 				</div>
 			</div>
 
@@ -1389,7 +1087,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-1">
+					<input type="number" inputmode="decimal" pattern="\d*" id="crown-option-1">
 				</div>
 				<div class="selectO">
 					<select name="crown-option-2">
@@ -1405,7 +1103,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-2">
+					<input type="number" inputmode="decimal" pattern="\d*" id="crown-option-2">
 				</div>
 				<div class="selectO">
 					<select name="crown-option-3">
@@ -1421,7 +1119,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-3">
+					<input type="number" inputmode="decimal" pattern="\d*" id="crown-option-3">
 				</div>
 				<div class="selectO">
 					<select name="crown-option-4">
@@ -1437,7 +1135,7 @@
 						<option value="mastery">원소마스터리</option>
 						<option value="gauge">원소충전효율</option>
 					</select>
-					<input type="number" inputmode="decimal" pattern="\d*"  id="crown-option-4">
+					<input type="number" inputmode="decimal" pattern="\d*" id="crown-option-4">
 				</div>
 			</div>
 		</div>
@@ -1453,40 +1151,41 @@
 			<img class="finalImg" style="width: 200px;" id="finalImg1">
 		</div>
 	</div>
-		<div class="background" align="center">
-			<div class="window">
-				<div class="resultModal">
-					<div class="modal-content" style="display:none; padding-bottom: 20px;">
-						<div style="margin-top: 7px; margin-bottom: 7px;">
-							</span><button type="button" style="float: right; margin-right: 5%;" id="close" class="closeBtn">닫기</button><br>
-						</div>
-						<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
-						<span class="finalText" style="text-align: center; display: block; color:white"></span>
-						<img class="finalImg" style="width: 80%;" id="finalImg2">
+	<div class="background" align="center">
+		<div class="window">
+			<div class="resultModal">
+				<div class="modal-content" style="display:none; padding-bottom: 20px;">
+					<div style="margin-top: 7px; margin-bottom: 7px;">
+						</span><button type="button" style="float: right; margin-right: 5%;" id="close"
+							class="closeBtn">닫기</button><br>
 					</div>
+					<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
+					<span class="finalText" style="text-align: center; display: block; color:white"></span>
+					<img class="finalImg" style="width: 80%;" id="finalImg2">
 				</div>
 			</div>
 		</div>
-		<script>
-			function show () {
-				document.querySelector(".background").className = "background show";
-				document.querySelector(".modal-content").style.display = "block";
-				document.querySelector("body").style.overflow = "hidden";
-			}
-			function close () {
-				document.querySelector(".background").className = "background";
-				document.querySelector(".modal-content").style.display = "none";
-				document.querySelector("body").style.overflow = "";
-				const elements = document.querySelectorAll('#finalImg2');
-				elements.forEach(element => {
-					element.style.padding = '';
-					element.style.border = '';
-					element.style.backgroundClip = '';
-					element.style.backgroundImage = '';
-				});			
-			}
-      		document.querySelector("#close").addEventListener("click", close);
-		</script>
+	</div>
+	<script>
+		function show() {
+			document.querySelector(".background").className = "background show";
+			document.querySelector(".modal-content").style.display = "block";
+			document.querySelector("body").style.overflow = "hidden";
+		}
+		function close() {
+			document.querySelector(".background").className = "background";
+			document.querySelector(".modal-content").style.display = "none";
+			document.querySelector("body").style.overflow = "";
+			const elements = document.querySelectorAll('#finalImg2');
+			elements.forEach(element => {
+				element.style.padding = '';
+				element.style.border = '';
+				element.style.backgroundClip = '';
+				element.style.backgroundImage = '';
+			});
+		}
+		document.querySelector("#close").addEventListener("click", close);
+	</script>
 	</div>
 	</div>
 	<br>
