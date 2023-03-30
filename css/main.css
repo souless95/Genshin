@@ -1,6 +1,9 @@
 * {
     font-family: 'Noto Sans KR', sans-serif;
 }
+:root {
+    color-scheme: light only;
+}
 body {
     background-image: url("../images/pc_신학.jpg");
     background-color: #374457;
