@@ -17,7 +17,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
-	<script src="html2canvas.js"></script>
+	<script src="js/html2canvas.js"></script>
 	<script type="text/javascript">
 		var attackP = 5;
 		var attack = 50;
@@ -42,52 +42,46 @@
 
 		//성유물 부옵 score 계산 함수
 		function cal(option, value) {
+			// 숫자 체크
+			// '' / attackP
 			let score = 0;
 			if (option == "attakP") {
 				score = (value / attackP);
-				return score;
 			}
 			else if (option == "physicalP") {
 				score = (value / physicalP);
-				return score;
 			}
 			else if (option == "attak") {
 				score = (value / attack);
-				return score;
 			}
 			else if (option == "physical") {
 				score = (value / physical);
-				return score;
 			}
 			else if (option == "mastery") {
 				score = (value / mastery);
-				return score;
 			}
 			else if (option == "defensiveP") {
 				score = (value / defensiveP);
-				return score;
 			}
 			else if (option == "critical_probability") {
 				score = (value / 3.3);
-				return score;
 			}
 			else if (option == "critical_damage") {
 				score = (value / 6.6);
-				return score;
 			}
 			else if (option == "gauge") {
 				score = (value / 5.5);
-				return score;
 			}
 			else if (option == "defensive") {
 				score = (value / defensive);
-				return score;
 			}
+
+			return score;
 		}
 
 		function valChk(f) {
 
-			var mId = $(f).parent().parent();
+			var mId = $(f);
 
 			if (mId.attr('id') == "relique1") {
 				flowerCal();
@@ -107,249 +101,74 @@
 			
 		}
 
-		//꽃 옵션 계산
-		function flowerCal() {
-			let first = cal($('select[name=flower-option-1]').val(), $('#flower-option-1').val());
-			let second = cal($('select[name=flower-option-2]').val(), $('#flower-option-2').val());
-			let third = cal($('select[name=flower-option-3]').val(), $('#flower-option-3').val());
-			let fourth = cal($('select[name=flower-option-4]').val(), $('#flower-option-4').val());
-
-			if (isNaN(first)) { // 숫자가 아닌 경우
-				first = 0; // 0으로 대체
-			}
-			if (isNaN(second)) { // 숫자가 아닌 경우
-				second = 0; // 0으로 대체
-			}
-			if (isNaN(third)) { // 숫자가 아닌 경우
-				third = 0; // 0으로 대체
-			}
-			if (isNaN(fourth)) { // 숫자가 아닌 경우
-				fourth = 0; // 0으로 대체
-			}
-
+		function releiqueCal(selector, target) {
+			let first = cal($(`select[name=${selector}-1]`).val(), $(`#${selector}-1`).val());
+			let second = cal($(`select[name=${selector}-2]`).val(), $(`#${selector}-2`).val());
+			let third = cal($(`select[name=${selector}-3]`).val(), $(`#${selector}-3`).val());
+			let fourth = cal($(`select[name=${selector}-4]`).val(), $(`#${selector}-4`).val());
+			
 			flowerT = parseFloat(first) + parseFloat(second)
 				+ parseFloat(third) + parseFloat(fourth);
 
 			let total = parseFloat(flowerT.toFixed(1));
-
+			$(target).removeClass('grade-5, grade-4, grade-3, grade-2, grade-1');
 			if (total >= 9) {
-				$('#relique1').children('span').text(" score:" + total + limitEnd);
-				$('#relique1').children('span').css('color', 'transparent');
-				$('#relique1').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique1').children('span').css('-webkit-background-clip', 'text');
+				$(target).addClass('grade-5');
+
+				$(target).children('span').text(" score:" + total + limitEnd);
+				$(target).children('span').css('color', 'transparent');
+				$(target).children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$(target).children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (8 <= total && total < 9) {
-				$('#relique1').children('span').text(" score:" + total + verryEnd);
-				$('#relique1').children('span').css('color', '#ffd700');
+				$(target).addClass('grade-4');
+
+				$(target).children('span').text(" score:" + total + verryEnd);
+				$(target).children('span').css('color', '#ffd700');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique1').children('span').text(" score:" + total + end);
-				$('#relique1').children('span').css('color', '#f1d2ff');
+				$(target).addClass('grade-3');
+
+				$(target).children('span').text(" score:" + total + end);
+				$(target).children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique1').children('span').text(" score:" + total + littleEnd);
-				$('#relique1').children('span').css('color', '#bfdbf1');
+				$(target).addClass('grade-2');
+
+				$(target).children('span').text(" score:" + total + littleEnd);
+				$(target).children('span').css('color', '#bfdbf1');
 			}
-			else if (0 < total && total < 6){
-				$('#relique1').children('span').text(" score:" + total + notEnd);
-				$('#relique1').children('span').css('color', 'red');
+			else if (0 < total && total < 6) {
+				$(target).addClass('grade-1');
+
+				$(target).children('span').text(" score:" + total + notEnd);
+				$(target).children('span').css('color', 'red');
 			}
+		}
+
+		//꽃 옵션 계산
+		function flowerCal() {
+			releiqueCal('flower-option', '#relique1')
 		}
 
 		//깃털 옵션 계산
 		function featherCal() {
-			let first = cal($('select[name=feather-option-1]').val(), $('#feather-option-1').val());
-			let second = cal($('select[name=feather-option-2]').val(), $('#feather-option-2').val());
-			let third = cal($('select[name=feather-option-3]').val(), $('#feather-option-3').val());
-			let fourth = cal($('select[name=feather-option-4]').val(), $('#feather-option-4').val());
-
-			if (isNaN(first)) { // 숫자가 아닌 경우
-				first = 0; // 0으로 대체
-			}
-			if (isNaN(second)) { // 숫자가 아닌 경우
-				second = 0; // 0으로 대체
-			}
-			if (isNaN(third)) { // 숫자가 아닌 경우
-				third = 0; // 0으로 대체
-			}
-			if (isNaN(fourth)) { // 숫자가 아닌 경우
-				fourth = 0; // 0으로 대체
-			}
-
-			featherT = parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth);
-
-			let total = parseFloat(featherT.toFixed(1));
-
-			if (total >= 9) {
-				$('#relique2').children('span').text(" score:" + total + limitEnd);
-				$('#relique2').children('span').css('color', 'transparent');
-				$('#relique2').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique2').children('span').css('-webkit-background-clip', 'text');
-			}
-			else if (8 <= total && total < 9) {
-				$('#relique2').children('span').text(" score:" + total + verryEnd);
-				$('#relique2').children('span').css('color', '#ffd700');
-			}
-			else if (7 <= total && total < 8) {
-				$('#relique2').children('span').text(" score:" + total + end);
-				$('#relique2').children('span').css('color', '#f1d2ff');
-			}
-			else if (6 <= total && total < 7) {
-				$('#relique2').children('span').text(" score:" + total + littleEnd);
-				$('#relique2').children('span').css('color', '#bfdbf1');
-			}
-			else if (0 < total && total < 6){
-				$('#relique2').children('span').text(" score:" + total + notEnd);
-				$('#relique2').children('span').css('color', 'red');
-			}
+			releiqueCal('feather-option', '#relique2')
 		}
 
 		//시계 옵션 계산
 		function watchCal() {
-			let first = cal($('select[name=watch-option-1]').val(), $('#watch-option-1').val());
-			let second = cal($('select[name=watch-option-2]').val(), $('#watch-option-2').val());
-			let third = cal($('select[name=watch-option-3]').val(), $('#watch-option-3').val());
-			let fourth = cal($('select[name=watch-option-4]').val(), $('#watch-option-4').val());
-
-			if (isNaN(first)) { // 숫자가 아닌 경우
-				first = 0; // 0으로 대체
-			}
-			if (isNaN(second)) { // 숫자가 아닌 경우
-				second = 0; // 0으로 대체
-			}
-			if (isNaN(third)) { // 숫자가 아닌 경우
-				third = 0; // 0으로 대체
-			}
-			if (isNaN(fourth)) { // 숫자가 아닌 경우
-				fourth = 0; // 0으로 대체
-			}
-
-			watchT = parseFloat(first) + parseFloat(second)
-				+ parseFloat(third) + parseFloat(fourth);
-
-			let total = parseFloat(watchT.toFixed(1));
-
-			if (total >= 8) {
-				$('#relique3').children('span').text(" score:" + total + limitEnd);
-				$('#relique3').children('span').css('color', 'transparent');
-				$('#relique3').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique3').children('span').css('-webkit-background-clip', 'text');
-			}
-			else if (7 <= total && total < 8) {
-				$('#relique3').children('span').text(" score:" + total + verryEnd);
-				$('#relique3').children('span').css('color', '#ffd700');
-			}
-			else if (6 <= total && total < 7) {
-				$('#relique3').children('span').text(" score:" + total + end);
-				$('#relique3').children('span').css('color', '#f1d2ff');
-			}
-			else if (5 <= total && total < 6) {
-				$('#relique3').children('span').text(" score:" + total + littleEnd);
-				$('#relique3').children('span').css('color', '#bfdbf1');
-			}
-			else if (0 < total && total < 5){
-				$('#relique3').children('span').text(" score:" + total + notEnd);
-				$('#relique3').children('span').css('color', 'red');
-			}
+			releiqueCal('watch-option', '#relique3')
 		}
 
 		//성배 옵션 계산
 		function holyGrailCal() {
-			let first = cal($('select[name=holyGrail-option-1]').val(), $('#holyGrail-option-1').val());
-			let second = cal($('select[name=holyGrail-option-2]').val(), $('#holyGrail-option-2').val());
-			let third = cal($('select[name=holyGrail-option-3]').val(), $('#holyGrail-option-3').val());
-			let fourth = cal($('select[name=holyGrail-option-4]').val(), $('#holyGrail-option-4').val());
-
-			if (isNaN(first)) { // 숫자가 아닌 경우
-				first = 0; // 0으로 대체
-			}
-			if (isNaN(second)) { // 숫자가 아닌 경우
-				second = 0; // 0으로 대체
-			}
-			if (isNaN(third)) { // 숫자가 아닌 경우
-				third = 0; // 0으로 대체
-			}
-			if (isNaN(fourth)) { // 숫자가 아닌 경우
-				fourth = 0; // 0으로 대체
-			}
-
-			holyGrailCalT = parseFloat(first) + parseFloat(second)
-			+ parseFloat(third) + parseFloat(fourth);
-
-			let total = parseFloat(holyGrailCalT.toFixed(1));
-			
-			if (total >= 7) {
-				$('#relique4').children('span').text(" score:" + total + limitEnd);
-				$('#relique4').children('span').css('color', 'transparent');
-				$('#relique4').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique4').children('span').css('-webkit-background-clip', 'text');
-			}
-			else if (6 <= total && total < 7) {
-				$('#relique4').children('span').text(" score:" + total + verryEnd);
-				$('#relique4').children('span').css('color', '#ffd700');
-			}
-			else if (5 <= total && total < 6) {
-				$('#relique4').children('span').text(" score:" + total + end);
-				$('#relique4').children('span').css('color', '#f1d2ff');
-			}
-			else if (4 <= total && total < 5) {
-				$('#relique4').children('span').text(" score:" + total + littleEnd);
-				$('#relique4').children('span').css('color', '#bfdbf1');
-			}
-			else if (0 < total && total < 4){
-				$('#relique4').children('span').text(" score:" + total + notEnd);
-				$('#relique4').children('span').css('color', 'red');
-			}
+			releiqueCal('holyGrail-option', '#relique4')
 		}
 
 		//모자 옵션 계산
 		function crownCal() {
-			let first = cal($('select[name=crown-option-1]').val(), $('#crown-option-1').val());
-			let second = cal($('select[name=crown-option-2]').val(), $('#crown-option-2').val());
-			let third = cal($('select[name=crown-option-3]').val(), $('#crown-option-3').val());
-			let fourth = cal($('select[name=crown-option-4]').val(), $('#crown-option-4').val());
-
-			if (isNaN(first)) { // 숫자가 아닌 경우
-				first = 0; // 0으로 대체
-			}
-			if (isNaN(second)) { // 숫자가 아닌 경우
-				second = 0; // 0으로 대체
-			}
-			if (isNaN(third)) { // 숫자가 아닌 경우
-				third = 0; // 0으로 대체
-			}
-			if (isNaN(fourth)) { // 숫자가 아닌 경우
-				fourth = 0; // 0으로 대체
-			}
-
-			crownT = parseFloat(first) + parseFloat(second)
-			+ parseFloat(third) + parseFloat(fourth);
-
-			let total = parseFloat(crownT.toFixed(1));
-
-			if (total >= 7) {
-				$('#relique5').children('span').text(" score:" + total + limitEnd);
-				$('#relique5').children('span').css('color', 'transparent');
-				$('#relique5').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique5').children('span').css('-webkit-background-clip', 'text');
-			}
-			else if (6 <= total && total < 7) {
-				$('#relique5').children('span').text(" score:" + total + verryEnd);
-				$('#relique5').children('span').css('color', '#ffd700');
-			}
-			else if (5 <= total && total < 6) {
-				$('#relique5').children('span').text(" score:" + total + end);
-				$('#relique5').children('span').css('color', '#f1d2ff');
-			}
-			else if (4 <= total && total < 5) {
-				$('#relique5').children('span').text(" score:" + total + littleEnd);
-				$('#relique5').children('span').css('color', '#bfdbf1');
-			}
-			else if (0 < total && total < 4){
-				$('#relique5').children('span').text(" score:" + total + notEnd);
-				$('#relique5').children('span').css('color', 'red');
-			}
+			releiqueCal('crown-option', '#relique5')
 		}
 
 		$(function () {
@@ -411,34 +230,15 @@
 				//적정 원충 수치 변수에 정의
 				elementGauge = $('#elementgauge').val();
 			});
-			$('#relique1 input').keyup(function () {
+			$('.relique').on('keyup', 'input', () => {
 				valChk(this);
 			});
-			$('#relique2 input').keyup(function () {
-				valChk(this);
+			$('input').keyup(function () {
+				var parent = $(this).parent().parent();
+				valChk(parent);
 			});
-			$('#relique3 input').keyup(function () {
-				valChk(this);
-			});
-			$('#relique4 input').keyup(function () {
-				valChk(this);
-			});
-			$('#relique5 input').keyup(function () {
-				valChk(this);
-			});
-			$('#relique1 select').change(function () {
-				valChk(this);
-			});
-			$('#relique2 select').change(function () {
-				valChk(this);
-			});
-			$('#relique3 select').change(function () {
-				valChk(this);
-			});
-			$('#relique4 select').change(function () {
-				valChk(this);
-			});
-			$('#relique5 select').change(function () {
+			
+			$('select').change(function () {
 				valChk(this);
 			});
 			$('#cal').click(function () {
@@ -482,46 +282,46 @@
 				if (25 <= finalScore && finalScore < 27.5) {
 					text = littleEnd;
 					$('.finalScore').css('color', '#bfdbf1');
-					$('.finalImg').attr('src', '준종1.webp');
+					$('.finalImg').attr('src', 'img/준종1.webp');
 					$('.finalText').text('나약해 보임');
 				}
 				else if (27.5 <= finalScore && finalScore < 30) {
 					text = littleEnd;
 					$('.finalScore').css('color', '#bfdbf1');
-					$('.finalImg').attr('src', '준종2.webp');
+					$('.finalImg').attr('src', 'img/준종2.webp');
 					$('.finalText').text('좀 봐줄 만 함');
 				}
 				else if (30 <= finalScore && finalScore < 32.5) {
 					text = end;
 					$('.finalScore').css('color', '#f1d2ff');
-					$('.finalImg').attr('src', '종결1.webp');
+					$('.finalImg').attr('src', 'img/종결1.webp');
 					$('.finalText').text('어느정도 잘 키움');
 				}
 				else if (32.5 <= finalScore && finalScore < 35) {
 					text = end;
 					$('.finalScore').css('color', '#f1d2ff');
-					$('.finalImg').attr('src', '소.jpg');
+					$('.finalImg').attr('src', 'img/소.jpg');
 					$('.finalText').text("'선인'과 대등한 자");
 					$(".finalImg").css("border", "1px solid #f1d2ff");
 				}
 				else if (35 <= finalScore && finalScore < 37.5) {
 					text = verryEnd;
 					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '귀종.jpg');
+					$('.finalImg').attr('src', 'img/귀종.jpg');
 					$('.finalText').text("'마신'과 대등한 자");
 					$(".finalImg").css("border", "1px solid #ffd700");
 				}
 				else if (37.5 <= finalScore && finalScore < 39) {
 					text = verryEnd;
 					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '라이덴.png');
+					$('.finalImg').attr('src', 'img/라이덴.png');
 					$('.finalText').text("'일곱 신'과 대등한 자");
 					$(".finalImg").css("border", "1px solid #ffd700");
 				}
 				else if (39 <= finalScore && finalScore < 40) {
 					text = verryEnd;
 					$('.finalScore').css('color', '#ffd700');
-					$('.finalImg').attr('src', '종려.jpg');
+					$('.finalImg').attr('src', 'img/종려.jpg');
 					$('.finalText').text("'일곱 신'과 대등한 자");
 					$(".finalImg").css("border", "2px solid #ffd700");
 				}
@@ -537,13 +337,13 @@
 						"background-clip": "padding-box",
 						"background-image": "linear-gradient(to right top, #e16ddd, #ffff66)"
 					  });
-					$('.finalImg').attr('src', '극한.jpg');
+					$('.finalImg').attr('src', 'img/극한.jpg');
 					$('.finalText').text("'천리'에 도달 가능한 자");
 				}
 				else {
 					text = notEnd;
 					$('.finalScore').css('color', 'red');
-					$('.finalImg').attr('src', '미달.webp');
+					$('.finalImg').attr('src', 'img/미달.webp');
 					$('.finalText').text('자네는 파밍 안 하나?');
 				}
 				$('.finalScore').text("Total Score :" + finalScore + text);
