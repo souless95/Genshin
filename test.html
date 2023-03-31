@@ -548,6 +548,7 @@
 					text = notEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('under');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalImg').attr('src', './images/미달.webp');
 					$('.finalText').text('자네는 파밍 안 하나?');
 				}
@@ -571,6 +572,10 @@
 				$('body').css('overflow', 'hidden');
 			});
 			$('#guideClose').click(function () {
+				$('body').css('overflow', '');
+				closeG();
+			});
+			$('.backgroundG').click(function () {
 				$('body').css('overflow', '');
 				closeG();
 			});
@@ -978,11 +983,11 @@
 			});
 		}
 		document.querySelector("#close").addEventListener("click", close);
+		document.querySelector(".background").addEventListener("click", close);
 	</script>
 	</div>
 	</div>
 	<br>
 	<br>
 </body>
-
 </html>

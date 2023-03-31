@@ -94,12 +94,12 @@ body {
     background-color: #ffffff;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
 }
-.show {
+.showP {
     opacity: 1;
     z-index: 1000;
     transition: all .5s;
 }
-.show .popup {
+.showP .popup {
     transform: translate(-50%, -50%);
     transition: all .5s;
 }
@@ -209,7 +209,7 @@ background-color: #67a8d1;
     text-align: right;
 }
 #adjustT{
-    width:38%;
+    width:42%;
     margin-top: 3%;
 }
 .limitBorder{
@@ -227,6 +227,22 @@ background-color: #67a8d1;
 .goodBorder{border: 1px solid #f1d2ff;}
 .verryBorder1{border: 1px solid #ffeb37;}
 .verryBorder2{border: 2px solid #ffeb37;}
+.tooltip-inner{
+    white-space: pre-line;
+    max-width: 440px;
+    font-size: 0.9em;
+    background-color: #67a8d1;
+    color: #ffffff;
+    text-align: left;
+}
+.miniGuide, .miniGuide:hover{
+    color: rgb(249, 249, 249);
+    text-decoration-line: none;
+}
+.bi-question-circle{
+    font-size: 0.8em;
+}
+
 
 @media screen and (max-width:440px) {
     body {
@@ -250,7 +266,7 @@ background-color: #67a8d1;
         text-align: center;
     }
     #adjustT{
-        width:65%;
+        width:70%;
     }
     .reliqueList input{
         width: 30%;
@@ -382,4 +398,11 @@ background-color: #67a8d1;
     .verryBorder1{border: 1px solid #ffeb37;}
     .verryBorder2{border: 2px solid #ffeb37;}
     .modal-content-G{background-color: #181818;}
+    .modal-content-G{
+        color: white;
+    }
+    .tooltip-inner{
+        background-color: #67a8d1;
+        color: #ffffff;
+    }
   }
