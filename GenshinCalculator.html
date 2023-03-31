@@ -25,9 +25,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
-	<!-- 이미지 저장 라이브러리(dom-to-image) -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>  
 	<script type="text/javascript">
 		var attackP = 5;
 		var attack = 50;
@@ -485,28 +482,28 @@
 					text = littleEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('finalScore soso');
-					$('.finalImg').attr('src', './images/준종1.webp');
+					$('.finalImg').attr('src', './images/score/준종1.webp');
 					$('.finalText').text('나약해 보임');
 				}
 				else if (27.5 <= totalScore && totalScore < 30) {
 					text = littleEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('soso');
-					$('.finalImg').attr('src', './images/준종2.webp');
+					$('.finalImg').attr('src', './images/score/준종2.webp');
 					$('.finalText').text('좀 봐줄 만 함');
 				}
 				else if (30 <= totalScore && totalScore < 32.5) {
 					text = end;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('good');
-					$('.finalImg').attr('src', './images/종결1.webp');
+					$('.finalImg').attr('src', './images/score/종결1.webp');
 					$('.finalText').text('어느정도 잘 키움');
 				}
 				else if (32.5 <= totalScore && totalScore < 35) {
 					text = end;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('good');
-					$('.finalImg').attr('src', './images/소.jpg');
+					$('.finalImg').attr('src', './images/score/소.jpg');
 					$('.finalText').text("'선인'과 대등한 자");
 					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalImg').addClass('goodBorder');
@@ -515,7 +512,7 @@
 					text = verryEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('good');
-					$('.finalImg').attr('src', './images/귀종.jpg');
+					$('.finalImg').attr('src', './images/score/귀종.jpg');
 					$('.finalText').text("'마신'과 대등한 자");
 					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalImg').addClass('verryBorder1');
@@ -524,7 +521,7 @@
 					text = verryEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('verry');
-					$('.finalImg').attr('src', './images/라이덴.png');
+					$('.finalImg').attr('src', './images/score/라이덴.png');
 					$('.finalText').text("'일곱 신'과 대등한 자");
 					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalImg').addClass('verryBorder1');
@@ -533,7 +530,7 @@
 					text = verryEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('verry');
-					$('.finalImg').attr('src', './images/종려.jpg');
+					$('.finalImg').attr('src', './images/score/종려.jpg');
 					$('.finalText').text("'일곱 신'과 대등한 자");
 					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalImg').addClass('verryBorder2');
@@ -544,7 +541,7 @@
 					$('.finalScore').addClass('limit');
 					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$(".finalImg").addClass('limitBorder');
-					$('.finalImg').attr('src', './images/극한.jpg');
+					$('.finalImg').attr('src', './images/score/극한.jpg');
 					$('.finalText').text("'천리'에 도달 가능한 자");
 				}
 				else {
@@ -552,7 +549,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('under');
 					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
-					$('.finalImg').attr('src', './images/미달.webp');
+					$('.finalImg').attr('src', './images/score/미달.webp');
 					$('.finalText').text('자네는 파밍 안 하나?');
 				}
 				$('.finalScore').text("Total Score :" + finalScore + text);
@@ -582,16 +579,72 @@
 				$('body').css('overflow', '');
 				closeG();
 			});
+			$('#adjustOpen').click(function () {
+				showA();
+				$('body').css('overflow', 'hidden');
+			});
+			$('#adjustClose').click(function () {
+				$('body').css('overflow', '');
+				closeA();
+			});
+			$('.backgroundA').click(function () {
+				$('body').css('overflow', '');
+				closeA();
+			});
 		});
 	</script>
 </head>
 
 <body id="capture">
-	<div align="right">
-		<span id="madeby">제작자:목련&클레나리</span>
+	<div>
+		<button style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>보정 기준</button>
+		<script>
+			function showA() {
+				document.querySelector(".backgroundA").className = "backgroundA showP";
+				document.querySelector(".modal-content-A").style.display = "block";
+			}
+			function closeA() {
+				document.querySelector(".backgroundA").className = "backgroundA";
+				document.querySelector(".modal-content-A").style.display = "none";
+			}
+		</script>
+		<div class="backgroundA">
+			<div class="windowA">
+				<div class="guidModal">
+					<div class="modal-content-A" style="display: none; padding-right: 3%;">
+						<div style="margin-top: 10px;">
+							<button type="button" style="float: right; margin-right: 10px;" id="adjustClose"
+								class="closeBtn">닫기</button>
+						</div><br>
+						<div align="center" style="margin-bottom: 10%; clear:both">
+							<div style="margin-bottom:10px;" id="guideHeader"><Strong>《보정 기준표》</Strong></div>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>보정 수치 기준</span>
+							<p class="gContent">후순위 유효옵션들은 0.2~0.7 효율 수치를<br> 
+								가지고 있긴하지만 일괄적으로 <span style="color: red;">0.5</span>로 계산</p>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>수메르 원마 기반 캐릭의 경우</span>
+							<p class="gContent">상황에 따라 공% 효율이 달라지므로<br>
+								보정 여부를 판단하면 됨(1 or 0.5)<br>
+								대표적으로 무기or캐릭 특성이 원마비례<br> 
+								스텟증가일 경우 공% 효율이 낮아짐<br>
+								ex)나히다,알하이탐,사이노 등</p>
+							<span class="gContent" style="font-size:0.8em;">※ 아래 표는 원신 유투버 자료를 참고하여 만듬</span>
+							<img src="images/guide/불.PNG" alt="" class="adjustImg">
+							<img src="images/guide/번개.PNG" alt="" class="adjustImg">
+							<img src="images/guide/물.PNG" alt="" class="adjustImg">
+							<img src="images/guide/얼음.PNG" alt="" class="adjustImg">
+							<img src="images/guide/풀.PNG" alt="" class="adjustImg">
+							<img src="images/guide/바람.PNG" alt="" class="adjustImg">
+							<img src="images/guide/바위.PNG" alt="" class="adjustImg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<span id="madeby" style="float:right">제작자:목련&클레나리</span>
 	</div>
 	<br>
-	<div class="container" align="center">
+	<br>
+	<div class="container" align="center" style="clear:both"> 
 		<script>
 			function showG() {
 				document.querySelector(".backgroundG").className = "backgroundG showP";
@@ -613,25 +666,33 @@
 						<div>
 							<div style="margin-bottom:10px;" id="guideHeader"><Strong>《딜러용 성유물 계산기》</Strong></div>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Score 개념</span>
-							<p>성유물의 부옵션 중 캐릭터의 유효한 수치만을 합산 후 부옵션평균을 나눈 값<br>
-								ex)6 Score 성유물 = 유효한 부옵이 6개 정도가 붙어있다</p>
+							<p class="gContent">성유물의 부옵션 중 캐릭터에게 유효한 수치만 합산 후<br> 
+								부옵션 평균을 나눈 값<br>
+								ex)6 Score 성유물 = 유효한 부옵이 6개 정도 있음</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>유효옵션 판별</span>
-							<p>
-								<span class="highlight">공격력,HP,방어력</span>:캐릭터의 특성 중 딜링능력에 사용되어지는 옵션수치만 입력<br>
-								<span class="highlight">원소마스터리</span>:원소마스터리가 딜링에 유효옵일 경우만 입력<br>
-								<span class="highlight">원소충전효율</span>:궁을 전혀 사용안하거나 원소충전효율이 전혀 필요없는 캐릭일 경우 입력x
+							<p class="gContent">
+								<span class="highlight">공격력,HP,방어력</span><br>
+								캐릭터의 딜링능력에 사용되어지는 옵션수치만 입력<br>
+								<span class="highlight">원소마스터리</span><br>
+								원소마스터리가 딜링에 유효옵일 경우만 입력<br>
+								<span class="highlight">원소충전효율</span><br>
+								궁을 전혀 사용안하거나 원소충전효율이 전혀 필요없는 캐릭일 경우 입력x
 							</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
-							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우<br>
-								 <span style="color: red;">0.5</span>배로 보정계산한다<br>
+							<p class="gContent">일부 캐릭 중 특정 옵션이 유효하지만<br>
+								타 옵션에 비해 효율이 떨어지는 경우<br>
+								 <span style="color: red;">0.5</span>배로 보정 후 계산<br>
 								ex)호두,나히다 - 공격력 <span style="color: red;">0.5</span>보정<br>
 								다이루크 - 원소마스터리 <span style="color: red;">0.5</span>보정</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>적정 원충 수치</span>
-							<p>캐릭터가 궁 사이클이 부드럽게 굴러가기위한 최대 원충 수치<br>
-								ex)캐릭터의 권장 원충이 140~160일 경우 160 입력
+							<p class="gContent">궁 사이클이 부드럽게 굴러가기위한 원충 수치<br>
+								무기,파티,돌파 등 개인 상황에 맞게 정의<br>
+								ex)무기 - 페보,크시포스<br>
+								파티 - 공명,배터리<br>
+								돌파 - 1돌 야란 170%
 							</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>성유물 Score 등급</span><br>
@@ -672,12 +733,12 @@
 							</table>
 							<p></p>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score</span><br>
-							<p>딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상)<br>
+							<p class="gContent">딜러는 치확 치피 비율 1 : 2이상(치확 최소 60이상)<br>
 								그리고 궁 사이클이 부드럽게 굴러가는 적정원충에 수렴할경우 유의미한 수치<br>
 								(원충자체가 전혀 필요없는 캐릭은 성유물 계산에 입력하지 말것)</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 보정</span>
-							<p><span class="highlight">공격력,HP,방어력,원소충전효율,원소마스터리</span> 중<br>
+							<p class="gContent"><span class="highlight">공격력,HP,방어력,원소충전효율,원소마스터리</span> 중<br>
 								딜링에 유효한 옵션이 <span class="highlight">2개 이하</span> 일 때<br>
 								3개 이상인 캐릭보다 파밍난이도가 어렵기에<br>
 								Total Score에<span style="color: red;">5%</span>를 추가하여 기준 등급조정<br>
@@ -705,7 +766,7 @@
 								랭킹사이트 기준 100위권 이내<br>
 							</div>
 
-							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스코어 계산(부옵의 평균 수치당 1 Score)</span>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스코어 계산(부옵션 평균 수치당 1 Score)</span>
 							<table class="table table-bordered" id="scoreTable">
 								<tr>
 									<td>공격력%</td>
@@ -748,6 +809,65 @@
 									<td>÷41 (약 6.6당 방어력1%)</td>
 								</tr>
 							</table>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>(참고)부옵션별 수치</span>
+							<table class="table table-bordered" id="referTable">
+								<tr>
+									<td></td>
+									<td>최하</td>
+									<td>하</td>
+									<td>상</td>
+									<td>최상</td>
+								</tr>
+								<tr>
+									<td>공격력%</td>
+									<td>4.08%</td>
+									<td>4.66%</td>
+									<td>5.25%</td>
+									<td>5.83%</td>
+								</tr>
+								<tr>
+									<td>HP%</td>
+									<td>4.08%</td>
+									<td>4.66%</td>
+									<td>5.25%</td>
+									<td>5.83%</td>
+								</tr>
+								<tr>
+									<td>방어력%</td>
+									<td>5.10%</td>
+									<td>5.83%</td>
+									<td>6.56%</td>
+									<td>7.29%</td>
+								</tr>
+								<tr>
+									<td>치명타 확률</td>
+									<td>2.72%</td>
+									<td>3.11%</td>
+									<td>3.50%</td>
+									<td>3.89%</td>
+								</tr>
+								<tr>
+									<td>치명타 피해</td>
+									<td>5.44%</td>
+									<td>6.22%</td>
+									<td>6.99%</td>
+									<td>7.77%</td>
+								</tr>
+								<tr>
+									<td>원소충전효율</td>
+									<td>4.53%</td>
+									<td>5.18%</td>
+									<td>5.83%</td>
+									<td>6.48%</td>
+								</tr>
+								<tr>
+									<td>원소마스터리</td>
+									<td>16.32</td>
+									<td>18.65</td>
+									<td>20.98</td>
+									<td>23.32</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -758,8 +878,10 @@
 		</h2>
 		<table style="color:white" id="adjustT">
 			<tr>
-				<td colspan="2" style="font-size: 0.7em; color: yellow;">
-					※반드시 <i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용해주세요.<br>
+				<td colspan="2">
+					<span style="font-size: 0.7em; color: yellow; margin-left:6%">
+						※반드시 <i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용하세요.<br>
+					</span>
 				</td>
 			</tr>
 			<tr>
@@ -823,8 +945,17 @@
 					<input type="radio" value="ni" name="mastery" checked>&nbsp;X
 				</td>
 			</tr>
-			<tr>
-				<td><span style="margin-left: 10%; font-weight: 0.9em;"></span>적정 원충 수치</td>
+			<tr>								
+				<td>
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+					title="궁 사이클이 부드럽게 굴러가기위한 원충 수치로
+					<span class='bol-text'>무기,파티,돌파</span> 등 개인 상황에 맞게 입력
+					ex)무기 - 페보,크시포스
+					파티 - 공명,배터리
+					돌파 - 1돌 야란 170%">
+					<i class="bi bi-question-circle"></i>
+					</a>
+				적정 원충 수치</td>
 				<td><input type="number" inputmode="decimal" pattern="\d*" id="elementgauge"
 						style="border-radius: 5px; border: 1px solid gray;" value="100">%</td>
 			</tr>
@@ -854,6 +985,9 @@
 			});
 		</script>
 		<br>
+		<!-- <div style="font-size: 0.7em; color: yellow; margin-top:2%; margin-bottom:2%;">
+			※유효옵만 입력해야 정확한 측정이 가능합니다.<br>
+		</div> -->
 		<div class="reliqueList">
 			<script>
 				var factor = ["flower", "feather", "watch", "holyGrail", "crown"];

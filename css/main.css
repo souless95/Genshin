@@ -55,13 +55,13 @@ option {
     background-color: #67a8d1;
     color: white;
 }
-#close, #guideClose{
+#close, #guideClose, #adjustClose{
     border-radius: 5px;
     background-color: white;
     color: #67a8d1;
     border: none;
 }
-#guideClose{
+#guideClose, #adjustClose{
     border: 1px solid #67a8d1;
 }
 .selectO {
@@ -111,7 +111,7 @@ body {
     left: 15%;
     border-radius: 10px;
 }
-.modal-content-G{
+.modal-content-G, .modal-content-A{
     background-color: #ffffff;
     width: 80%;
     height: 80%;
@@ -168,11 +168,7 @@ p{
     margin-bottom: 5px;
     font-size: 0.8em;
 }
-#scoreTable td{
-    font-size: 0.8em;
-    padding: 0;
-}
-#gradeTable td, #gradeTable th{
+#scoreTable td, #gradeTable td, #gradeTable th, #referTable td{
     font-size: 0.8em;
     padding: 0;
 }
@@ -250,7 +246,20 @@ background-color: #67a8d1;
 .bol-text{
     color: yellow;
 }
-
+.gContent{
+    text-align: center;
+}
+#adjustOpen{
+    border: none;
+    background: none;
+    color: #ffffff;
+    font-size: 0.9em;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+.adjustImg{
+    width: 95%;
+}
 
 @media screen and (max-width:440px) {
     body {
@@ -282,7 +291,7 @@ background-color: #67a8d1;
     select{
         width: 30%;
     }
-    #scoreTable, #gradeTable{
+    #scoreTable, #gradeTable, #referTable{
         width: 90%;
         text-align: center;
         border : 1px solid black;
@@ -316,7 +325,7 @@ background-color: #67a8d1;
         width: 60%;
         text-align: center;
     }
-    #scoreTable{
+    #scoreTable, #referTable, #referTable{
         width: 80%;
         text-align: center;
         border : 1px solid black;
@@ -340,6 +349,9 @@ background-color: #67a8d1;
     }
     #guideHeader{
         margin-left: 6%;
+    }
+    #adjustOpen{
+        font-size: 1.3em;
     }
     
 
@@ -413,7 +425,8 @@ background-color: #67a8d1;
         background-color: #67a8d1;
         color: #ffffff;
     }
-    #scoreTable, #gradeTable{
+    #scoreTable, #gradeTable, #referTable{
         color: white;
+        border: 1px solid white;
     }
   }
