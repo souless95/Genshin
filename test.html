@@ -25,6 +25,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<!-- 이미지 저장 라이브러리(dom-to-image) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>  
 	<script type="text/javascript">
 		var attackP = 5;
 		var attack = 50;
@@ -621,9 +624,10 @@
 							</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>스텟 보정</span>
-							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우 <span style="color: red;">0.5</span>배로
-								보정계산한다<br>
-								ex)호두,나히다 - 공격력 0.5보정</p>
+							<p>일부 캐릭은 특정 옵션이 유효하지만 타 옵션에 비해 효율이 떨어지는 경우<br>
+								 <span style="color: red;">0.5</span>배로 보정계산한다<br>
+								ex)호두,나히다 - 공격력 <span style="color: red;">0.5</span>보정<br>
+								다이루크 - 원소마스터리 <span style="color: red;">0.5</span>보정</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>적정 원충 수치</span>
 							<p>캐릭터가 궁 사이클이 부드럽게 굴러가기위한 최대 원충 수치<br>
@@ -673,11 +677,13 @@
 								(원충자체가 전혀 필요없는 캐릭은 성유물 계산에 입력하지 말것)</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 보정</span>
-							<p>공격력,HP,방어력,원소충전효율,원소마스터리 5개의 옵션 중<br>
-								딜링에 유효한 옵션이 2개 이하 일 때 3개 이상인 캐릭보다 파밍난이도가 어렵기에<br>
-								Total Score에서 <span style="color: red;">5%</span>를 추가된 점수로 등급을 판별<br>
-								ex)Total Score가 34일경우 <span class="good">종결</span>이지만 보정할 시 35.7이기에 <span
-									class="verry">극종결</span>로 표기</p>
+							<p><span class="highlight">공격력,HP,방어력,원소충전효율,원소마스터리</span> 중<br>
+								딜링에 유효한 옵션이 <span class="highlight">2개 이하</span> 일 때<br>
+								3개 이상인 캐릭보다 파밍난이도가 어렵기에<br>
+								Total Score에<span style="color: red;">5%</span>를 추가하여 기준 등급조정<br>
+								<span class="highlight">(Score변동없음)</span><br>
+								ex)Total Score가 34일경우 <span class="good">종결</span>이지만<br> 
+								보정할 시 35.7이기에 <span class="verry">극종결</span>로 표기</p>
 
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Total Score 등급</span>
 							<div class="dd" style="margin-top: 3px;">
@@ -758,10 +764,10 @@
 			</tr>
 			<tr>
 				<td>
-					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" 
-						title="공격력이 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+						title="<span class='bol-text'>공격력</span>이 유효한 옵션이지만 타 옵션에 비해 떨어지는 경우 
 						캐릭터마다 0.2~0.7정도의 효율 수치를 가지고 있지만 
-						일괄적으로 0.5로 계산
+						일괄적으로 <span class='red-text'>0.5</span>로 계산
 						ex)호두,나히다,이토 등">
 					<i class="bi bi-question-circle"></i>
 					</a>
@@ -774,10 +780,10 @@
 			</tr>
 			<tr>
 				<td>
-					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" 
-						title="HP가 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom"  data-bs-html="true"
+						title=" <span class='bol-text'>HP</span>가 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
 						캐릭터마다 0.2~0.7정도의 효율 수치를 가지고 있지만 
-						일괄적으로 0.5로 계산
+						일괄적으로 <span class='red-text'>0.5</span>로 계산
 						ex)아야토">
 					<i class="bi bi-question-circle"></i>
 					</a>
@@ -789,10 +795,10 @@
 			</tr>
 			<tr>
 				<td>
-					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" 
-						title="방어력이 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+						title="<span class='bol-text'>방어력</span>이 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
 						캐릭터마다 0.2~0.7정도의 효율 수치를 가지고 있지만 
-						일괄적으로 0.5로 계산
+						일괄적으로 <span class='red-text'>0.5</span>로 계산
 						ex)아직 없음">
 					<i class="bi bi-question-circle"></i>
 					</a>
@@ -804,10 +810,10 @@
 			</tr>
 			<tr>
 				<td>
-					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" 
-						title="원소마스터리가 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+						title="<span class='bol-text'>원소마스터리</span>가 유효한 옵션이지만 타 옵션에 비해 떨어지는경우 
 						캐릭터마다 0.2~0.7정도의 효율 수치를 가지고 있지만 
-						일괄적으로 0.5로 계산
+						일괄적으로 <span class='red-text'>0.5</span>로 계산
 						ex)다이루크,미코 등">
 					<i class="bi bi-question-circle"></i>
 					</a>
@@ -824,14 +830,14 @@
 			</tr>
 			<tr>
 				<td>
-					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom"
-					title="공격력,HP,방어력,원소충전효율,원소마스터리 5개의 옵션 중 
-					딜링에 유효한 옵션이 2개일 때 Score대비 5%추가하여
-					기준 등급조정(Score변동없음)
-					ex)아야카 - 공,원충,치확,치피
-					라이덴 - 공,원충,치확,치피
-					요이미야 - 공,원마,치확,치피(원충 100)
-					각청 - 공,원마,치확,치피(원충 100)">
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+					title="<span class='bol-text'>공격력,HP,방어력,원소충전효율,원소마스터리</span> 5개의 옵션 중 
+					딜링에 유효한 옵션이 <span class='bol-text'>2개 이하</span>일 때 Score대비 <span class='red-text'>5%</span>추가하여
+					기준 등급조정<strong><em>(Score변동없음)</em></strong>
+					ex)아야카 - <span class='bol-text'>공,원충</span>,치확,치피
+					라이덴 - <span class='bol-text'>공,원충</span>,치확,치피
+					요이미야 - <span class='bol-text'>공,원마</span>,치확,치피(원충 100)
+					각청 - <span class='bol-text'>공,원마</span>,치확,치피(원충 100)">
 					<i class="bi bi-question-circle"></i>
 					</a>
 					Total Score 보정</td>

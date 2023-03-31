@@ -236,11 +236,19 @@ background-color: #67a8d1;
     text-align: left;
 }
 .miniGuide, .miniGuide:hover{
-    color: rgb(249, 249, 249);
-    text-decoration-line: none;
+    background:none;
+    border: none;
+    text-decoration: none;
+    color: white;
 }
 .bi-question-circle{
     font-size: 0.8em;
+}
+.red-text {
+    color: orange;
+}
+.bol-text{
+    color: yellow;
 }
 
 
@@ -404,5 +412,8 @@ background-color: #67a8d1;
     .tooltip-inner{
         background-color: #67a8d1;
         color: #ffffff;
+    }
+    #scoreTable, #gradeTable{
+        color: white;
     }
   }
