@@ -17,6 +17,15 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4X7Y6PYHV"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Z4X7Y6PYHV');
+	</script>
 	<script type="text/javascript">
 		var attackP = 5;
 		var attack = 50;
@@ -541,6 +550,7 @@
 					text = notEnd;
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('under');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalImg').attr('src', './images/미달.webp');
 					$('.finalText').text('자네는 파밍 안 하나?');
 				}
