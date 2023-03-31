@@ -483,6 +483,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('finalScore soso');
 					$('.finalImg').attr('src', './images/score/준종1.webp');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalText').text('나약해 보임');
 				}
 				else if (27.5 <= totalScore && totalScore < 30) {
@@ -490,6 +491,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('soso');
 					$('.finalImg').attr('src', './images/score/준종2.webp');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalText').text('좀 봐줄 만 함');
 				}
 				else if (30 <= totalScore && totalScore < 32.5) {
@@ -497,6 +499,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('good');
 					$('.finalImg').attr('src', './images/score/종결1.webp');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalText').text('어느정도 잘 키움');
 				}
 				else if (32.5 <= totalScore && totalScore < 35) {
@@ -597,7 +600,7 @@
 
 <body id="capture">
 	<div>
-		<a style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>보정 기준</a>
+		<span style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>보정 기준</span>
 		<script>
 			function showA() {
 				document.querySelector(".backgroundA").className = "backgroundA showP";
