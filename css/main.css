@@ -71,7 +71,7 @@ option {
 body {
     background-color: #F7F7F7;
 }
-.background, .backgroundG {
+.background, .backgroundG,  .backgroundA{
     position: fixed;
     top: 0;
     left: 0;
