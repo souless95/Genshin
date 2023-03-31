@@ -419,7 +419,8 @@ background-color: #67a8d1;
     .goodBorder{border: 1px solid #f1d2ff;}
     .verryBorder1{border: 1px solid #ffeb37;}
     .verryBorder2{border: 2px solid #ffeb37;}
-    .modal-content-G{
+    .modal-content-G,.modal-content-A{background-color: #181818;}
+    .modal-content-G,.modal-content-A{
         color: white;
     }
     .tooltip-inner{
