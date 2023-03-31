@@ -250,15 +250,17 @@ background-color: #67a8d1;
     text-align: center;
 }
 #adjustOpen{
-    border: none;
-    background: none;
     color: #ffffff;
     font-size: 0.9em;
     margin-left: 10px;
     margin-top: 3px;
+    cursor : pointer;
 }
 .adjustImg{
     width: 95%;
+}
+#guideOpen{
+    cursor : pointer;
 }
 
 @media screen and (max-width:440px) {
@@ -417,7 +419,6 @@ background-color: #67a8d1;
     .goodBorder{border: 1px solid #f1d2ff;}
     .verryBorder1{border: 1px solid #ffeb37;}
     .verryBorder2{border: 2px solid #ffeb37;}
-    .modal-content-G{background-color: #181818;}
     .modal-content-G{
         color: white;
     }
