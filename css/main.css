@@ -112,7 +112,7 @@ body {
     border-radius: 10px;
 }
 .modal-content-G, .modal-content-A{
-    background-color: #ffffff;
+    background-color: #000000;
     width: 80%;
     height: 80%;
     position: absolute;
@@ -121,6 +121,10 @@ body {
     border-radius: 10px;
     overflow-y: scroll; 
     max-height: 700px;
+    color: white;
+}
+#gradeTable, #scoreTable, #referTable{
+    color: white;
 }
 p{
     font-size: 0.9em;
@@ -215,6 +219,7 @@ background-color: #67a8d1;
     background-image: linear-gradient(to right top, #e16ddd, #ffff66);
 }
 .highlight{
+    color: orange;
     font-weight: bolder;
 }
 .under{
@@ -415,7 +420,7 @@ background-color: #67a8d1;
         background-color: #67a8d1;
         color: white;
     }
-    .highlight{color: #67a8d1;}
+    .highlight{color: orange;}
     .goodBorder{border: 1px solid #f1d2ff;}
     .verryBorder1{border: 1px solid #ffeb37;}
     .verryBorder2{border: 2px solid #ffeb37;}
