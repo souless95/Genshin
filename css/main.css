@@ -290,7 +290,16 @@ background-color: #67a8d1;
         text-align: center;
     }
     #adjustT{
-        width:70%;
+        width:65%;
+    }
+    #adjustT tr td:nth-child(1){
+        width:65%;
+        padding-left: 5%;
+    }
+    #adjustT tr td:nth-child(2){
+        width:35%;
+        text-align: right;
+        padding-right: 4%;
     }
     .reliqueList input{
         width: 30%;
@@ -359,6 +368,18 @@ background-color: #67a8d1;
     }
     #adjustOpen{
         font-size: 1.3em;
+    }
+    #adjustT{
+        width:41%;
+    }
+    #adjustT tr td:nth-child(1){
+        width:65%;
+        padding-left: 5%;
+    }
+    #adjustT tr td:nth-child(2){
+        width:35%;
+        text-align: right;
+        padding-right: 4%;
     }
     
 

@@ -609,7 +609,7 @@
 
 <body id="capture">
 	<div>
-		<span style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>보정 기준</span>
+		<span style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>&nbsp;보정</span>
 		<script>
 			function showA() {
 				document.querySelector(".backgroundA").className = "backgroundA showP";
@@ -888,14 +888,14 @@
 				</div>
 			</div>
 		</div>
-		<h2><span style="color: white;">원신 성유물 계산기</span>&nbsp;&nbsp;
+		<h2><span style="color: white; ">원신 성유물 계산기</span>&nbsp;
 			<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>
 		</h2>
 		<table style="color:white" id="adjustT">
 			<tr>
 				<td colspan="2">
-					<span style="font-size: 0.7em; color: yellow; margin-left:6%">
-						※반드시 <i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용하세요.<br>
+					<span style="font-size: 0.7em; color: yellow;">
+						※반드시 <i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용해주세요.<br>
 					</span>
 				</td>
 			</tr>
@@ -1011,7 +1011,7 @@
 				for (var i = 0; i <= 4; i++) {
 					var j = 1;
 					var reliques = $("<div>").attr("id", "relique" + eval("i+1"));
-					var strongElem = $("<strong>").addClass("reliqueT").text(factorK[i]);
+					var strongElem = $("<strong>").addClass("reliqueT").html(factorK[i]+"&nbsp;&nbsp;");
 					var spanElem = $("<span>");
 					var buttonElem = $("<button>").attr("type", "button").addClass("reset").text("초기화");
 					reliques.append(strongElem, spanElem, buttonElem);
