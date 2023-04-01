@@ -1078,8 +1078,8 @@
 						var inputElem = document.createElement("input");
 						inputElem.type = "number";
 						inputElem.setAttribute("inputmode", "decimal");
+						inputElem.setAttribute("pattern", "\\d*");
 						inputElem.id = factor[i] + "-option-" + j;
-
 						var divElem = document.createElement("div");
 						divElem.className = "selectO";
 						divElem.appendChild(selectElem);
