@@ -269,7 +269,7 @@ background-color: #67a8d1;
     cursor : pointer;
 }
 
-@media screen and (max-width:440px) {
+@media screen and (max-width:719px) {
     body {
         background-image: url("../images/신학.jpg");
         background-size: 440px;
