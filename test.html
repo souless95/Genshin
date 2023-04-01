@@ -24,7 +24,16 @@
 	<!--ajax&jQuery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/main_test.css">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4X7Y6PYHV"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-Z4X7Y6PYHV');
+	</script>
 	<script type="text/javascript">
 		var attackP = 5;
 		var attack = 50;
@@ -132,25 +141,25 @@
 			let total = parseFloat(flowerT.toFixed(1));
 
 			if (total >= 9) {
-				$('#relique1').children('span').text(" score:" + total + limitEnd);
+				$('#relique1').children('span').html(" score:" + total + limitEnd + "&nbsp;");
 				$('#relique1').children('span').css('color', 'transparent');
 				$('#relique1').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
 				$('#relique1').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (8 <= total && total < 9) {
-				$('#relique1').children('span').text(" score:" + total + verryEnd);
+				$('#relique1').children('span').html(" score:" + total + verryEnd + "&nbsp;");
 				$('#relique1').children('span').css('color', 'yellow');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique1').children('span').text(" score:" + total + end);
+				$('#relique1').children('span').html(" score:" + total + end + "&nbsp;");
 				$('#relique1').children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique1').children('span').text(" score:" + total + littleEnd);
+				$('#relique1').children('span').html(" score:" + total + littleEnd + "&nbsp;");
 				$('#relique1').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 6) {
-				$('#relique1').children('span').text(" score:" + total + notEnd);
+				$('#relique1').children('span').html(" score:" + total + notEnd + "&nbsp;");
 				$('#relique1').children('span').css('color', 'red');
 			}
 		}
@@ -181,25 +190,25 @@
 			let total = parseFloat(featherT.toFixed(1));
 
 			if (total >= 9) {
-				$('#relique2').children('span').text(" score:" + total + limitEnd);
+				$('#relique2').children('span').html(" score:" + total + limitEnd + "&nbsp;");
 				$('#relique2').children('span').css('color', 'transparent');
 				$('#relique2').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
 				$('#relique2').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (8 <= total && total < 9) {
-				$('#relique2').children('span').text(" score:" + total + verryEnd);
+				$('#relique2').children('span').html(" score:" + total + verryEnd + "&nbsp;");
 				$('#relique2').children('span').css('color', 'yellow');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique2').children('span').text(" score:" + total + end);
+				$('#relique2').children('span').html(" score:" + total + end + "&nbsp;");
 				$('#relique2').children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique2').children('span').text(" score:" + total + littleEnd);
+				$('#relique2').children('span').html(" score:" + total + littleEnd + "&nbsp;");
 				$('#relique2').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 6) {
-				$('#relique2').children('span').text(" score:" + total + notEnd);
+				$('#relique2').children('span').html(" score:" + total + notEnd + "&nbsp;");
 				$('#relique2').children('span').css('color', 'red');
 			}
 		}
@@ -230,25 +239,25 @@
 			let total = parseFloat(watchT.toFixed(1));
 
 			if (total >= 8) {
-				$('#relique3').children('span').text(" score:" + total + limitEnd);
+				$('#relique3').children('span').html("score:" + total + limitEnd + "&nbsp;");
 				$('#relique3').children('span').css('color', 'transparent');
 				$('#relique3').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
 				$('#relique3').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique3').children('span').text(" score:" + total + verryEnd);
+				$('#relique3').children('span').html("score:" + total + verryEnd + "&nbsp;");
 				$('#relique3').children('span').css('color', 'yellow');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique3').children('span').text(" score:" + total + end);
+				$('#relique3').children('span').html("score:" + total + end + "&nbsp;");
 				$('#relique3').children('span').css('color', '#f1d2ff');
 			}
 			else if (5 <= total && total < 6) {
-				$('#relique3').children('span').text(" score:" + total + littleEnd);
+				$('#relique3').children('span').html("score:" + total + littleEnd + "&nbsp;");
 				$('#relique3').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 5) {
-				$('#relique3').children('span').text(" score:" + total + notEnd);
+				$('#relique3').children('span').html("score:" + total + notEnd + "&nbsp;");
 				$('#relique3').children('span').css('color', 'red');
 			}
 		}
@@ -279,25 +288,25 @@
 			let total = parseFloat(holyGrailCalT.toFixed(1));
 
 			if (total >= 7) {
-				$('#relique4').children('span').text(" score:" + total + limitEnd);
+				$('#relique4').children('span').html(" score:" + total + limitEnd + "&nbsp;");
 				$('#relique4').children('span').css('color', 'transparent');
 				$('#relique4').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
 				$('#relique4').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique4').children('span').text(" score:" + total + verryEnd);
+				$('#relique4').children('span').html(" score:" + total + verryEnd + "&nbsp;");
 				$('#relique4').children('span').css('color', 'yellow');
 			}
 			else if (5 <= total && total < 6) {
-				$('#relique4').children('span').text(" score:" + total + end);
+				$('#relique4').children('span').html(" score:" + total + end + "&nbsp;");
 				$('#relique4').children('span').css('color', '#f1d2ff');
 			}
 			else if (4 <= total && total < 5) {
-				$('#relique4').children('span').text(" score:" + total + littleEnd);
+				$('#relique4').children('span').html(" score:" + total + littleEnd + "&nbsp;");
 				$('#relique4').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 4) {
-				$('#relique4').children('span').text(" score:" + total + notEnd);
+				$('#relique4').children('span').html("score:" + total + notEnd + "&nbsp;");
 				$('#relique4').children('span').css('color', 'red');
 			}
 		}
@@ -328,25 +337,25 @@
 			let total = parseFloat(crownT.toFixed(1));
 
 			if (total >= 7) {
-				$('#relique5').children('span').text(" score:" + total + limitEnd);
+				$('#relique5').children('span').html(" score:" + total + limitEnd + "&nbsp;");
 				$('#relique5').children('span').css('color', 'transparent');
 				$('#relique5').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
 				$('#relique5').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique5').children('span').text(" score:" + total + verryEnd);
+				$('#relique5').children('span').html(" score:" + total + verryEnd + "&nbsp;");
 				$('#relique5').children('span').css('color', 'yellow');
 			}
 			else if (5 <= total && total < 6) {
-				$('#relique5').children('span').text(" score:" + total + end);
+				$('#relique5').children('span').html(" score:" + total + end + "&nbsp;");
 				$('#relique5').children('span').css('color', '#f1d2ff');
 			}
 			else if (4 <= total && total < 5) {
-				$('#relique5').children('span').text(" score:" + total + littleEnd);
+				$('#relique5').children('span').html(" score:" + total + littleEnd + "&nbsp;");
 				$('#relique5').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 4) {
-				$('#relique5').children('span').text(" score:" + total + notEnd);
+				$('#relique5').children('span').html("score:" + total + notEnd + "&nbsp;");
 				$('#relique5').children('span').css('color', 'red');
 			}
 		}
@@ -483,6 +492,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('finalScore soso');
 					$('.finalImg').attr('src', './images/score/준종1.webp');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalText').text('나약해 보임');
 				}
 				else if (27.5 <= totalScore && totalScore < 30) {
@@ -490,6 +500,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('soso');
 					$('.finalImg').attr('src', './images/score/준종2.webp');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalText').text('좀 봐줄 만 함');
 				}
 				else if (30 <= totalScore && totalScore < 32.5) {
@@ -497,6 +508,7 @@
 					$('.finalScore').removeClass('soso good very limit under');
 					$('.finalScore').addClass('good');
 					$('.finalImg').attr('src', './images/score/종결1.webp');
+					$('.finalImg').removeClass('goodBorder verryBorder1 verryBorder2 limitBorder');
 					$('.finalText').text('어느정도 잘 키움');
 				}
 				else if (32.5 <= totalScore && totalScore < 35) {
@@ -597,7 +609,7 @@
 
 <body id="capture">
 	<div>
-		<span style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>보정 기준</span>
+		<span style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>&nbsp;보정</span>
 		<script>
 			function showA() {
 				document.querySelector(".backgroundA").className = "backgroundA showP";
@@ -627,7 +639,10 @@
 								대표적으로 무기or캐릭 특성이 원마비례<br> 
 								스텟증가일 경우 공% 효율이 낮아짐<br>
 								ex)나히다,알하이탐,사이노 등</p>
-							<span class="gContent" style="font-size:0.8em;">※ 아래 표는 원신 유투버 자료를 참고하여 만듬</span>
+							<span class="gContent" style="font-size:0.8em;">
+								※ 아래 표는 원신 유투버 자료를 참고하여 만듬<br>
+								주관적인 기준이고 절대적이지 않음
+							</span>
 							<img src="images/guide/불.PNG" alt="" class="adjustImg">
 							<img src="images/guide/번개.PNG" alt="" class="adjustImg">
 							<img src="images/guide/물.PNG" alt="" class="adjustImg">
@@ -873,14 +888,14 @@
 				</div>
 			</div>
 		</div>
-		<h2><span style="color: white;">원신 성유물 계산기</span>&nbsp;&nbsp;
+		<h2><span style="color: white; ">원신 성유물 계산기</span>&nbsp;
 			<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>
 		</h2>
 		<table style="color:white" id="adjustT">
 			<tr>
 				<td colspan="2">
-					<span style="font-size: 0.7em; color: yellow; margin-left:6%">
-						※반드시 <i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용하세요.<br>
+					<span style="font-size: 0.7em; color: yellow;">
+						※<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용하세요.<br>
 					</span>
 				</td>
 			</tr>
@@ -996,7 +1011,7 @@
 				for (var i = 0; i <= 4; i++) {
 					var j = 1;
 					var reliques = $("<div>").attr("id", "relique" + eval("i+1"));
-					var strongElem = $("<strong>").addClass("reliqueT").text(factorK[i]);
+					var strongElem = $("<strong>").addClass("reliqueT").html(factorK[i]+"&nbsp;&nbsp;");
 					var spanElem = $("<span>");
 					var buttonElem = $("<button>").attr("type", "button").addClass("reset").text("초기화");
 					reliques.append(strongElem, spanElem, buttonElem);
