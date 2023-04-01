@@ -1077,8 +1077,7 @@
 
 						var inputElem = document.createElement("input");
 						inputElem.type = "number";
-						inputElem.inputmode = "decimal";
-						inputElem.pattern = "\d*";
+						inputElem.setAttribute("inputmode", "decimal");
 						inputElem.id = factor[i] + "-option-" + j;
 
 						var divElem = document.createElement("div");
