@@ -21,6 +21,7 @@ select {
     color: black;
     justify-content: center;
     width: 20%;
+    margin-right: 3px;
 }
 option {
     color: black;
@@ -243,7 +244,7 @@ background-color: #67a8d1;
     color: white;
 }
 .bi-question-circle{
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 .red-text {
     color: orange;
@@ -256,7 +257,7 @@ background-color: #67a8d1;
 }
 #adjustOpen{
     color: #ffffff;
-    font-size: 0.9em;
+    font-size: 1.1em;
     margin-left: 10px;
     margin-top: 3px;
     cursor : pointer;
@@ -276,6 +277,7 @@ background-color: #67a8d1;
     }
 
     h2 {
+
         text-align: center;
     }
 
@@ -290,24 +292,23 @@ background-color: #67a8d1;
         text-align: center;
     }
     #adjustT{
-        width:65%;
+        width:74%;
     }
     #adjustT tr td:nth-child(1){
-        font-size: 0.9em;
         width:65%;
         padding-left: 5%;
     }
     #adjustT tr td:nth-child(2){
-        font-size: 0.9em;
         width:35%;
         text-align: right;
         padding-right: 4%;
     }
     .reliqueList input{
-        width: 30%;
+        width: 34%;
     }
     select{
-        width: 30%;
+        width: 34%;
+        margin-right: 3px;
     }
     #scoreTable, #gradeTable, #referTable{
         width: 90%;
@@ -369,7 +370,7 @@ background-color: #67a8d1;
         margin-left: 6%;
     }
     #adjustOpen{
-        font-size: 1.3em;
+        font-size: 3em;
     }
     #adjustT{
         width:41%;

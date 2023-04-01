@@ -21,6 +21,7 @@ select {
     color: black;
     justify-content: center;
     width: 20%;
+    margin-right: 3px;
 }
 option {
     color: black;
@@ -256,7 +257,7 @@ background-color: #67a8d1;
 }
 #adjustOpen{
     color: #ffffff;
-    font-size: 0.9em;
+    font-size: 1.1em;
     margin-left: 10px;
     margin-top: 3px;
     cursor : pointer;

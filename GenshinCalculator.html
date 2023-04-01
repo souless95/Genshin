@@ -24,7 +24,7 @@
 	<!--ajax&jQuery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/main_test.css">
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4X7Y6PYHV"></script>
 	<script>
@@ -609,7 +609,7 @@
 
 <body id="capture">
 	<div>
-		<span style="float:left;" id="adjustOpen"><i class="bi bi-question-circle"></i>&nbsp;보정</span>
+		<span style="float:left; font-size:1.1em;" id="adjustOpen"><i class="bi bi-question-circle"></i>&nbsp;보정</span>
 		<script>
 			function showA() {
 				document.querySelector(".backgroundA").className = "backgroundA showP";
@@ -1011,7 +1011,7 @@
 				for (var i = 0; i <= 4; i++) {
 					var j = 1;
 					var reliques = $("<div>").attr("id", "relique" + eval("i+1"));
-					var strongElem = $("<strong>").addClass("reliqueT").html(factorK[i]+"&nbsp;&nbsp;");
+					var strongElem = $("<strong>").addClass("reliqueT").html(factorK[i]+"&nbsp;");
 					var spanElem = $("<span>");
 					var buttonElem = $("<button>").attr("type", "button").addClass("reset").text("초기화");
 					reliques.append(strongElem, spanElem, buttonElem);
