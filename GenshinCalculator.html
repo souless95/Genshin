@@ -42,7 +42,7 @@
 		var mastery = 20;
 		var defensiveP = 6.2;
 		var defensive = 41;
-		var elementGauge = 0;
+		var eGauge = 0;
 		var limitEnd = ' (극한)';
 		var verryEnd = ' (극종결)';
 		var end = ' (종결)';
@@ -51,9 +51,10 @@
 		var flowerT = 0;
 		var featherT = 0;
 		var watchT = 0;
-		var holyGrailCalT = 0;
+		var holyGrailT = 0;
 		var crownT = 0;
 		var totalScore = 0;
+		var needEGageT = 0;
 
 		//성유물 부옵 score 계산 함수
 		function cal(option, value) {
@@ -96,22 +97,42 @@
 
 			var mId = $(f).parent().parent();
 
-			if (mId.attr('id') == "relique1") {
+			if (mId.attr('id') == "flower") {
 				flowerCal();
 			}
-			else if (mId.attr('id') == "relique2") {
+			else if (mId.attr('id') == "feather") {
 				featherCal();
 			}
-			else if (mId.attr('id') == "relique3") {
+			else if (mId.attr('id') == "watch") {
 				watchCal();
 			}
-			else if (mId.attr('id') == "relique4") {
+			else if (mId.attr('id') == "holyGrail") {
 				holyGrailCal();
 			}
-			else if (mId.attr('id') == "relique5") {
+			else if (mId.attr('id') == "crown") {
 				crownCal();
 			}
 
+		}
+
+		function eGageCal() {
+			let eGauge = parseFloat($('#eGauge').val());
+			let eWeaponUse = parseFloat($('input[name=eWeaponUse]:checked').val());
+			let eWatchUse = parseFloat($('input[name=eWatchUse]:checked').val());
+
+			if(isNaN(eGauge)) {
+				eGauge = 0;
+			}
+
+			let needEGage = (eGauge - eWeaponUse - eWatchUse - 100).toFixed(1);
+
+			needEGageT = needEGage;
+
+			if (needEGage <= 0) {
+				$('#needEgage').text(0);
+			} else {
+				$('#needEgage').text(needEGage);
+			}
 		}
 
 		//꽃 옵션 계산
@@ -141,26 +162,26 @@
 			let total = parseFloat(flowerT.toFixed(1));
 
 			if (total >= 9) {
-				$('#relique1').children('span').html(" score:" + total + limitEnd + "&nbsp;");
-				$('#relique1').children('span').css('color', 'transparent');
-				$('#relique1').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique1').children('span').css('-webkit-background-clip', 'text');
+				$('#flower').children('span').html(" score:" + total + limitEnd + "&nbsp;");
+				$('#flower').children('span').css('color', 'transparent');
+				$('#flower').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#flower').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (8 <= total && total < 9) {
-				$('#relique1').children('span').html(" score:" + total + verryEnd + "&nbsp;");
-				$('#relique1').children('span').css('color', 'yellow');
+				$('#flower').children('span').html(" score:" + total + verryEnd + "&nbsp;");
+				$('#flower').children('span').css('color', 'yellow');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique1').children('span').html(" score:" + total + end + "&nbsp;");
-				$('#relique1').children('span').css('color', '#f1d2ff');
+				$('#flower').children('span').html(" score:" + total + end + "&nbsp;");
+				$('#flower').children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique1').children('span').html(" score:" + total + littleEnd + "&nbsp;");
-				$('#relique1').children('span').css('color', '#bfdbf1');
+				$('#flower').children('span').html(" score:" + total + littleEnd + "&nbsp;");
+				$('#flower').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 6) {
-				$('#relique1').children('span').html(" score:" + total + notEnd + "&nbsp;");
-				$('#relique1').children('span').css('color', 'red');
+				$('#flower').children('span').html(" score:" + total + notEnd + "&nbsp;");
+				$('#flower').children('span').css('color', 'red');
 			}
 		}
 
@@ -190,26 +211,26 @@
 			let total = parseFloat(featherT.toFixed(1));
 
 			if (total >= 9) {
-				$('#relique2').children('span').html(" score:" + total + limitEnd + "&nbsp;");
-				$('#relique2').children('span').css('color', 'transparent');
-				$('#relique2').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique2').children('span').css('-webkit-background-clip', 'text');
+				$('#feather').children('span').html(" score:" + total + limitEnd + "&nbsp;");
+				$('#feather').children('span').css('color', 'transparent');
+				$('#feather').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#feather').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (8 <= total && total < 9) {
-				$('#relique2').children('span').html(" score:" + total + verryEnd + "&nbsp;");
-				$('#relique2').children('span').css('color', 'yellow');
+				$('#feather').children('span').html(" score:" + total + verryEnd + "&nbsp;");
+				$('#feather').children('span').css('color', 'yellow');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique2').children('span').html(" score:" + total + end + "&nbsp;");
-				$('#relique2').children('span').css('color', '#f1d2ff');
+				$('#feather').children('span').html(" score:" + total + end + "&nbsp;");
+				$('#feather').children('span').css('color', '#f1d2ff');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique2').children('span').html(" score:" + total + littleEnd + "&nbsp;");
-				$('#relique2').children('span').css('color', '#bfdbf1');
+				$('#feather').children('span').html(" score:" + total + littleEnd + "&nbsp;");
+				$('#feather').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 6) {
-				$('#relique2').children('span').html(" score:" + total + notEnd + "&nbsp;");
-				$('#relique2').children('span').css('color', 'red');
+				$('#feather').children('span').html(" score:" + total + notEnd + "&nbsp;");
+				$('#feather').children('span').css('color', 'red');
 			}
 		}
 
@@ -239,26 +260,26 @@
 			let total = parseFloat(watchT.toFixed(1));
 
 			if (total >= 8) {
-				$('#relique3').children('span').html("score:" + total + limitEnd + "&nbsp;");
-				$('#relique3').children('span').css('color', 'transparent');
-				$('#relique3').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique3').children('span').css('-webkit-background-clip', 'text');
+				$('#watch').children('span').html("score:" + total + limitEnd + "&nbsp;");
+				$('#watch').children('span').css('color', 'transparent');
+				$('#watch').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#watch').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (7 <= total && total < 8) {
-				$('#relique3').children('span').html("score:" + total + verryEnd + "&nbsp;");
-				$('#relique3').children('span').css('color', 'yellow');
+				$('#watch').children('span').html("score:" + total + verryEnd + "&nbsp;");
+				$('#watch').children('span').css('color', 'yellow');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique3').children('span').html("score:" + total + end + "&nbsp;");
-				$('#relique3').children('span').css('color', '#f1d2ff');
+				$('#watch').children('span').html("score:" + total + end + "&nbsp;");
+				$('#watch').children('span').css('color', '#f1d2ff');
 			}
 			else if (5 <= total && total < 6) {
-				$('#relique3').children('span').html("score:" + total + littleEnd + "&nbsp;");
-				$('#relique3').children('span').css('color', '#bfdbf1');
+				$('#watch').children('span').html("score:" + total + littleEnd + "&nbsp;");
+				$('#watch').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 5) {
-				$('#relique3').children('span').html("score:" + total + notEnd + "&nbsp;");
-				$('#relique3').children('span').css('color', 'red');
+				$('#watch').children('span').html("score:" + total + notEnd + "&nbsp;");
+				$('#watch').children('span').css('color', 'red');
 			}
 		}
 
@@ -282,32 +303,32 @@
 				fourth = 0; // 0으로 대체
 			}
 
-			holyGrailCalT = parseFloat(first) + parseFloat(second)
+			holyGrailT = parseFloat(first) + parseFloat(second)
 				+ parseFloat(third) + parseFloat(fourth);
 
-			let total = parseFloat(holyGrailCalT.toFixed(1));
+			let total = parseFloat(holyGrailT.toFixed(1));
 
 			if (total >= 7) {
-				$('#relique4').children('span').html(" score:" + total + limitEnd + "&nbsp;");
-				$('#relique4').children('span').css('color', 'transparent');
-				$('#relique4').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique4').children('span').css('-webkit-background-clip', 'text');
+				$('#holyGrail').children('span').html(" score:" + total + limitEnd + "&nbsp;");
+				$('#holyGrail').children('span').css('color', 'transparent');
+				$('#holyGrail').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#holyGrail').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique4').children('span').html(" score:" + total + verryEnd + "&nbsp;");
-				$('#relique4').children('span').css('color', 'yellow');
+				$('#holyGrail').children('span').html(" score:" + total + verryEnd + "&nbsp;");
+				$('#holyGrail').children('span').css('color', 'yellow');
 			}
 			else if (5 <= total && total < 6) {
-				$('#relique4').children('span').html(" score:" + total + end + "&nbsp;");
-				$('#relique4').children('span').css('color', '#f1d2ff');
+				$('#holyGrail').children('span').html(" score:" + total + end + "&nbsp;");
+				$('#holyGrail').children('span').css('color', '#f1d2ff');
 			}
 			else if (4 <= total && total < 5) {
-				$('#relique4').children('span').html(" score:" + total + littleEnd + "&nbsp;");
-				$('#relique4').children('span').css('color', '#bfdbf1');
+				$('#holyGrail').children('span').html(" score:" + total + littleEnd + "&nbsp;");
+				$('#holyGrail').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 4) {
-				$('#relique4').children('span').html("score:" + total + notEnd + "&nbsp;");
-				$('#relique4').children('span').css('color', 'red');
+				$('#holyGrail').children('span').html("score:" + total + notEnd + "&nbsp;");
+				$('#holyGrail').children('span').css('color', 'red');
 			}
 		}
 
@@ -337,26 +358,26 @@
 			let total = parseFloat(crownT.toFixed(1));
 
 			if (total >= 7) {
-				$('#relique5').children('span').html(" score:" + total + limitEnd + "&nbsp;");
-				$('#relique5').children('span').css('color', 'transparent');
-				$('#relique5').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
-				$('#relique5').children('span').css('-webkit-background-clip', 'text');
+				$('#crown').children('span').html(" score:" + total + limitEnd + "&nbsp;");
+				$('#crown').children('span').css('color', 'transparent');
+				$('#crown').children('span').css('background', 'linear-gradient(to top, #e16ddd, #ffff66');
+				$('#crown').children('span').css('-webkit-background-clip', 'text');
 			}
 			else if (6 <= total && total < 7) {
-				$('#relique5').children('span').html(" score:" + total + verryEnd + "&nbsp;");
-				$('#relique5').children('span').css('color', 'yellow');
+				$('#crown').children('span').html(" score:" + total + verryEnd + "&nbsp;");
+				$('#crown').children('span').css('color', 'yellow');
 			}
 			else if (5 <= total && total < 6) {
-				$('#relique5').children('span').html(" score:" + total + end + "&nbsp;");
-				$('#relique5').children('span').css('color', '#f1d2ff');
+				$('#crown').children('span').html(" score:" + total + end + "&nbsp;");
+				$('#crown').children('span').css('color', '#f1d2ff');
 			}
 			else if (4 <= total && total < 5) {
-				$('#relique5').children('span').html(" score:" + total + littleEnd + "&nbsp;");
-				$('#relique5').children('span').css('color', '#bfdbf1');
+				$('#crown').children('span').html(" score:" + total + littleEnd + "&nbsp;");
+				$('#crown').children('span').css('color', '#bfdbf1');
 			}
 			else if (0 < total && total < 4) {
-				$('#relique5').children('span').html("score:" + total + notEnd + "&nbsp;");
-				$('#relique5').children('span').css('color', 'red');
+				$('#crown').children('span').html("score:" + total + notEnd + "&nbsp;");
+				$('#crown').children('span').css('color', 'red');
 			}
 		}
 
@@ -415,42 +436,57 @@
 				crownCal();
 
 			});
-			$('#elementgauge').keyup(function () {
+			$('#eGauge').keyup(function () {
+				eGageCal();
+			});
+			$('input[name="eWeaponUse"]').change(function () {
+				eGageCal();
+			});
+			$('input[name="eWatchUse"]').change(function () {
+				eGageCal();
+			});
+			$('#applyGageBtn').click(function () {
 				//적정 원충 수치 변수에 정의
-				elementGauge = $('#elementgauge').val();
+				eGauge = $('#eGauge').val();
+				$('#modGageBtn').val(eGauge);
+				$('.rowNeedEGage').show();
+				$('#veiwNeedGage').text($('#needEgage').text());
+				$('body').css('overflow', '');
+				closeE();
+
 			});
-			$('#relique1 input').keyup(function () {
+			$('#flower input').keyup(function () {
 				valChk(this);
 			});
-			$('#relique2 input').keyup(function () {
+			$('#feather input').keyup(function () {
 				valChk(this);
 			});
-			$('#relique3 input').keyup(function () {
+			$('#watch input').keyup(function () {
 				valChk(this);
 			});
-			$('#relique4 input').keyup(function () {
+			$('#holyGrail input').keyup(function () {
 				valChk(this);
 			});
-			$('#relique5 input').keyup(function () {
+			$('#crown input').keyup(function () {
 				valChk(this);
 			});
-			$('#relique1 select').change(function () {
+			$('#flower select').change(function () {
 				valChk(this);
 			});
-			$('#relique2 select').change(function () {
+			$('#feather select').change(function () {
 				valChk(this);
 			});
-			$('#relique3 select').change(function () {
+			$('#watch select').change(function () {
 				valChk(this);
 			});
-			$('#relique4 select').change(function () {
+			$('#holyGrail select').change(function () {
 				valChk(this);
 			});
-			$('#relique5 select').change(function () {
+			$('#crown select').change(function () {
 				valChk(this);
 			});
 			$('#cal').click(function () {
-				totalScore = flowerT + featherT + watchT + holyGrailCalT + crownT;
+				totalScore = flowerT + featherT + watchT + holyGrailT + crownT;
 
 				let totalGauge = 0;
 
@@ -473,13 +509,17 @@
 					}
 				});
 
-				if (elementGauge <= 100 || elementGauge == "") {
-					elementGauge = 100;
+				if (eGauge <= 100 || eGauge == "") {
+					eGauge = 100;
 				}
 
-				if ((elementGauge - 100 - totalGauge) <= 0) {
-					totalScore -= parseFloat(((totalGauge - (elementGauge - 100)) / 6.5));
+				let finalEGageOverVal = -(needEGageT - totalGauge).toFixed(1);
+
+				if ((eGauge - 100 - totalGauge) <= 0) {
+					totalScore -= parseFloat(((totalGauge - (eGauge - 100)) / 6.5));
 				}
+
+				$('#finalEGageOverVal').text(finalEGageOverVal);
 
 				let finalScore = totalScore.toFixed(1);
 
@@ -575,11 +615,27 @@
 					$(this).val(null);
 				});
 				$(this).parent().find('span').text("");
+
+				let parentId = $(this).parent().attr('id');
+
+				if(parentId == "flower") {
+					flowerT = 0;
+				} else if(parentId == "feather") {
+					featherT = 0;
+				} else if(parentId == "watch") {
+					watchT = 0;
+				} else if(parentId == "holyGrail") {
+					holyGrailT = 0;
+				} else if(parentId == "crown") {
+					crownT = 0;
+				}
+
+
 			});
 			$('#reset').click(function () {
 				location.reload();
 			});
-			$('#guideOpen').click(function () {
+			$('.guideOpen').click(function () {
 				showG();
 				$('body').css('overflow', 'hidden');
 			});
@@ -602,6 +658,14 @@
 			$('.backgroundA').click(function () {
 				$('body').css('overflow', '');
 				closeA();
+			});
+			$('#modGageBtn').click(function () {
+				showE();
+				$('body').css('overflow', 'hidden');
+			});
+			$('#eGaugeClose').click(function () {
+				$('body').css('overflow', '');
+				closeE();
 			});
 		});
 	</script>
@@ -629,7 +693,7 @@
 								class="closeBtn">닫기</button>
 						</div><br>
 						<div align="center" style="margin-bottom: 10%; clear:both;">
-							<div style="margin-bottom:10px;" id="guideHeader"><Strong>《보정 기준표》</Strong></div>
+							<div style="margin-bottom:10px;" class="guideHeader"><Strong>《보정 기준표》</Strong></div>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>보정 수치 기준</span>
 							<p class="gContent">후순위 유효옵션들은 0.2~0.7 효율 수치를<br> 
 								가지고 있긴하지만 일괄적으로 <span style="color: red;">0.5</span>로 계산</p>
@@ -655,7 +719,7 @@
 				</div>
 			</div>
 		</div>
-		<span id="madeby" style="float:right">제작자:목련&클레나리</span>
+		<span id="madeby" style="float:right">제작자:목련&난나</span>
 	</div>
 	<br>
 	<br>
@@ -679,7 +743,7 @@
 								class="closeBtn">닫기</button>
 						</div><br>
 						<div>
-							<div style="margin-bottom:10px; clear:both;" id="guideHeader"><Strong>《딜러용 성유물 계산기》</Strong></div>
+							<div style="margin-bottom:10px; clear:both;" class="guideHeader"><Strong>《딜러용 성유물 계산기》</Strong></div>
 							<span class="gtitle"><i class="bi bi-diamond-fill"></i>Score 개념</span>
 							<p class="gContent">성유물 부옵션 중 캐릭터에게 유효한 수치만 합산 후<br> 
 								부옵션 평균을 나눈 값<br>
@@ -888,14 +952,94 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			function showE() {
+				document.querySelector(".backgroundE").className = "backgroundE showP";
+				document.querySelector(".modal-content-E").style.display = "block";
+			}
+			function closeE() {
+				document.querySelector(".backgroundE").className = "backgroundE";
+				document.querySelector(".modal-content-E").style.display = "none";
+			}
+		</script>
+		<div class="backgroundE">
+			<div class="window">
+				<div class="guideModal">
+					<div class="modal-content-E" style="display: none;">
+						<div style="margin-top: 10px;">
+							<button type="button" style="float: right; margin-right: 10px;" id="eGaugeClose"
+									class="closeBtn">닫기</button>
+						</div><br>
+						<div align="center" style="margin-bottom: 10%; clear:both;">
+							<div style="margin-bottom:10px;" class="guideHeader"><Strong>원충 보정</Strong></div>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>&nbsp;적정 원충 수치</span>
+							<br>
+							<div style="padding-left: 7%;">
+							<input type="number" inputmode="decimal" pattern="\d*" id="eGauge"
+								   style="border-radius: 5px; border: 1px solid gray; width: 27%;" value="100">&nbsp;
+							%</div>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>&nbsp;원충 무기 사용 여부</span><br>
+							<table id="eWeaponTable" class="table table-bordered" style="border-color: white;">
+								<thead>
+								<th style="width:17%"></th>
+								<th style="width:14%">원충 수치</th>
+								<th style="width:41%">예시</th>
+								</thead>
+								<tbody>
+								<tr>
+									<td class="col-1th"><input type="radio" name="eWeaponUse" value="55.1">&nbsp;<span >5성</span></td>
+									<td>55.1%</td>
+									<td class="col-3th">천공검 / 예초 / 종탄노</td>
+								</tr>
+								<tr>
+									<td class="col-1th"><input type="radio" name="eWeaponUse" value="36.8">&nbsp;<span>5성</span></td>
+									<td>36.8%</td>
+									<td class="col-3th">마루 / 긍지</td>
+								</tr>
+								<tr>
+									<td class="col-1th"><input type="radio" name="eWeaponUse" value="61.3">&nbsp;<span>4성</span></td>
+									<td>61.3%</td>
+									<td class="col-3th">페보검 / 제례검 / 페보활 등</td>
+								</tr>
+								<tr>
+									<td class="col-1th"><input type="radio" name="eWeaponUse" value="45.9">&nbsp;<span>4성</span></td>
+									<td>45.9%</td>
+									<td class="col-3th">어획 / 부식의 검 등</td>
+								</tr>
+								<tr>
+									<td class="col-1th"><input type="radio" name="eWeaponUse" value="30.6">&nbsp;<span>4성</span></td>
+									<td>30.6%</td>
+									<td class="col-3th">페보창 / 제례대검 / 노을 등</td>
+								</tr>
+								<tr>
+									<td class="col-1th"><input type="radio" name="eWeaponUse" value="0" checked>&nbsp;<span>미사용</span></td>
+									<td>0%</td>
+									<td>-</td>
+								</tr>
+								</tbody>
+							</table>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>&nbsp;원충 시계 사용 여부</span><br>
+							<input type="radio" name="eWatchUse" value="51.8">5성
+							<input type="radio" name="eWatchUse" value="38.7">4성
+							<input type="radio" name="eWatchUse" value="0" checked>사용 안함<br>
+							<span class="gtitle"><i class="bi bi-diamond-fill"></i>필요 원충 수치</span>
+							<p style="text-align: center;">
+								<span id="needEgage">&nbsp;-&nbsp;</span>%
+							</p>
+							<button type="button" class="button" id="applyGageBtn">적용</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<h2><span style="color: white; ">원신 성유물 계산기</span>&nbsp;
-			<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>
+			<i class="bi bi-info-circle guideOpen" style="color:yellow;"></i>
 		</h2>
 		<table style="color:white" id="adjustT">
 			<tr>
 				<td colspan="2">
-					<span style="font-size: 0.7em; color: yellow;">
-						※<i class="bi bi-info-circle" id="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용하세요.<br>
+					<span class="emphT-Y">
+						※<i class="bi bi-info-circle" class="guideOpen" style="color:yellow;"></i>를 눌러 가이드를 읽고 사용하세요.<br>
 					</span>
 				</td>
 			</tr>
@@ -960,7 +1104,25 @@
 					<input type="radio" value="ni" name="mastery" checked>&nbsp;X
 				</td>
 			</tr>
-			<tr>								
+			<tr>
+				<td>
+					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+					   title="<span class='bol-text'>공격력,HP,방어력,원소충전효율,원소마스터리</span> 5개의 옵션 중
+					딜링에 유효한 옵션이 <span class='bol-text'>2개 이하</span>일 때 Score대비 <span class='red-text'>5%</span>추가하여
+					기준 등급조정<strong><em>(Score변동없음)</em></strong>
+					ex)아야카 - <span class='bol-text'>공,원충</span>,치확,치피
+					라이덴 - <span class='bol-text'>공,원충</span>,치확,치피
+					요이미야 - <span class='bol-text'>공,원마</span>,치확,치피(원충 100)
+					각청 - <span class='bol-text'>공,원마</span>,치확,치피(원충 100)">
+						<i class="bi bi-question-circle"></i>
+					</a>
+					Total Score 보정</td>
+				<td>
+					<input type="radio" value="i" name="masteryChk">&nbsp;O
+					<input type="radio" value="ni" name="masteryChk" checked>&nbsp;X
+				</td>
+			</tr>
+			<tr>
 				<td>
 					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
 					title="궁 사이클이 부드럽게 굴러가기위한 원충 수치로
@@ -971,26 +1133,11 @@
 					<i class="bi bi-question-circle"></i>
 					</a>
 				적정 원충 수치</td>
-				<td><input type="number" inputmode="decimal" pattern="\d*" id="elementgauge"
-						style="border-radius: 5px; border: 1px solid gray;" value="100">%</td>
+				<td><input type="number" inputmode="decimal" pattern="\d*" id="modGageBtn"
+						   style="border-radius: 5px; border: 1px solid gray; width: 60%;" value="100">%</td>
 			</tr>
-			<tr>
-				<td>
-					<a class="miniGuide" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-					title="<span class='bol-text'>공격력,HP,방어력,원소충전효율,원소마스터리</span> 5개의 옵션 중 
-					딜링에 유효한 옵션이 <span class='bol-text'>2개 이하</span>일 때 Score대비 <span class='red-text'>5%</span>추가하여
-					기준 등급조정<strong><em>(Score변동없음)</em></strong>
-					ex)아야카 - <span class='bol-text'>공,원충</span>,치확,치피
-					라이덴 - <span class='bol-text'>공,원충</span>,치확,치피
-					요이미야 - <span class='bol-text'>공,원마</span>,치확,치피(원충 100)
-					각청 - <span class='bol-text'>공,원마</span>,치확,치피(원충 100)">
-					<i class="bi bi-question-circle"></i>
-					</a>
-					Total Score 보정</td>
-				<td>
-					<input type="radio" value="i" name="masteryChk">&nbsp;O
-					<input type="radio" value="ni" name="masteryChk" checked>&nbsp;X
-				</td>
+			<tr class="rowNeedEGage" style="display: none;">
+				<td colspan="2" class="emphT-Y" style="text-align: right; padding-right: 4%;">필요 원충 수치 : <span id="veiwNeedGage"></span>%</td>
 			</tr>
 		</table>
 		<script>
@@ -1010,7 +1157,7 @@
 
 				for (var i = 0; i <= 4; i++) {
 					var j = 1;
-					var reliques = $("<div>").attr("id", "relique" + eval("i+1"));
+					var reliques = $("<div>").attr("id", factor[i]);
 					var strongElem = $("<strong>").addClass("reliqueT").html(factorK[i]+"&nbsp;");
 					var spanElem = $("<span>");
 					var buttonElem = $("<button>").attr("type", "button").addClass("reset").text("초기화");
@@ -1114,6 +1261,9 @@
 					<span class="finalScore" style="font-weight: bolder; font-size: 1.2em;"></span>
 					<span class="finalText" style="text-align: center; display: block; color:white"></span>
 					<img class="finalImg" style="width: 80%;" id="finalImg2">
+					<p style="text-align: center; display: block; color:white">
+						적정 원충 대비 : <span id="finalEGageOverVal"></span>%
+					</p>
 				</div>
 			</div>
 		</div>

@@ -34,7 +34,7 @@ option {
     padding: 3px;
     text-align: center;
 }
-.reliqueList button {
+.reliqueList button , .button {
     border-radius: 5px;
     border: none;
     background-color: #67a8d1;
@@ -56,13 +56,13 @@ option {
     background-color: #67a8d1;
     color: white;
 }
-#close, #guideClose, #adjustClose{
+#close, #guideClose, #adjustClose, #eGaugeClose {
     border-radius: 5px;
     background-color: white;
     color: #67a8d1;
     border: none;
 }
-#guideClose, #adjustClose{
+#guideClose, #adjustClose, #eGaugeClose{
     border: 1px solid #67a8d1;
 }
 .selectO {
@@ -72,7 +72,7 @@ option {
 body {
     background-color: #F7F7F7;
 }
-.background, .backgroundG,  .backgroundA{
+.background, .backgroundG,  .backgroundA, .backgroundE{
     position: fixed;
     top: 0;
     left: 0;
@@ -112,7 +112,7 @@ body {
     left: 15%;
     border-radius: 10px;
 }
-.modal-content-G, .modal-content-A{
+.modal-content-G, .modal-content-A, .modal-content-E{
     background-color: #000000;
     width: 80%;
     height: 80%;
@@ -124,7 +124,7 @@ body {
     max-height: 700px;
     color: white;
 }
-#gradeTable, #scoreTable, #referTable{
+#gradeTable, #scoreTable, #referTable, #eWeaponTable{
     color: white;
 }
 p{
@@ -148,7 +148,7 @@ p{
     margin-bottom: 10px;
     font-size: 0.8em;
 }
-#gradeTable{
+#gradeTable, #eWeaponTable{
     font-size: 0.9em;
     border: 1px solid black;
 }
@@ -173,7 +173,7 @@ p{
     margin-bottom: 5px;
     font-size: 0.8em;
 }
-#scoreTable td, #gradeTable td, #gradeTable th, #referTable td{
+#scoreTable td, #gradeTable td, #gradeTable th, #referTable td, #eWeaponTable td, #eWeaponTable th{
     font-size: 0.8em;
     padding: 0;
 }
@@ -205,7 +205,7 @@ border: 2px solid #eef2f4;
 input[type='radio']:checked {
 background-color: #67a8d1;
 }
-#elementgauge{
+#eGauge{
     width: 30%;
     text-align: right;
 }
@@ -268,6 +268,25 @@ background-color: #67a8d1;
 #guideOpen{
     cursor : pointer;
 }
+#eWeaponTable .col-1th, #eWeaponTable .col-3th{
+    text-align: left;
+    padding-left: 6px;
+}
+
+#eWeaponTable td input[type="radio"],
+#eWeaponTable td span {
+    vertical-align: middle;
+}
+
+input[name="eWeaponUse"] {
+    transform: scale(0.8);
+    line-height: inherit;
+}
+
+.emphT-Y {
+    font-size: 0.7em;
+    color: yellow;
+}
 
 @media screen and (max-width:719px) {
     body {
@@ -287,7 +306,7 @@ background-color: #67a8d1;
         border: 1px solid gray;
         padding: 3px;
     }
-    #elementgauge{
+    #eGauge{
         width: 70%;
         text-align: center;
     }
@@ -310,7 +329,7 @@ background-color: #67a8d1;
         width: 34%;
         margin-right: 3px;
     }
-    #scoreTable, #gradeTable, #referTable{
+    #scoreTable, #gradeTable, #referTable, #eWeaponTable{
         width: 90%;
         text-align: center;
         border : 1px solid black;
@@ -340,7 +359,7 @@ background-color: #67a8d1;
         left: 35%;
         border-radius: 10px;
     }
-    #gradeTable{
+    #gradeTable, #eWeaponTable{
         width: 60%;
         text-align: center;
     }
@@ -359,7 +378,7 @@ background-color: #67a8d1;
     *{
         font-size: 1.1em;
     }
-    #elementgauge{
+    #modGageBtn{
         width: 50%;
         text-align: center;
     }
@@ -432,7 +451,7 @@ background-color: #67a8d1;
         background-clip: padding-box;
         background-image: linear-gradient(to right top, #e16ddd, #ffff66);
     }
-    .reliqueList button {
+    .reliqueList button, .button {
         background-color: #67a8d1;
         color: #ffffff;
     }
@@ -448,15 +467,15 @@ background-color: #67a8d1;
     .goodBorder{border: 1px solid #f1d2ff;}
     .verryBorder1{border: 1px solid #ffeb37;}
     .verryBorder2{border: 2px solid #ffeb37;}
-    .modal-content-G,.modal-content-A{background-color: #181818;}
-    .modal-content-G,.modal-content-A{
+    .modal-content-G, .modal-content-A, .modal-content-E{background-color: #181818;}
+    .modal-content-G, .modal-content-A, .modal-content-E{
         color: white;
     }
     .tooltip-inner{
         background-color: #67a8d1;
         color: #ffffff;
     }
-    #scoreTable, #gradeTable, #referTable{
+    #scoreTable, #gradeTable, #referTable, #eWeaponTable{
         color: white;
         border: 1px solid white;
     }
